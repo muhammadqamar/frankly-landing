@@ -167,5 +167,129 @@ h2 {
       color: #000000;
       margin: 0 0 21px;
     }
+    .earn-button {
+      width: 116.05px;
+      height: 42px;
+      background: #8a68ff;
+      border-radius: 50px;
+      font-family: "Mabry Pro";
+      font-style: normal;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 160%;
+      text-align: center;
+      color: #ffffff;
+      border: none;
+      margin: 0 auto 79px;
+    }
+    .hand-img {
+      margin: 0 auto 101px;
+    }
+  }
+  .post-guideines {
+    .title-flex {
+      display: flex;
+      align-items: flex-end;
+      gap: 13px;
+      margin-bottom: 36px;
+      .post-title {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 160%;
+        color: #000000;
+        margin: 0;
+      }
+    }
+
+    ul {
+      margin: 0 0 144px;
+      max-width: 381px;
+      li {
+        font-family: "Mabry Pro";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 160%;
+        color: #000000;
+
+        + li {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+
+  .congratulations {
+    max-width: 365px;
+
+    .frankly-logo {
+      margin: 0 auto 26px;
+    }
+    .congratulations-heading {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 160%;
+      text-align: center;
+      color: #000000;
+      margin: 0 0 44px;
+    }
+    .sub-heading {
+      font-family: "Mabry Pro";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 129%;
+      text-align: center;
+      color: #000000;
+      margin: 0 0 44px;
+    }
+
+    .sub-heading-two {
+      font-family: "Mabry Pro";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 129%;
+      text-align: center;
+      color: #000000;
+      margin: 0 0 65px;
+    }
+  }
+  .posted {
+    max-width: 351px;
+    .posted-main-heading {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 160%;
+      text-align: center;
+      color: #000000;
+      margin: 0;
+    }
+    .post-sub-heading {
+      font-family: "Mabry Pro";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 160%;
+      text-align: center;
+      color: #000000;
+      margin: 20px 0;
+    }
+
+    .post-sub-two-heading {
+      font-family: "Mabry Pro";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 160%;
+      text-align: center;
+      color: #000000;
+      margin: 0 0 79px;
+    }
+
+    .post-img {
+      margin: 0 auto;
+    }
   }
 }

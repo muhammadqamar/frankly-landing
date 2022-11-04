@@ -123,8 +123,10 @@ const Register = () => {
                   Post a Reel about <br /> your <span>expereince</span>
                 </h2>
                 <p className="earn-sub-text">with {router.query.brand} and</p>
-                <button>EARN ₹</button>
-                <Image src="/images/hand.svg" alt="hand" width="165" height="292" />
+                <button className="earn-button">EARN ₹</button>
+                <div className="hand-img">
+                  <Image src="/images/hand.svg" alt="hand" width="165" height="292" />
+                </div>
                 <div className="btn-cover">
                   <button
                     type="submit"
@@ -140,30 +142,34 @@ const Register = () => {
               </div>
             )}
             {activeScreen === "reel" && (
-              <div className="form-register-container">
+              <div className="form-register-container post-guideines">
                 <div className="controls">
-                  <img
+                  <Image
                     src="/images/back.svg"
                     alt="back"
+                    width="10"
+                    height="19"
                     onClick={(e) => {
                       e.preventDefault();
                       setActiveScreen("earn now");
                     }}
                   />
+
                   <Link href="/">
-                    <img src="/images/home.svg" alt="home" />
+                    <Image src="/images/home.svg" alt="home" width="23" height="23" />
                   </Link>
                 </div>
                 <div className="title-flex">
-                  <img src="/images/hash.svg" alt="" />
-                  <h1>Post Guideines</h1>
+                  <Image src="/images/hash.svg" alt="hash" width="36" height="44" />
+                  <h2 className="post-title">Post Guideines</h2>
                 </div>
 
                 <ul>
                   <li>Tag @XXX and add our hashtag #Frankly to your caption.</li>
-                  Show love to XXXX by making it the highlight of your reel.
-                  <li>Your CREATIVITY would be rewarded.</li>
-                  <li>Most importantly, Have fun with your Reels!</li>
+                  <li> Show love to XXXX by making it the highlight of your reel.</li>
+                  <li>
+                    Your CREATIVITY would be rewarded. Most importantly, Have fun with your Reels!
+                  </li>
                 </ul>
 
                 <input
@@ -195,25 +201,32 @@ const Register = () => {
             )}
 
             {activeScreen === "congrats" && (
-              <div className="form-register-container">
+              <div className="form-register-container congratulations ">
                 <div className="controls">
-                  <img
+                  <Image
                     src="/images/back.svg"
                     alt="back"
+                    width="10"
+                    height="19"
                     onClick={(e) => {
                       e.preventDefault();
                       setActiveScreen("reel");
                     }}
                   />
                   <Link href="/">
-                    <img src="/images/home.svg" alt="home" />
+                    <Image src="/images/home.svg" alt="home" width="23" height="23" />
                   </Link>
                 </div>
-
-                <img src="/images/logo2.svg" alt="logo" />
-                <h1>Congratulations!</h1>
-                <h2>You’re on the path to make your purchases pay for themselves!</h2>
-                <h3>Enter your email address and phone number below.</h3>
+                <div className="frankly-logo">
+                  <Image src="/images/logo2.svg" alt="home" width="196" height="104" />
+                </div>
+                <h2 className="congratulations-heading">Congratulations!</h2>
+                <h3 className="sub-heading">
+                  You’re on the path to make your purchases pay for themselves!
+                </h3>
+                <h3 className="sub-heading-two">
+                  Enter your email address and phone number below.
+                </h3>
 
                 <input
                   type="email"
@@ -242,25 +255,31 @@ const Register = () => {
             )}
 
             {activeScreen === "done" && (
-              <div className="form-register-container">
+              <div className="form-register-container  posted">
                 <div className="controls">
-                  <img
+                  <Image
                     src="/images/back.svg"
                     alt="back"
+                    width="10"
+                    height="19"
                     onClick={() => {
                       setActiveScreen("congrats");
                     }}
                   />
                   <Link href="/">
-                    <img src="/images/home.svg" alt="home" />
+                    <Image src="/images/home.svg" alt="home" width="23" height="23" />
                   </Link>
                 </div>
 
-                <h1>YAY! You’re all set!</h1>
+                <h2 className="posted-main-heading">YAY! You’re all set!</h2>
 
-                <h3>We’ll reach out to you via email to get you paid after 72</h3>
-                <h3>hours after the reel was posted.</h3>
-                <img src="/images/done.svg" alt="" />
+                <h3 className="post-sub-heading">
+                  We’ll reach out to you via email to get you paid after 72
+                </h3>
+                <h3 className="post-sub-two-heading">hours after the reel was posted.</h3>
+                <div className="post-img">
+                  <Image src="/images/done.svg" alt="home" width="304" height="327" />
+                </div>
               </div>
             )}
           </form>
