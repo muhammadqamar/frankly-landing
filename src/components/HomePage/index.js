@@ -1,22 +1,47 @@
 import React from "react";
+import Image from "next/image";
 
 const Index = () => {
-
-
   return (
-    <div className="home">
-      <h2 className="heading">
-        Big thanks to zeenesia for providing us this free font.
-      </h2>
-      <p className="para">
-        We believe everyone has the power to produce great content and create
-        and impact. At Frankly our aim is to connect Brands that are looking to
-        reward their loyal shoppers for posting Reels about stuff they genuinely
-        bought and love, regardless of how many followers they have. Time to get
-        you Paid to do what you love the most. Be Frank and Creative and Earn
-        with Frankly.
-      </p>
-      <button>START EARNING</button>
+    <div className="hero_container">
+      <div className="hero_main">
+        <div className="hero_bx">
+          <Image
+            src="/images/hero_Img.svg"
+            width={1174.24}
+            height={450.92}
+            objectFit="cover"
+            alt="hero logo"
+          />
+        </div>
+      </div>
+      <div className="reel_paid">
+        <h4 className="hero_heading">Just Shopped? Reel It. Get Paid.</h4>
+        <Image
+          className="smile smile_one"
+          src="/images/purple_little_smile.svg"
+          width={57.68}
+          height={57.68}
+          objectFit="cover"
+          alt="logo"
+        />
+        <Image
+          className="smile smile_two"
+          src="/images/purple_smile.svg"
+          width={90.44}
+          height={90.44}
+          objectFit="cover"
+          alt="logo"
+        />
+        <Image
+          className="smile smile_three"
+          src="/images/orange_smile.svg"
+          width={57.68}
+          height={57.68}
+          objectFit="cover"
+          alt="logo"
+        />
+      </div>
     </div>
   );
 };
