@@ -49,7 +49,7 @@ const Register = () => {
             Phone: values.phone,
             Email: values.email,
             ['Reel Link']: values.reelLink,
-            PayTM: values.paytm,
+            ['PayTM/UPI ID']: values.paytm,
             Brand: router.query.brand,
           });
           console.log();
