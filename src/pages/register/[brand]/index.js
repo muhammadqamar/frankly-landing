@@ -67,7 +67,14 @@ const Register = () => {
             {activeScreen === "welcome" && (
               <div className="form-register-container welcome">
                 <h1>Welcome to</h1>
-                <Image src="/images/logo.svg" alt="Picture of the author" width="280" height="82" />
+                <div className="well-come-fra">
+                  <Image
+                    src="/images/logo.svg"
+                    alt="Picture of the author"
+                    width="280"
+                    height="82"
+                  />
+                </div>
                 <div className="welcome-img">
                   <Image
                     src="/images/welcome.png"
