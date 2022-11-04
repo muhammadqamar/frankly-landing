@@ -23,7 +23,9 @@ a {
 h2 {
   font-family: "Dream to Berich DEMO (FOR USE P";
 }
-h3 {
+h3,
+h5,
+h6 {
   font-family: "Plus Jakarta Display";
 }
 h4 {
@@ -191,6 +193,22 @@ p {
       text-align: center;
       letter-spacing: 0.03em;
       color: #ffffff;
+      .get-paid-text {
+        background: linear-gradient(182.45deg, #ffadf2 40.09%, #eefe8d 63.07%, #a78eff 82.63%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      // span {
+      //   background: linear-gradient(
+      //       173.29deg,
+      //       #ffadf2 40.09%,
+      //       #eefe8d 63.07%,
+      //       #a78eff 82.63%
+      //     ),
+      //     linear-gradient(0deg, #ffffff, #ffffff);
+      // }
     }
     .smile {
       position: absolute;
@@ -208,6 +226,70 @@ p {
       right: 130px;
     }
   }
+}
+
+// Earn Section
+
+.earn_main {
+  display: flex;
+  gap: 124px;
+  background: #ffffff;
+  padding: 61px 126px 98px 118px;
+  .earn_left {
+    .earn_subheading {
+      margin-bottom: 39px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 26px;
+      color: #a78eff;
+    }
+    .earn_heading {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 123%;
+      margin-bottom: 16px;
+      color: #000000;
+    }
+    .earn_innersubheading {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 22px;
+      color: #000000;
+    }
+  }
+  .earn_right {
+  }
+}
+.earn_purchase {
+  background: #c8f0ff;
+  padding: 71px 0 43px;
+  .earn_purchase_heading {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 149.5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.075em;
+    margin-bottom: 14px;
+    color: #000000;
+  }
+  .earn_purchase_para {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 124%;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+}
+.stay_bx {
+  background: #011703;
+  padding: 84px 0 29px;
+  text-align: center;
 }
 
 /* register form */
@@ -487,7 +569,7 @@ p {
   ._let-break-cards-detail {
     @media screen and (max-width: 768px) {
       flex-direction: column;
-     }
+    }
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -569,11 +651,11 @@ p {
     @media screen and (max-width: 1218px) {
       flex-direction: column;
       // flex-wrap: wrap;
-     }
+    }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     .detail-div {
       h2 {
         font-family: "Dream to Berich DEMO (FOR USE P";
@@ -603,9 +685,8 @@ p {
 // _frank-div
 
 ._frank-div {
-
   @media screen and (max-width: 768px) {
-   flex-direction: column;
+    flex-direction: column;
   }
   background-color: #f8d8eb;
   display: flex;
