@@ -88,8 +88,7 @@ const Register = () => {
                 <div className="btn-cover">
                   <button
                     type="submit"
-                    onClick={(e) => {
-                      e.preventDefault();
+                    onClick={() => {
                       if (values.phone) {
                         setActiveScreen("earn now");
                       }
@@ -109,8 +108,7 @@ const Register = () => {
                     alt="back"
                     width="10"
                     height="19"
-                    onClick={(e) => {
-                      e.preventDefault();
+                    onClick={() => {
                       setActiveScreen("welcome");
                     }}
                   />
@@ -130,8 +128,7 @@ const Register = () => {
                 <div className="btn-cover">
                   <button
                     type="submit"
-                    onClick={(e) => {
-                      e.preventDefault();
+                    onClick={() => {
                       setActiveScreen("reel");
                     }}
                     className="register-button"
@@ -149,8 +146,7 @@ const Register = () => {
                     alt="back"
                     width="10"
                     height="19"
-                    onClick={(e) => {
-                      e.preventDefault();
+                    onClick={() => {
                       setActiveScreen("earn now");
                     }}
                   />
@@ -186,8 +182,7 @@ const Register = () => {
                 <div className="btn-cover">
                   <button
                     type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
+                    onClick={() => {
                       if (values.reelLink) {
                         setActiveScreen("congrats");
                       }
@@ -208,8 +203,7 @@ const Register = () => {
                     alt="back"
                     width="10"
                     height="19"
-                    onClick={(e) => {
-                      e.preventDefault();
+                    onClick={() => {
                       setActiveScreen("reel");
                     }}
                   />
