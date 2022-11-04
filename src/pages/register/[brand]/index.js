@@ -1,60 +1,55 @@
-import { useState } from 'react';
-import { Formik } from 'formik';
-import Link from 'next/link';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import { useRouter } from 'next/router'
-
+import { useState } from "react";
+import { Formik } from "formik";
+import Image from "next/image";
+import Link from "next/link";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import { useRouter } from "next/router";
 
 const Register = () => {
-  const [activeScreen, setActiveScreen] = useState('welcome');
-  const router = useRouter()
+  const [activeScreen, setActiveScreen] = useState("welcome");
+  const router = useRouter();
   const doc = new GoogleSpreadsheet(process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID);
 
   return (
     <div className="register-form">
       <Formik
-        initialValues={{ phone: '', reelLink: '', email: '', paytm: '' }}
+        initialValues={{ phone: "", reelLink: "", email: "", paytm: "" }}
         enableReinitialize
         validate={(values) => {
           const errors = {};
           if (!values.phone) {
-            errors.phone = 'Required';
+            errors.phone = "Required";
           }
           if (!values.reelLink) {
-            errors.reelLink = 'Required';
+            errors.reelLink = "Required";
           }
           if (!values.paytm) {
-            errors.paytm = 'Required';
+            errors.paytm = "Required";
           }
           if (!values.email) {
-            errors.email = 'Required';
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = 'Invalid email address';
+            errors.email = "Required";
+          } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+            errors.email = "Invalid email address";
           }
           return errors;
         }}
         onSubmit={async (values, { setSubmitting }) => {
           await doc.useServiceAccountAuth({
             client_email: process.env.NEXT_PUBLIC_GOOGLE_SERVICE_ACCOUNT_EMAIL,
-            private_key: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY.replace(
-              /\\n/g,
-              '\n'
-            ),
+            private_key: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
           });
           await doc.loadInfo();
           const sheet = doc.sheetsByIndex[0];
           const result = await sheet.addRow({
             Phone: values.phone,
             Email: values.email,
-            ['Reel Link']: values.reelLink,
-            ['PayTM/UPI ID']: values.paytm,
+            ["Reel Link"]: values.reelLink,
+            PayTM: values.paytm,
             Brand: router.query.brand,
           });
           console.log();
-          if(result._rowNumber) {
-            setActiveScreen('done')
+          if (result._rowNumber) {
+            setActiveScreen("done");
           }
         }}
       >
@@ -69,12 +64,18 @@ const Register = () => {
           /* and other goodies */
         }) => (
           <form onSubmit={handleSubmit}>
-            {activeScreen === 'welcome' && (
+            {activeScreen === "welcome" && (
               <div className="form-register-container welcome">
-                <h1>Welcome</h1>
-
-                <img src="/images/logo.svg" alt="" />
-                <img src="/images/welcome.svg" alt="" className="welcome-img" />
+                <h1>Welcome to</h1>
+                <Image src="/images/logo.svg" alt="Picture of the author" width="280" height="82" />
+                <div className="welcome-img">
+                  <Image
+                    src="/images/welcome.png"
+                    alt="Picture of the author"
+                    width="227"
+                    height="331"
+                  />
+                </div>
                 <input
                   type="text"
                   name="phone"
@@ -83,66 +84,70 @@ const Register = () => {
                   onBlur={handleBlur}
                   value={values.phone}
                 />
-                <div className="error">
-                  {errors.phone && touched.phone && errors.phone}
-                </div>
+                <div className="error">{errors.phone && touched.phone && errors.phone}</div>
                 <div className="btn-cover">
-                <button
-                  type="submit"
-                  onClick={() => {
-                    if (values.phone) {
-                      setActiveScreen('earn now');
-                    }
-                  }}
-                  className="register-button"
-                >
-                  Start earning
-                </button>
+                  <button
+                    type="submit"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (values.phone) {
+                        setActiveScreen("earn now");
+                      }
+                    }}
+                    className="register-button"
+                  >
+                    Start earning
+                  </button>
                 </div>
               </div>
             )}
-            {activeScreen === 'earn now' && (
-              <div className="form-register-container">
+            {activeScreen === "earn now" && (
+              <div className="form-register-container earn-section">
                 <div className="controls">
-                  <img
+                  <Image
                     src="/images/back.svg"
                     alt="back"
-                    onClick={() => {
-                      setActiveScreen('welcome');
+                    width="10"
+                    height="19"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveScreen("welcome");
                     }}
                   />
                   <Link href="/">
-                    <img src="/images/home.svg" alt="home" />
+                    <Image src="/images/home.svg" alt="home" width="23" height="23" />
                   </Link>
                 </div>
 
-                <h1>
-                  Post a Reel about your <span>expereince</span>{' '}
-                </h1>
-                <p>with {router.query.brand} and</p>
+                <h2 className="earn-text">
+                  Post a Reel about <br /> your <span>expereince</span>
+                </h2>
+                <p className="earn-sub-text">with {router.query.brand} and</p>
                 <button>EARN ₹</button>
-                <img src="/images/hand.svg" alt="" />
+                <Image src="/images/hand.svg" alt="hand" width="165" height="292" />
                 <div className="btn-cover">
-                <button
-                  type="submit"
-                  onClick={() => {
-                    setActiveScreen('reel');
-                  }}
-                  className="register-button"
-                >
-                  Earn Now
-                </button>
+                  <button
+                    type="submit"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveScreen("reel");
+                    }}
+                    className="register-button"
+                  >
+                    Earn Now
+                  </button>
                 </div>
               </div>
             )}
-            {activeScreen === 'reel' && (
+            {activeScreen === "reel" && (
               <div className="form-register-container">
                 <div className="controls">
                   <img
                     src="/images/back.svg"
                     alt="back"
-                    onClick={() => {
-                      setActiveScreen('earn now');
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveScreen("earn now");
                     }}
                   />
                   <Link href="/">
@@ -155,9 +160,7 @@ const Register = () => {
                 </div>
 
                 <ul>
-                  <li>
-                    Tag @XXX and add our hashtag #Frankly to your caption.
-                  </li>
+                  <li>Tag @XXX and add our hashtag #Frankly to your caption.</li>
                   Show love to XXXX by making it the highlight of your reel.
                   <li>Your CREATIVITY would be rewarded.</li>
                   <li>Most importantly, Have fun with your Reels!</li>
@@ -175,29 +178,31 @@ const Register = () => {
                   {errors.reelLink && touched.reelLink && errors.reelLink}
                 </div>
                 <div className="btn-cover">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (values.reelLink) {
-                      setActiveScreen('congrats');
-                    }
-                  }}
-                  className="register-button"
-                >
-                  Submit Reel
-                </button>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (values.reelLink) {
+                        setActiveScreen("congrats");
+                      }
+                    }}
+                    className="register-button"
+                  >
+                    Submit Reel
+                  </button>
                 </div>
               </div>
             )}
 
-            {activeScreen === 'congrats' && (
+            {activeScreen === "congrats" && (
               <div className="form-register-container">
                 <div className="controls">
                   <img
                     src="/images/back.svg"
                     alt="back"
-                    onClick={() => {
-                      setActiveScreen('reel');
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveScreen("reel");
                     }}
                   />
                   <Link href="/">
@@ -207,9 +212,7 @@ const Register = () => {
 
                 <img src="/images/logo2.svg" alt="logo" />
                 <h1>Congratulations!</h1>
-                <h2>
-                  You’re on the path to make your purchases pay for themselves!
-                </h2>
+                <h2>You’re on the path to make your purchases pay for themselves!</h2>
                 <h3>Enter your email address and phone number below.</h3>
 
                 <input
@@ -220,9 +223,7 @@ const Register = () => {
                   onBlur={handleBlur}
                   value={values.email}
                 />
-                <div className="error">
-                  {errors.email && touched.email && errors.email}
-                </div>
+                <div className="error">{errors.email && touched.email && errors.email}</div>
                 <input
                   type="text"
                   name="paytm"
@@ -231,25 +232,23 @@ const Register = () => {
                   onBlur={handleBlur}
                   value={values.paytm}
                 />
-                <div className="error">
-                  {errors.paytm && touched.paytm && errors.paytm}
-                </div>
+                <div className="error">{errors.paytm && touched.paytm && errors.paytm}</div>
                 <div className="btn-cover">
-                <button disabled={isSubmitting} type="submit" className="register-button">
-                  {isSubmitting ? 'Submitting ...' : 'Done'}
-                </button>
+                  <button disabled={isSubmitting} type="submit" className="register-button">
+                    {isSubmitting ? "Submitting ..." : "Done"}
+                  </button>
                 </div>
               </div>
             )}
 
-            {activeScreen === 'done' && (
+            {activeScreen === "done" && (
               <div className="form-register-container">
                 <div className="controls">
                   <img
                     src="/images/back.svg"
                     alt="back"
                     onClick={() => {
-                      setActiveScreen('congrats');
+                      setActiveScreen("congrats");
                     }}
                   />
                   <Link href="/">
@@ -259,9 +258,7 @@ const Register = () => {
 
                 <h1>YAY! You’re all set!</h1>
 
-                <h3>
-                  We’ll reach out to you via email to get you paid after 72
-                </h3>
+                <h3>We’ll reach out to you via email to get you paid after 72</h3>
                 <h3>hours after the reel was posted.</h3>
                 <img src="/images/done.svg" alt="" />
               </div>
