@@ -1,8 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import LetsBreakSection from "./LetsBreakSection";
+import ClubSection from "./ClubSection";
+import { FranklyAbout } from "./FranklyAbout";
 
 const Index = () => {
   return (
+    <>
     <div className="hero_container">
       <div className="hero_main">
         <div className="hero_bx">
@@ -43,6 +47,11 @@ const Index = () => {
         />
       </div>
     </div>
+    <LetsBreakSection/>
+    <ClubSection/>
+    <FranklyAbout/>
+    </>
+     
   );
 };
 

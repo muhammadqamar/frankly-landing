@@ -32,6 +32,10 @@ h4 {
 p {
   font-family: Helvetica;
 }
+.main_container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
 
 // Header
 
@@ -170,12 +174,7 @@ p {
     .hero_bx {
       max-width: 1387px;
       padding: 172px 84.76px 192px 128px;
-      background: linear-gradient(
-        182.45deg,
-        #ffadf2 -5.17%,
-        #eefe8d 51.85%,
-        #a78eff 100.4%
-      );
+      background: linear-gradient(182.45deg, #ffadf2 -5.17%, #eefe8d 51.85%, #a78eff 100.4%);
       border-radius: 38px;
     }
   }
@@ -324,12 +323,7 @@ p {
       margin: 45px 0 21px;
 
       span {
-        background: -webkit-linear-gradient(
-          92.95deg,
-          #ffadf2 47.96%,
-          #ffdf35 67.19%,
-          #8a68ff 83.57%
-        );
+        background: -webkit-linear-gradient(92.95deg, #ffadf2 47.96%, #ffdf35 67.19%, #8a68ff 83.57%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -470,6 +464,174 @@ p {
 
     .post-img {
       margin: 0 auto;
+    }
+  }
+}
+
+// Lets break it down
+._let-break-div {
+  margin-top: 90px;
+
+  ._let-break-heading {
+    text-align: center;
+    margin-bottom: 77px;
+    h2 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 107px;
+      color: #000000;
+    }
+  }
+
+  ._let-break-cards-detail {
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+     }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 124px;
+    padding-right: 116px;
+    .card-detail {
+      text-align: center;
+      h3 {
+        margin-top: 99px;
+        margin-bottom: 3px;
+        font-family: "Dream to Berich DEMO (FOR USE P";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 124%;
+        color: #000000;
+      }
+      p {
+        font-family: Helvetica;
+        // font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        // line-height: 124%;
+        color: #000000;
+      }
+    }
+  }
+
+  ._let-break-btn {
+    margin-top: 57px;
+    margin-bottom: 108px;
+    display: flex;
+    justify-content: center;
+    ._let-break-btn-box {
+      background: #ffffff;
+      border: 1.05687px solid #010101;
+      border-radius: 129px;
+
+      // height:73.26px;
+      // height: 66px;
+      // width: 237.45px;
+      .btn {
+        // width: 192.88px;
+        // height: 24px;
+        padding: 21px 23px;
+        background: #000000;
+        border: 1px solid #000000;
+        border-radius: 126px;
+
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.03em;
+
+        color: #ffffff;
+
+        position: relative;
+        left: -6px;
+        top: -1px;
+      }
+      .btn_brand {
+        background: #000000;
+      }
+    }
+  }
+}
+
+// _club-section
+._club-section-div {
+  background-color: #4bd178;
+  padding-left: 124px;
+  padding-right: 116px;
+  padding-top: 122px;
+  padding-bottom: 157px;
+  ._club-detail {
+    @media screen and (max-width: 1218px) {
+      flex-direction: column;
+      // flex-wrap: wrap;
+     }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .detail-div {
+      h2 {
+        font-family: "Dream to Berich DEMO (FOR USE P";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 64px;
+        line-height: 123%;
+        /* or 79px */
+
+        color: #ffffff;
+        margin-bottom: 19px !important;
+      }
+      p {
+        margin-top: 0px !important;
+        font-family: "Helvetica";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 38px;
+        letter-spacing: 0.01em;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// _frank-div
+
+._frank-div {
+
+  @media screen and (max-width: 768px) {
+   flex-direction: column;
+  }
+  background-color: #f8d8eb;
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 124px;
+  padding-right: 116px;
+  padding-top: 95px;
+  padding-bottom: 111px;
+  .fink-detail {
+    h2 {
+      font-family: "Dream to Berich DEMO (FOR USE P";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 123%;
+      color: #000000;
+    }
+    p {
+      font-family: "Helvetica";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 123%;
+      color: #000000;
     }
   }
 }
