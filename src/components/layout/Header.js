@@ -13,7 +13,7 @@ const Index = () => {
       />
       <div className="links">
         <a className="header_link work_link" href="">
-          How it works
+          How it works?
         </a>
         <a className="header_link faq_link" href="">
           FAQs

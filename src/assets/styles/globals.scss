@@ -1,6 +1,6 @@
-@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/plus-jakarta-display.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-@import url("../fonts/stylesheet.css");
+@import url('https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/plus-jakarta-display.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('../fonts/stylesheet.css');
 * {
   box-sizing: border-box;
 }
@@ -11,28 +11,32 @@ body {
 }
 button {
   font-weight: 700;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 a {
   color: inherit;
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
-  font-family: "Plus Jakarta Display", sans-serif;
+  font-family: 'Plus Jakarta Display', sans-serif;
 }
 h2 {
-  font-family: "Dream to Berich DEMO (FOR USE P";
+  font-family: 'Dream to Berich DEMO (FOR USE P';
+  margin: 0;
 }
 h3,
 h5,
 h6 {
-  font-family: "Plus Jakarta Display";
+  font-family: 'Plus Jakarta Display';
+  margin: 0;
 }
 h4 {
-  font-family: "Dream to Berich DEMO (FOR USE P";
+  font-family: 'Dream to Berich DEMO (FOR USE P';
+  margin: 0;
 }
 p {
   font-family: Helvetica;
+  margin: 0;
 }
 .main_container {
   max-width: 1440px;
@@ -60,7 +64,7 @@ p {
       padding-right: 67px;
     }
     .faq_link {
-      padding-right: 39.34px;
+      padding-right: 67px;
     }
   }
   .icon_logo {
@@ -88,6 +92,7 @@ p {
       line-height: 32px;
       letter-spacing: 0.02em;
       color: #ffffff;
+      padding-top: 45px;
     }
   }
   .footer_btns {
@@ -97,12 +102,12 @@ p {
       background: #ffffff;
       border: 1.05687px solid #010101;
       border-radius: 242px;
-      height: 78px;
+      height: 73px;
       .btn {
         padding: 21px 82.9px;
         background: #ae97fe;
         border: 1px solid #000000;
-        font-family: "Plus Jakarta Display", sans-serif;
+        font-family: 'Plus Jakarta Display', sans-serif;
         border-radius: 243px;
         font-style: normal;
         font-weight: 700;
@@ -123,7 +128,8 @@ p {
     position: relative;
     right: 32px;
     text-align: right;
-    margin-bottom: 52.02px;
+    margin-bottom: 40.02px;
+    top: -30px;
     .insta_star {
       position: relative;
     }
@@ -144,7 +150,7 @@ p {
       gap: 62px;
     }
     .footer_emailPara {
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', sans-serif;
       line-height: 18px;
       text-align: center;
     }
@@ -156,7 +162,7 @@ p {
     margin-bottom: 41px;
   }
   .footer_para {
-    font-family: "Plus Jakarta Display";
+    font-family: 'Plus Jakarta Display';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -176,7 +182,12 @@ p {
     .hero_bx {
       max-width: 1387px;
       padding: 172px 84.76px 192px 128px;
-      background: linear-gradient(182.45deg, #ffadf2 -5.17%, #eefe8d 51.85%, #a78eff 100.4%);
+      background: linear-gradient(
+        182.45deg,
+        #ffadf2 -5.17%,
+        #eefe8d 51.85%,
+        #a78eff 100.4%
+      );
       border-radius: 38px;
     }
   }
@@ -194,7 +205,12 @@ p {
       letter-spacing: 0.03em;
       color: #ffffff;
       .get-paid-text {
-        background: linear-gradient(182.45deg, #ffadf2 40.09%, #eefe8d 63.07%, #a78eff 82.63%);
+        background: linear-gradient(
+          182.45deg,
+          #ffadf2 40.09%,
+          #eefe8d 63.07%,
+          #a78eff 82.63%
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -236,8 +252,11 @@ p {
   background: #ffffff;
   padding: 61px 126px 98px 118px;
   .earn_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .earn_subheading {
-      margin-bottom: 39px;
+      margin: 0px;
       font-style: normal;
       font-weight: 700;
       font-size: 17px;
@@ -249,8 +268,9 @@ p {
       font-weight: 400;
       font-size: 36px;
       line-height: 123%;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       color: #000000;
+      margin-top: 40px;
     }
     .earn_innersubheading {
       font-style: normal;
@@ -258,6 +278,7 @@ p {
       font-size: 17px;
       line-height: 22px;
       color: #000000;
+      margin: 0;
     }
   }
   .earn_right {
@@ -302,12 +323,29 @@ p {
     display: flex;
     flex-direction: column;
   }
+  .india_code {
+    position: relative;
+    span {
+      font-family: 'Mabry Pro';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      position: absolute;
+      top:38%;
+      left:40px
 
+
+
+    }
+
+
+  }
   input {
     width: 356px;
     height: 61px;
 
-    font-family: "Mabry Pro";
+    font-family: 'Mabry Pro';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -329,7 +367,7 @@ p {
       height: 66px;
       left: 106px;
       top: 774px;
-      font-family: "Mabry Pro";
+      font-family: 'Mabry Pro';
       cursor: pointer;
       font-style: normal;
       font-weight: 700;
@@ -346,7 +384,7 @@ p {
       &:after {
         width: 214px;
         height: 66px;
-        content: "";
+        content: '';
         background: #4bd178;
         border: 1px solid #000000;
         border-radius: 83px;
@@ -375,7 +413,7 @@ p {
   }
   .welcome {
     h1 {
-      font-family: "Mabry Pro";
+      font-family: 'Mabry Pro';
       font-style: normal;
       font-weight: 900;
       font-size: 32px;
@@ -395,7 +433,7 @@ p {
   .earn-section {
     margin-top: 17px;
     .earn-text {
-      font-family: "Dream to Berich DEMO (FOR USE P";
+      font-family: 'Dream to Berich DEMO (FOR USE P';
       font-style: normal;
       font-weight: 400;
       font-size: 24px;
@@ -405,14 +443,19 @@ p {
       margin: 45px 0 21px;
 
       span {
-        background: -webkit-linear-gradient(92.95deg, #ffadf2 47.96%, #ffdf35 67.19%, #8a68ff 83.57%);
+        background: -webkit-linear-gradient(
+          92.95deg,
+          #ffadf2 47.96%,
+          #ffdf35 67.19%,
+          #8a68ff 83.57%
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
     }
 
     .earn-sub-text {
-      font-family: "Mabry Pro";
+      font-family: 'Mabry Pro';
       font-style: normal;
       font-weight: 900;
       font-size: 20px;
@@ -426,7 +469,7 @@ p {
       height: 42px;
       background: #8a68ff;
       border-radius: 50px;
-      font-family: "Mabry Pro";
+      font-family: 'Mabry Pro';
       font-style: normal;
       font-weight: 900;
       font-size: 20px;
@@ -461,7 +504,7 @@ p {
       max-width: 381px;
       padding-left: 10px;
       li {
-        font-family: "Mabry Pro";
+        font-family: 'Mabry Pro';
         font-style: normal;
         font-weight: 500;
         font-size: 20px;
@@ -491,7 +534,7 @@ p {
       margin: 0 0 44px;
     }
     .sub-heading {
-      font-family: "Mabry Pro";
+      font-family: 'Mabry Pro';
       font-style: normal;
       font-weight: 500;
       font-size: 22px;
@@ -502,7 +545,7 @@ p {
     }
 
     .sub-heading-two {
-      font-family: "Mabry Pro";
+      font-family: 'Mabry Pro';
       font-style: normal;
       font-weight: 500;
       font-size: 22px;
@@ -523,7 +566,7 @@ p {
       margin: 98px 0 0;
     }
     .post-sub-heading {
-      font-family: "Mabry Pro";
+      font-family: 'Mabry Pro';
       font-style: normal;
       font-weight: 700;
       font-size: 20px;
@@ -534,7 +577,7 @@ p {
     }
 
     .post-sub-two-heading {
-      font-family: "Mabry Pro";
+      font-family: 'Mabry Pro';
       font-style: normal;
       font-weight: 700;
       font-size: 20px;
@@ -578,10 +621,11 @@ p {
     padding-right: 116px;
     .card-detail {
       text-align: center;
+
       h3 {
-        margin-top: 99px;
-        margin-bottom: 3px;
-        font-family: "Dream to Berich DEMO (FOR USE P";
+        margin: 90px 0px 21px;
+
+        font-family: 'Dream to Berich DEMO (FOR USE P';
         font-style: normal;
         font-weight: 400;
         font-size: 30px;
@@ -590,10 +634,10 @@ p {
       }
       p {
         font-family: Helvetica;
-        // font-style: normal;
+        max-width: 330px;
         font-weight: 400;
         font-size: 22px;
-        // line-height: 124%;
+        margin: 0;
         color: #000000;
       }
     }
@@ -620,7 +664,7 @@ p {
         border: 1px solid #000000;
         border-radius: 126px;
 
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 20px;
@@ -630,8 +674,8 @@ p {
         color: #ffffff;
 
         position: relative;
-        left: -6px;
-        top: -1px;
+        left: -5px;
+        top: -5px;
       }
       .btn_brand {
         background: #000000;
@@ -658,7 +702,7 @@ p {
 
     .detail-div {
       h2 {
-        font-family: "Dream to Berich DEMO (FOR USE P";
+        font-family: 'Dream to Berich DEMO (FOR USE P';
         font-style: normal;
         font-weight: 400;
         font-size: 64px;
@@ -670,7 +714,7 @@ p {
       }
       p {
         margin-top: 0px !important;
-        font-family: "Helvetica";
+        font-family: 'Helvetica';
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
@@ -696,10 +740,10 @@ p {
   padding-left: 124px;
   padding-right: 116px;
   padding-top: 95px;
-  padding-bottom: 111px;
+  padding-bottom: 100px;
   .fink-detail {
     h2 {
-      font-family: "Dream to Berich DEMO (FOR USE P";
+      font-family: 'Dream to Berich DEMO (FOR USE P';
       font-style: normal;
       font-weight: 400;
       font-size: 36px;
@@ -707,12 +751,44 @@ p {
       color: #000000;
     }
     p {
-      font-family: "Helvetica";
+      font-family: 'Helvetica';
       font-style: normal;
       font-weight: 400;
       font-size: 24px;
       line-height: 123%;
       color: #000000;
+      padding-top: 30px;
+      max-width: 552px;
     }
+  }
+
+
+}
+.great_moves {
+  padding: 30px 70px;
+  text-align: center;
+  h5 {
+    font-family: 'Dream to Berich DEMO (FOR USE P';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 123%;
+    /* identical to box height, or 59px */
+     padding-top: 30px;
+    text-align: center;
+
+    background: linear-gradient(
+      182.84deg,
+      #ffadf2 -6.54%,
+      #eefe8d 31.83%,
+      #a78eff 64.5%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+
+
   }
 }

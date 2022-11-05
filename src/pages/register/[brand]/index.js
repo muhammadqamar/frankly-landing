@@ -1,55 +1,73 @@
-import { useState } from "react";
-import { Formik } from "formik";
-import Image from "next/image";
-import Link from "next/link";
-import { GoogleSpreadsheet } from "google-spreadsheet";
-import { useRouter } from "next/router";
+import { useState, useRef, useEffect } from 'react';
+import { Formik } from 'formik';
+import Image from 'next/image';
+import Link from 'next/link';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { useRouter } from 'next/router';
 
 const Register = () => {
-  const [activeScreen, setActiveScreen] = useState("welcome");
+  const [activeScreen, setActiveScreen] = useState('welcome');
+  const [errorCustom, setErrorCustom] = useState('');
   const router = useRouter();
   const doc = new GoogleSpreadsheet(process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID);
+  const formRef = useRef();
+
 
   return (
     <div className="register-form">
       <Formik
-        initialValues={{ phone: "", reelLink: "", email: "", paytm: "" }}
+        innerRef={formRef}
+
+        initialValues={{ phone: '', reelLink: '', email: '', paytm: '' }}
         enableReinitialize
         validate={(values) => {
           const errors = {};
           if (!values.phone) {
-            errors.phone = "Required";
+            errors.phone = 'Required';
           }
           if (!values.reelLink) {
-            errors.reelLink = "Required";
+            errors.reelLink = 'Required';
+          } else if (
+            !/^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z0-9\u00a1-\uffff][a-z0-9\u00a1-\uffff_-]{0,62})?[a-z0-9\u00a1-\uffff]\.)+(?:[a-z\u00a1-\uffff]{2,}\.?))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(
+              values.reelLink
+            )
+          ) {
+            errors.reelLink = 'Invalid URL';
           }
           if (!values.paytm) {
-            errors.paytm = "Required";
+            errors.paytm = 'Required';
           }
           if (!values.email) {
-            errors.email = "Required";
-          } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-            errors.email = "Invalid email address";
+            errors.email = 'Required';
+          } else if (
+            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+          ) {
+            errors.email = 'Invalid email address';
           }
           return errors;
         }}
         onSubmit={async (values, { setSubmitting }) => {
           await doc.useServiceAccountAuth({
             client_email: process.env.NEXT_PUBLIC_GOOGLE_SERVICE_ACCOUNT_EMAIL,
-            private_key: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+            private_key: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY.replace(
+              /\\n/g,
+              '\n'
+            ),
           });
           await doc.loadInfo();
           const sheet = doc.sheetsByIndex[0];
+          const newDate = new Date()
           const result = await sheet.addRow({
-            Phone: values.phone,
+            Phone: "+91"+values.phone,
             Email: values.email,
-            ["Reel Link"]: values.reelLink,
+            ['Reel Link']: values.reelLink,
             PayTM: values.paytm,
             Brand: router.query.brand,
+            Timestamp: newDate.toLocaleString()
           });
-          console.log();
+
           if (result._rowNumber) {
-            setActiveScreen("done");
+            setActiveScreen('done');
           }
         }}
       >
@@ -64,7 +82,7 @@ const Register = () => {
           /* and other goodies */
         }) => (
           <form onSubmit={handleSubmit}>
-            {activeScreen === "welcome" && (
+            {activeScreen === 'welcome' && (
               <div className="form-register-container welcome">
                 <h1>Welcome to</h1>
                 <div className="well-come-fra">
@@ -83,21 +101,28 @@ const Register = () => {
                     height="331"
                   />
                 </div>
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Phone number"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.phone}
-                />
-                <div className="error">{errors.phone && touched.phone && errors.phone}</div>
+                <div className="india_code">
+                  <span>+91</span>
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone number"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.phone.replace(/\D/g, '')}
+                  />
+                </div>
+                <div className="error">
+                  {errorCustom}
+                </div>
                 <div className="btn-cover">
                   <button
-                    type="submit"
+                    type="button"
                     onClick={() => {
                       if (values.phone) {
-                        setActiveScreen("earn now");
+                        setActiveScreen('earn now');
+                      } else {
+                        setErrorCustom('required')
                       }
                     }}
                     className="register-button"
@@ -107,7 +132,7 @@ const Register = () => {
                 </div>
               </div>
             )}
-            {activeScreen === "earn now" && (
+            {activeScreen === 'earn now' && (
               <div className="form-register-container earn-section">
                 <div className="controls">
                   <Image
@@ -116,27 +141,37 @@ const Register = () => {
                     width="10"
                     height="19"
                     onClick={() => {
-                      setActiveScreen("welcome");
+                      setActiveScreen('welcome');
                     }}
                   />
                   <Link href="/">
-                    <Image src="/images/home.svg" alt="home" width="23" height="23" />
+                    <Image
+                      src="/images/home.svg"
+                      alt="home"
+                      width="23"
+                      height="23"
+                    />
                   </Link>
                 </div>
 
                 <h2 className="earn-text">
                   Post a Reel about <br /> your <span>expereince</span>
                 </h2>
-                <p className="earn-sub-text">with {router.query.brand} and</p>
+                <p className="earn-sub-text">with <span style={{textTransform:'capitalize'}}>{router.query.brand}</span> and</p>
                 <button className="earn-button">EARN ₹</button>
                 <div className="hand-img">
-                  <Image src="/images/hand.svg" alt="hand" width="165" height="292" />
+                  <Image
+                    src="/images/hand.svg"
+                    alt="hand"
+                    width="165"
+                    height="292"
+                  />
                 </div>
                 <div className="btn-cover">
                   <button
-                    type="submit"
+
                     onClick={() => {
-                      setActiveScreen("reel");
+                      setActiveScreen('reel');
                     }}
                     className="register-button"
                   >
@@ -145,7 +180,7 @@ const Register = () => {
                 </div>
               </div>
             )}
-            {activeScreen === "reel" && (
+            {activeScreen === 'reel' && (
               <div className="form-register-container post-guideines">
                 <div className="controls">
                   <Image
@@ -154,24 +189,40 @@ const Register = () => {
                     width="10"
                     height="19"
                     onClick={() => {
-                      setActiveScreen("earn now");
+                      setActiveScreen('earn now');
                     }}
                   />
 
                   <Link href="/">
-                    <Image src="/images/home.svg" alt="home" width="23" height="23" />
+                    <Image
+                      src="/images/home.svg"
+                      alt="home"
+                      width="23"
+                      height="23"
+                    />
                   </Link>
                 </div>
                 <div className="title-flex">
-                  <Image src="/images/hash.svg" alt="hash" width="36" height="44" />
+                  <Image
+                    src="/images/hash.svg"
+                    alt="hash"
+                    width="36"
+                    height="44"
+                  />
                   <h2 className="post-title">Post Guideines</h2>
                 </div>
 
                 <ul>
-                  <li>Tag @XXX and add our hashtag #Frankly to your caption.</li>
-                  <li> Show love to XXXX by making it the highlight of your reel.</li>
                   <li>
-                    Your CREATIVITY would be rewarded. Most importantly, Have fun with your Reels!
+                    Tag @XXX and add our hashtag #Frankly to your caption.
+                  </li>
+                  <li>
+                    {' '}
+                    Show love to XXXX by making it the highlight of your reel.
+                  </li>
+                  <li>
+                    Your CREATIVITY would be rewarded. Most importantly, Have
+                    fun with your Reels!
                   </li>
                 </ul>
 
@@ -186,12 +237,13 @@ const Register = () => {
                 <div className="error">
                   {errors.reelLink && touched.reelLink && errors.reelLink}
                 </div>
+
                 <div className="btn-cover">
                   <button
-                    type="button"
+                     type="button"
                     onClick={() => {
-                      if (values.reelLink) {
-                        setActiveScreen("congrats");
+                      if (!errors.reelLink) {
+                        setActiveScreen('congrats');
                       }
                     }}
                     className="register-button"
@@ -202,7 +254,7 @@ const Register = () => {
               </div>
             )}
 
-            {activeScreen === "congrats" && (
+            {activeScreen === 'congrats' && (
               <div className="form-register-container congratulations ">
                 <div className="controls">
                   <Image
@@ -211,15 +263,25 @@ const Register = () => {
                     width="10"
                     height="19"
                     onClick={() => {
-                      setActiveScreen("reel");
+                      setActiveScreen('reel');
                     }}
                   />
                   <Link href="/">
-                    <Image src="/images/home.svg" alt="home" width="23" height="23" />
+                    <Image
+                      src="/images/home.svg"
+                      alt="home"
+                      width="23"
+                      height="23"
+                    />
                   </Link>
                 </div>
                 <div className="frankly-logo">
-                  <Image src="/images/logo2.svg" alt="home" width="196" height="104" />
+                  <Image
+                    src="/images/logo2.svg"
+                    alt="home"
+                    width="196"
+                    height="104"
+                  />
                 </div>
                 <h2 className="congratulations-heading">Congratulations!</h2>
                 <h3 className="sub-heading">
@@ -237,7 +299,9 @@ const Register = () => {
                   onBlur={handleBlur}
                   value={values.email}
                 />
-                <div className="error">{errors.email && touched.email && errors.email}</div>
+                <div className="error">
+                  {errors.email && touched.email && errors.email}
+                </div>
                 <input
                   type="text"
                   name="paytm"
@@ -246,16 +310,22 @@ const Register = () => {
                   onBlur={handleBlur}
                   value={values.paytm}
                 />
-                <div className="error">{errors.paytm && touched.paytm && errors.paytm}</div>
+                <div className="error">
+                  {errors.paytm && touched.paytm && errors.paytm}
+                </div>
                 <div className="btn-cover">
-                  <button disabled={isSubmitting} type="submit" className="register-button">
-                    {isSubmitting ? "Submitting ..." : "Done"}
+                  <button
+                    disabled={isSubmitting}
+                    type="submit"
+                    className="register-button"
+                  >
+                    {isSubmitting ? 'Submitting ...' : 'Done'}
                   </button>
                 </div>
               </div>
             )}
 
-            {activeScreen === "done" && (
+            {activeScreen === 'done' && (
               <div className="form-register-container  posted">
                 <div className="controls">
                   <Image
@@ -264,11 +334,16 @@ const Register = () => {
                     width="10"
                     height="19"
                     onClick={() => {
-                      setActiveScreen("congrats");
+                      setActiveScreen('congrats');
                     }}
                   />
                   <Link href="/">
-                    <Image src="/images/home.svg" alt="home" width="23" height="23" />
+                    <Image
+                      src="/images/home.svg"
+                      alt="home"
+                      width="23"
+                      height="23"
+                    />
                   </Link>
                 </div>
 
@@ -277,9 +352,16 @@ const Register = () => {
                 <h3 className="post-sub-heading">
                   We’ll reach out to you via email to get you paid after 72
                 </h3>
-                <h3 className="post-sub-two-heading">hours after the reel was posted.</h3>
+                <h3 className="post-sub-two-heading">
+                  hours after the reel was posted.
+                </h3>
                 <div className="post-img">
-                  <Image src="/images/done.svg" alt="home" width="304" height="327" />
+                  <Image
+                    src="/images/done.svg"
+                    alt="home"
+                    width="304"
+                    height="327"
+                  />
                 </div>
               </div>
             )}
