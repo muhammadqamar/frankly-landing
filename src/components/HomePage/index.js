@@ -1,9 +1,9 @@
-import React from 'react';
-import Image from 'next/image';
-import LetsBreakSection from './LetsBreakSection';
-import ClubSection from './ClubSection';
-import { FranklyAbout } from './FranklyAbout';
-import EarnCash from './EarnCash';
+import React from "react";
+import Image from "next/image";
+import LetsBreakSection from "./LetsBreakSection";
+import ClubSection from "./ClubSection";
+import { FranklyAbout } from "./FranklyAbout";
+import EarnCash from "./EarnCash";
 
 const Index = () => {
   return (
@@ -20,9 +20,11 @@ const Index = () => {
             />
           </div>
         </div>
+      </div>
+      <div className="reel_paid_bg">
         <div className="reel_paid">
           <h4 className="hero_heading">
-            Just Shopped? Reel It.{' '}
+            Just Shopped? <br /> Reel It.
             <span className="get-paid-text">Get Paid.</span>
           </h4>
           <Image
@@ -50,8 +52,9 @@ const Index = () => {
             alt="logo"
           />
         </div>
-        <EarnCash />
       </div>
+      <EarnCash />
+
       <LetsBreakSection />
       <ClubSection />
       <FranklyAbout />

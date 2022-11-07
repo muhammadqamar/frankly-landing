@@ -24,23 +24,28 @@ const EarnCash = () => {
           />
         </div>
       </div>
-      <div className="earn_purchase">
-        <h2 className="earn_purchase_heading">
-          MAKE YOUR PURCHASES <br />
-          PAY FOR THEMSELVES
-        </h2>
-        <p className="earn_purchase_para">
-          The more your content catches fire, the more you earn.
-        </p>
+      <div className="earn_purchase_bg">
+        <div className="earn_purchase">
+          <h2 className="earn_purchase_heading">
+            MAKE YOUR PURCHASES <br />
+            PAY FOR THEMSELVES
+          </h2>
+          <p className="earn_purchase_para">
+            The more your content catches fire, the more you earn.
+          </p>
+        </div>
       </div>
-      <div className="stay_bx">
-        <Image
-          src="/images/stayPaid_Img.svg"
-          width={933.24}
-          height={518}
-          objectFit="cover"
-          alt="logo"
-        />
+
+      <div className="stay_bx_bg">
+        <div className="stay_bx">
+          <Image
+            src="/images/stayPaid_Img.svg"
+            width={933.24}
+            height={518}
+            objectFit="cover"
+            alt="logo"
+          />
+        </div>
       </div>
     </>
   );

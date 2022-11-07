@@ -1,6 +1,6 @@
-@import url('https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/plus-jakarta-display.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-@import url('../fonts/stylesheet.css');
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/plus-jakarta-display.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("../fonts/stylesheet.css");
 * {
   box-sizing: border-box;
 }
@@ -11,27 +11,27 @@ body {
 }
 button {
   font-weight: 700;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 a {
   color: inherit;
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
-  font-family: 'Plus Jakarta Display', sans-serif;
+  font-family: "Plus Jakarta Display", sans-serif;
 }
 h2 {
-  font-family: 'Dream to Berich DEMO (FOR USE P';
+  font-family: "Dream to Berich DEMO (FOR USE P";
   margin: 0;
 }
 h3,
 h5,
 h6 {
-  font-family: 'Plus Jakarta Display';
+  font-family: "Plus Jakarta Display";
   margin: 0;
 }
 h4 {
-  font-family: 'Dream to Berich DEMO (FOR USE P';
+  font-family: "Dream to Berich DEMO (FOR USE P";
   margin: 0;
 }
 p {
@@ -52,7 +52,21 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    padding: 28px 24px;
+  }
+
+  .mob-icon {
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
+
   .links {
+    @media (max-width: 992px) {
+      display: none;
+    }
     .header_link {
       font-style: normal;
       font-weight: 500;
@@ -68,179 +82,290 @@ p {
     }
   }
   .icon_logo {
+    @media (max-width: 992px) {
+      display: none;
+    }
     .twitter_icon {
       margin-right: 24px;
     }
   }
 }
+.mobile-nav {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  height: 70vh;
+  padding: 0 35px 35px;
+  z-index: 3;
+  @media (min-width: 992px) {
+    display: none;
+  }
 
-// Footer
-
-.footer_main {
-  max-width: 1440px;
-  padding: 114px 88px 36px 106px;
-  background: #000000;
-  margin: 0 auto;
-  .footer_frankly_logo {
+  .links_mob {
     display: flex;
-    justify-content: space-between;
-    .footer_subheading {
-      max-width: 444px;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 32px;
-      letter-spacing: 0.02em;
-      color: #ffffff;
-      padding-top: 45px;
-    }
-  }
-  .footer_btns {
-    display: flex;
-    gap: 13px;
-    .btn_bx {
-      background: #ffffff;
-      border: 1.05687px solid #010101;
-      border-radius: 242px;
-      height: 73px;
-      .btn {
-        padding: 21px 82.9px;
-        background: #ae97fe;
-        border: 1px solid #000000;
-        font-family: 'Plus Jakarta Display', sans-serif;
-        border-radius: 243px;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 21px;
-        letter-spacing: 0.03em;
-        color: #000000;
-        position: relative;
-        left: -6px;
-        top: -1px;
-      }
-      .btn_brand {
-        background: #ffffff;
-      }
-    }
-  }
-  .content_bx {
-    position: relative;
-    right: 32px;
-    text-align: right;
-    margin-bottom: 40.02px;
-    top: -30px;
-    .insta_star {
-      position: relative;
-    }
-    .insta_twitter {
-      position: relative;
-      bottom: -26px;
-    }
-  }
-  .footer_links {
-    position: relative;
-    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 30px;
     align-items: center;
-    justify-content: space-between;
-    color: #ffffff;
-    margin-bottom: 26px;
-    .footer_link_bx {
-      display: flex;
-      gap: 62px;
-    }
-    .footer_emailPara {
-      font-family: 'Inter', sans-serif;
-      line-height: 18px;
-      text-align: center;
+
+    .header_link {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 23px;
+      color: #000000;
     }
   }
-  .horizontal_line {
-    max-width: 1246px;
-    background: #ffffff;
-    height: 2px;
-    margin-bottom: 41px;
-  }
-  .footer_para {
-    font-family: 'Plus Jakarta Display';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 23px;
-    text-align: center;
-    letter-spacing: -0.213333px;
-    color: #e0e5f3;
+  .icon_logo_mob {
+    display: flex;
+    justify-content: center;
+    .twitter_icon {
+      margin-right: 24px;
+    }
   }
 }
+// Footer
 
+.footer {
+  width: 100%;
+  background: #000000;
+  .footer_main {
+    max-width: 1440px;
+    padding: 114px 88px 36px 106px;
+
+    margin: 0 auto;
+
+    @media (min-width: 768px) and (max-width: 1200px) {
+      padding: 114px 50px 36px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 48px 24px;
+    }
+
+    .footer_frankly_logo {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .footer-logo {
+        @media (min-width: 768px) and (max-width: 1200px) {
+          width: min-content;
+        }
+
+        @media (max-width: 768px) {
+          width: 100%;
+        }
+
+        img {
+          @media (max-width: 768px) {
+            width: 100%;
+          }
+        }
+
+        .footer_subheading {
+          max-width: 444px;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 32px;
+          letter-spacing: 0.02em;
+          color: #ffffff;
+          padding-top: 45px;
+        }
+      }
+    }
+    .footer_btns {
+      display: flex;
+      gap: 13px;
+      @media (max-width: 768px) {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .btn_bx {
+        background: #ffffff;
+        border: 1.05687px solid #010101;
+        border-radius: 242px;
+        height: 53px;
+        .btn {
+          padding: 15px 44px;
+          background: #ae97fe;
+          border: 1px solid #000000;
+          font-family: "Plus Jakarta Display", sans-serif;
+          border-radius: 243px;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 21px;
+          letter-spacing: 0.03em;
+          color: #000000;
+          position: relative;
+          left: -5px;
+          top: -7px;
+
+          @media (max-width: 699px) {
+            padding: 15px 15px;
+          }
+        }
+        .btn_brand {
+          background: #ffffff;
+        }
+      }
+    }
+    .content_bx {
+      position: relative;
+      right: 32px;
+      text-align: right;
+      margin-bottom: 56.02px;
+      .insta_star {
+        position: relative;
+      }
+      .insta_twitter {
+        position: relative;
+        bottom: -26px;
+      }
+    }
+    .footer_links {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+      margin-bottom: 26px;
+      @media (max-width: 768px) {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .footer_link_bx {
+        display: flex;
+        gap: 62px;
+
+        @media (max-width: 768px) {
+          gap: 16px;
+        }
+      }
+      .footer_emailPara {
+        font-family: "Inter", sans-serif;
+        line-height: 18px;
+        text-align: center;
+      }
+    }
+    .horizontal_line {
+      max-width: 1246px;
+      background: #ffffff;
+      height: 2px;
+      margin-bottom: 41px;
+    }
+    .footer_para {
+      font-family: "Plus Jakarta Display";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 23px;
+      text-align: center;
+      letter-spacing: -0.213333px;
+      color: #e0e5f3;
+    }
+  }
+}
 // Hero Section
 .hero_container {
   max-width: 1440px;
   margin: 0 auto;
   .hero_main {
     padding: 0 26px 24px 27px;
+    @media (max-width: 768px) {
+      padding: 0 16px 24px;
+    }
+
     .hero_bx {
       max-width: 1387px;
       padding: 172px 84.76px 192px 128px;
-      background: linear-gradient(
-        182.45deg,
-        #ffadf2 -5.17%,
-        #eefe8d 51.85%,
-        #a78eff 100.4%
-      );
+      background: linear-gradient(182.45deg, #ffadf2 -5.17%, #eefe8d 51.85%, #a78eff 100.4%);
       border-radius: 38px;
+      img {
+        width: -webkit-fill-available;
+        height: auto;
+      }
+      @media (min-width: 768px) and (max-width: 992px) {
+        padding: 100px 24px;
+      }
+      @media (max-width: 768px) {
+        padding: 50px 24px;
+      }
     }
   }
-  .reel_paid {
-    position: relative;
-    background: #011703;
-    padding: 82px 55px 52px 110px;
-    .hero_heading {
-      font-style: normal;
-      font-weight: 400;
-      margin: 0 auto;
-      font-size: 100px;
-      line-height: 124%;
-      text-align: center;
-      letter-spacing: 0.03em;
-      color: #ffffff;
-      .get-paid-text {
-        background: linear-gradient(
-          182.45deg,
-          #ffadf2 40.09%,
-          #eefe8d 63.07%,
-          #a78eff 82.63%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-      }
-      // span {
-      //   background: linear-gradient(
-      //       173.29deg,
-      //       #ffadf2 40.09%,
-      //       #eefe8d 63.07%,
-      //       #a78eff 82.63%
-      //     ),
-      //     linear-gradient(0deg, #ffffff, #ffffff);
-      // }
+}
+.reel_paid_bg {
+  width: 100%;
+  background: #011703;
+}
+.reel_paid {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+
+  padding: 82px 55px 52px 110px;
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    padding: 80px 50px;
+  }
+  @media (max-width: 768px) {
+    padding: 80px 24px;
+  }
+
+  .hero_heading {
+    font-style: normal;
+    font-weight: 400;
+    margin: 0 auto;
+    font-size: 100px;
+    line-height: 124%;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+
+    @media (min-width: 768px) and (max-width: 992px) {
+      font-size: 52px;
     }
-    .smile {
-      position: absolute;
+    @media (max-width: 768px) {
+      font-size: 32px;
     }
-    .smile_one {
-      left: 27%;
-      top: 16%;
+
+    .get-paid-text {
+      background: linear-gradient(182.45deg, #ffadf2 40.09%, #eefe8d 63.07%, #a78eff 82.63%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
     }
-    .smile_two {
-      left: 41%;
-      bottom: 18%;
-    }
-    .smile_three {
-      top: 54px;
-      right: 130px;
-    }
+    // span {
+    //   background: linear-gradient(
+    //       173.29deg,
+    //       #ffadf2 40.09%,
+    //       #eefe8d 63.07%,
+    //       #a78eff 82.63%
+    //     ),
+    //     linear-gradient(0deg, #ffffff, #ffffff);
+    // }
+  }
+  .smile {
+    position: absolute;
+  }
+  .smile_one {
+    left: 27%;
+    top: 16%;
+  }
+  .smile_two {
+    left: 41%;
+    bottom: 18%;
+  }
+  .smile_three {
+    top: 54px;
+    right: 130px;
   }
 }
 
@@ -249,8 +374,20 @@ p {
 .earn_main {
   display: flex;
   gap: 124px;
-  background: #ffffff;
+
   padding: 61px 126px 98px 118px;
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    padding: 61px 50px 98px;
+    gap: 80px;
+  }
+  @media (max-width: 992px) {
+    flex-direction: column;
+  }
+  @media (max-width: 768px) {
+    padding: 61px 24px;
+    gap: 40px;
+  }
   .earn_left {
     display: flex;
     flex-direction: column;
@@ -282,35 +419,79 @@ p {
     }
   }
   .earn_right {
+    img {
+      width: -webkit-fill-available;
+
+      @media (max-width: 768px) {
+        height: auto;
+      }
+    }
   }
 }
-.earn_purchase {
+.earn_purchase_bg {
+  width: 100%;
   background: #c8f0ff;
-  padding: 71px 0 43px;
-  .earn_purchase_heading {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 149.5%;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: -0.075em;
-    margin-bottom: 14px;
-    color: #000000;
-  }
-  .earn_purchase_para {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 124%;
-    text-align: center;
-    letter-spacing: 0.03em;
+
+  .earn_purchase {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 71px 0 43px;
+
+    @media (max-width: 768px) {
+      padding: 43px 24px;
+    }
+
+    .earn_purchase_heading {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 149.5%;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: -0.075em;
+      margin-bottom: 14px;
+      color: #000000;
+
+      @media (max-width: 768px) {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+    }
+    .earn_purchase_para {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 124%;
+      text-align: center;
+      letter-spacing: 0.03em;
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
+    }
   }
 }
-.stay_bx {
+.stay_bx_bg {
+  width: 100%;
   background: #011703;
-  padding: 84px 0 29px;
-  text-align: center;
+
+  .stay_bx {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 84px 0 29px;
+    text-align: center;
+    @media (max-width: 992px) {
+      padding: 40px 24px;
+    }
+
+    img {
+      width: -webkit-fill-available;
+
+      @media (max-width: 768px) {
+        height: auto;
+      }
+    }
+  }
 }
 
 /* register form */
@@ -326,26 +507,21 @@ p {
   .india_code {
     position: relative;
     span {
-      font-family: 'Mabry Pro';
+      font-family: "Mabry Pro";
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
       line-height: 16px;
       position: absolute;
-      top:38%;
-      left:40px
-
-
-
+      top: 38%;
+      left: 40px;
     }
-
-
   }
   input {
     width: 356px;
     height: 61px;
 
-    font-family: 'Mabry Pro';
+    font-family: "Mabry Pro";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -367,7 +543,7 @@ p {
       height: 66px;
       left: 106px;
       top: 774px;
-      font-family: 'Mabry Pro';
+      font-family: "Mabry Pro";
       cursor: pointer;
       font-style: normal;
       font-weight: 700;
@@ -384,7 +560,7 @@ p {
       &:after {
         width: 214px;
         height: 66px;
-        content: '';
+        content: "";
         background: #4bd178;
         border: 1px solid #000000;
         border-radius: 83px;
@@ -413,7 +589,7 @@ p {
   }
   .welcome {
     h1 {
-      font-family: 'Mabry Pro';
+      font-family: "Mabry Pro";
       font-style: normal;
       font-weight: 900;
       font-size: 32px;
@@ -433,7 +609,7 @@ p {
   .earn-section {
     margin-top: 17px;
     .earn-text {
-      font-family: 'Dream to Berich DEMO (FOR USE P';
+      font-family: "Dream to Berich DEMO (FOR USE P";
       font-style: normal;
       font-weight: 400;
       font-size: 24px;
@@ -455,7 +631,7 @@ p {
     }
 
     .earn-sub-text {
-      font-family: 'Mabry Pro';
+      font-family: "Mabry Pro";
       font-style: normal;
       font-weight: 900;
       font-size: 20px;
@@ -469,7 +645,7 @@ p {
       height: 42px;
       background: #8a68ff;
       border-radius: 50px;
-      font-family: 'Mabry Pro';
+      font-family: "Mabry Pro";
       font-style: normal;
       font-weight: 900;
       font-size: 20px;
@@ -504,7 +680,7 @@ p {
       max-width: 381px;
       padding-left: 10px;
       li {
-        font-family: 'Mabry Pro';
+        font-family: "Mabry Pro";
         font-style: normal;
         font-weight: 500;
         font-size: 20px;
@@ -534,7 +710,7 @@ p {
       margin: 0 0 44px;
     }
     .sub-heading {
-      font-family: 'Mabry Pro';
+      font-family: "Mabry Pro";
       font-style: normal;
       font-weight: 500;
       font-size: 22px;
@@ -545,7 +721,7 @@ p {
     }
 
     .sub-heading-two {
-      font-family: 'Mabry Pro';
+      font-family: "Mabry Pro";
       font-style: normal;
       font-weight: 500;
       font-size: 22px;
@@ -566,7 +742,7 @@ p {
       margin: 98px 0 0;
     }
     .post-sub-heading {
-      font-family: 'Mabry Pro';
+      font-family: "Mabry Pro";
       font-style: normal;
       font-weight: 700;
       font-size: 20px;
@@ -577,7 +753,7 @@ p {
     }
 
     .post-sub-two-heading {
-      font-family: 'Mabry Pro';
+      font-family: "Mabry Pro";
       font-style: normal;
       font-weight: 700;
       font-size: 20px;
@@ -597,40 +773,71 @@ p {
 ._let-break-div {
   margin-top: 90px;
 
+  @media (max-width: 768px) {
+    margin-top: 56px;
+  }
+
   ._let-break-heading {
     text-align: center;
     margin-bottom: 77px;
+    @media (max-width: 768px) {
+      margin-bottom: 36px;
+    }
     h2 {
       font-style: normal;
       font-weight: 400;
       font-size: 48px;
       line-height: 107px;
       color: #000000;
+
+      @media (max-width: 768px) {
+        font-size: 32px;
+        line-height: 42px;
+      }
     }
   }
 
   ._let-break-cards-detail {
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-    }
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-left: 124px;
-    padding-right: 116px;
+    padding: 0 124px 0 116px;
+    gap: 47px;
+
+    @media (min-width: 992px) and (max-width: 1299px) {
+      padding: 0 60px;
+      gap: 20px;
+    }
+
+    @media (max-width: 992px) {
+      padding: 0 24px;
+      justify-content: center;
+    }
+
     .card-detail {
       text-align: center;
 
+      img {
+        @media (max-width: 768px) {
+          width: -webkit-fill-available;
+          height: auto;
+        }
+      }
+
       h3 {
         margin: 90px 0px 21px;
-
-        font-family: 'Dream to Berich DEMO (FOR USE P';
+        font-family: "Dream to Berich DEMO (FOR USE P";
         font-style: normal;
         font-weight: 400;
         font-size: 30px;
         line-height: 124%;
         color: #000000;
+
+        @media (max-width: 768px) {
+          font-size: 24px;
+          margin: 36px 0px 14px;
+        }
       }
       p {
         font-family: Helvetica;
@@ -639,15 +846,23 @@ p {
         font-size: 22px;
         margin: 0;
         color: #000000;
+
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
       }
     }
   }
 
   ._let-break-btn {
-    margin-top: 57px;
-    margin-bottom: 108px;
+    margin: 57px 0 108px;
     display: flex;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      margin: 47px 0 56px;
+    }
+
     ._let-break-btn-box {
       background: #ffffff;
       border: 1.05687px solid #010101;
@@ -664,7 +879,7 @@ p {
         border: 1px solid #000000;
         border-radius: 126px;
 
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 20px;
@@ -685,110 +900,188 @@ p {
 }
 
 // _club-section
-._club-section-div {
+
+.club_bg {
+  width: 100%;
   background-color: #4bd178;
-  padding-left: 124px;
-  padding-right: 116px;
-  padding-top: 122px;
-  padding-bottom: 157px;
-  ._club-detail {
-    @media screen and (max-width: 1218px) {
-      flex-direction: column;
-      // flex-wrap: wrap;
+
+  ._club-section-div {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 122px 116px 160px 124px;
+    position: relative;
+    @media (min-width: 768px) and (max-width: 992px) {
+      padding: 122px 60px;
     }
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @media (max-width: 768px) {
+      padding: 48px 24px;
+    }
+    @media (max-width: 1600px) {
+      overflow: hidden;
+    }
 
-    .detail-div {
-      h2 {
-        font-family: 'Dream to Berich DEMO (FOR USE P';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 64px;
-        line-height: 123%;
-        /* or 79px */
+    .club-hash-img {
+      position: absolute;
+      top: 228px;
+      right: -76px;
 
-        color: #ffffff;
-        margin-bottom: 19px !important;
+      @media (max-width: 992px) {
+        top: inherit;
+        bottom: 0;
       }
-      p {
-        margin-top: 0px !important;
-        font-family: 'Helvetica';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 32px;
-        line-height: 38px;
-        letter-spacing: 0.01em;
-        color: #ffffff;
+      img {
+        @media (max-width: 768px) {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    }
+
+    ._club-detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media screen and (max-width: 1218px) {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .club-detail-img {
+        img {
+          @media (max-width: 768px) {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+      .detail-div {
+        h2 {
+          font-family: "Dream to Berich DEMO (FOR USE P";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 64px;
+          line-height: 123%;
+          color: #ffffff;
+          margin-bottom: 19px !important;
+
+          @media (max-width: 768px) {
+            font-size: 28px;
+            margin-bottom: 14px !important;
+          }
+        }
+        p {
+          margin-top: 0px !important;
+          font-family: "Helvetica";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 32px;
+          line-height: 38px;
+          letter-spacing: 0.01em;
+          color: #ffffff;
+
+          @media (max-width: 768px) {
+            font-size: 22px;
+            line-height: 28px;
+          }
+        }
       }
     }
   }
 }
-
 // _frank-div
-
-._frank-div {
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-  }
+.frank_bg {
+  width: 100%;
   background-color: #f8d8eb;
-  display: flex;
 
-  justify-content: space-around;
-  align-items: center;
-  padding-left: 124px;
-  padding-right: 116px;
-  padding-top: 95px;
-  padding-bottom: 100px;
-  .fink-detail {
-    h2 {
-      font-family: 'Dream to Berich DEMO (FOR USE P';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 36px;
-      line-height: 123%;
-      color: #000000;
+  ._frank-div {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 95px 116px 100px 124px;
+    gap: 20px;
+    @media (min-width: 992px) and (max-width: 1150px) {
+      padding: 95px 80px;
     }
-    p {
-      font-family: 'Helvetica';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 123%;
-      color: #000000;
-      padding-top: 30px;
-      max-width: 552px;
+
+    @media (min-width: 878px) and (max-width: 992px) {
+      padding: 90px 50px;
+    }
+
+    @media (max-width: 878px) {
+      flex-direction: column;
+      padding: 48px 24px;
+      gap: 40px;
+    }
+
+    .fink-img {
+      img {
+        @media (max-width: 768px) {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .fink-detail {
+      h2 {
+        font-family: "Dream to Berich DEMO (FOR USE P";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 123%;
+        color: #000000;
+
+        @media (max-width: 768px) {
+          font-size: 28px;
+        }
+      }
+      p {
+        font-family: "Helvetica";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 123%;
+        color: #000000;
+        padding-top: 30px;
+        max-width: 552px;
+
+        @media (max-width: 768px) {
+          font-size: 18px;
+          padding-top: 16px;
+        }
+      }
     }
   }
-
-
 }
 .great_moves {
   padding: 30px 70px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 30px 24px;
+  }
   h5 {
-    font-family: 'Dream to Berich DEMO (FOR USE P';
+    font-family: "Dream to Berich DEMO (FOR USE P";
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
     line-height: 123%;
     /* identical to box height, or 59px */
-     padding-top: 30px;
+    padding-top: 30px;
     text-align: center;
 
-    background: linear-gradient(
-      182.84deg,
-      #ffadf2 -6.54%,
-      #eefe8d 31.83%,
-      #a78eff 64.5%
-    );
+    background: linear-gradient(182.84deg, #ffadf2 -6.54%, #eefe8d 31.83%, #a78eff 64.5%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
 
-
-
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
   }
 }
