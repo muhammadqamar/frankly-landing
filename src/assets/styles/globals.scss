@@ -1,6 +1,6 @@
 @import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/plus-jakarta-display.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-@import url("../fonts/stylesheet.css");
+@import url("/fonts/stylesheet.css");
 * {
   box-sizing: border-box;
 }
@@ -327,6 +327,8 @@ p {
     text-align: center;
     letter-spacing: 0.03em;
     color: #ffffff;
+    position: relative;
+    z-index: 1;
 
     @media (min-width: 768px) and (max-width: 992px) {
       font-size: 52px;
@@ -362,10 +364,12 @@ p {
   .smile_two {
     left: 41%;
     bottom: 18%;
+    z-index: 2;
   }
   .smile_three {
     top: 54px;
     right: 130px;
+    z-index: 2;
   }
 }
 
