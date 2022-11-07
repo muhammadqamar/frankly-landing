@@ -53,7 +53,9 @@ const Index = () => {
           />
         </div>
       </div>
-      <EarnCash />
+      <div className="hero_container">
+        <EarnCash />
+      </div>
 
       <LetsBreakSection />
       <ClubSection />
