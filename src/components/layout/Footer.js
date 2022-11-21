@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Index = () => {
   return (
@@ -15,8 +16,8 @@ const Index = () => {
               alt="frankly logo"
             />
             <h3 className="footer_subheading">
-              Frankly is a platform that lets customers earn unlimited cash back for views generated
-              on social.
+              Frankly is a platform that lets customers earn unlimited cash back
+              for views generated on social.
             </h3>
           </div>
           <div className=" footer_btns">
@@ -24,7 +25,9 @@ const Index = () => {
               <button className="btn">Submit Reel</button>
             </div>
             <div className="btn_bx">
-              <button className="btn btn_brand">I’m a brand</button>
+              <Link href="https://w5jl1zzzi5r.typeform.com/to/H5whuaGA">
+                <button className="btn btn_brand">I’m a brand</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -58,7 +61,9 @@ const Index = () => {
               Contact
             </a>
           </div>
-          <p className="footer_emailPara">hello@frankly.co.in</p>
+          <p className="footer_emailPara">
+            <Link href="mailto:hello@frankly.co.in">hello@frankly.co.in</Link>
+          </p>
         </div>
         <div className="horizontal_line"></div>
         <p className="footer_para">2022. All Rights Reserved</p>

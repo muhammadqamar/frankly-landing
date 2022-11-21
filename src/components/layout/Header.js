@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Index = () => {
   const [show, setShow] = React.useState(false);
@@ -33,16 +34,31 @@ const Index = () => {
             Say hi
           </a>
         </div>
-        <div className="icon_logo">
-          <Image
-            className="twitter_icon"
-            src="/images/twitter.svg"
-            width={24}
-            height={24}
-            objectFit="cover"
-            alt="icon"
-          />
-          <Image src="/images/facebook.svg" width={24} height={24} objectFit="cover" alt="icon" />
+        <div className=" icon_logo header_btns">
+          <div className="_let-break-btn-box">
+            <button className="btn unique_btn">
+              {" "}
+              <Link href="">Submit Reel</Link>
+            </button>
+          </div>
+          <div className="btn_bx">
+            <div className="_let-break-btn-box">
+              <button className="btn unique_btn">
+                <Link href="https://w5jl1zzzi5r.typeform.com/to/H5whuaGA">
+                  I’m a brand
+                </Link>
+              </button>
+            </div>
+          </div>
+          <Link href="https://www.instagram.com/franklyapp/">
+            <Image
+              src="/images/instagram.svg"
+              width={35}
+              height={35}
+              objectFit="cover"
+              alt="icon"
+            />
+          </Link>
         </div>
         <div className="mob-icon" onClick={showNav}>
           {show === false ? (
@@ -80,16 +96,28 @@ const Index = () => {
               Say hi
             </a>
           </div>
-          <div className="icon_logo_mob">
-            <Image
-              className="twitter_icon"
-              src="/images/twitter.svg"
-              width={24}
-              height={24}
-              objectFit="cover"
-              alt="icon"
-            />
-            <Image src="/images/facebook.svg" width={24} height={24} objectFit="cover" alt="icon" />
+          <div className=" icon_logo header_btns header_mob_btns">
+            <div className="_let-break-btn-box">
+              <button className="btn unique_btn">Submit Reel</button>
+            </div>
+            <div className="btn_bx">
+              <div className="_let-break-btn-box">
+                <button className="btn unique_btn">
+                  <Link href="https://w5jl1zzzi5r.typeform.com/to/H5whuaGA">
+                    I’m a brand
+                  </Link>
+                </button>
+              </div>
+            </div>
+            <Link href="https://www.instagram.com/franklyapp/">
+              <Image
+                src="/images/instagram.svg"
+                width={35}
+                height={35}
+                objectFit="cover"
+                alt="icon"
+              />
+            </Link>
           </div>
         </div>
       )}
