@@ -194,14 +194,14 @@ const Register = () => {
                     <li>Tag @XXX and add our hashtag #Frankly to your caption.</li>
                     <li> Show love to XXXX by making it the highlight of your reel.</li>
                     <li>
-                      Your CREATIVITY would be rewarded. Most importantly, Have fun with your Reels!
+                      Your CREATIVITY would be rewarded. Make sure to have fun with your Reel!
                     </li>
                   </ul>
 
                   <input
                     type="url"
                     name="reelLink"
-                    placeholder="Reel Link"
+                    placeholder="Paste Reel Link here"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.reelLink}
@@ -220,7 +220,7 @@ const Register = () => {
                       }}
                       className="register-button"
                     >
-                      Submit Reel
+                      Next
                     </button>
                   </div>
                 </div>

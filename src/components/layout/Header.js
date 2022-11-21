@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Index = () => {
   const [show, setShow] = React.useState(false);
@@ -15,20 +16,22 @@ const Index = () => {
   return (
     <>
       <div className="nav_main">
-        <Image
-          src="/images/frankly_hash.svg"
-          width={132}
-          height={35.59}
-          objectFit="cover"
-          alt="frankly logo"
-        />
+        <Link href="/">
+          <Image
+            src="/images/frankly_hash.svg"
+            width={132}
+            height={35.59}
+            objectFit="cover"
+            alt="frankly logo"
+          />
+        </Link>
         <div className="links">
           <a className="header_link work_link" href="">
             How it works?
           </a>
-          <a className="header_link faq_link" href="">
+          <Link className="header_link faq_link" href="/faq">
             FAQs
-          </a>
+          </Link>
           <a className="header_link" href="">
             Say hi
           </a>
