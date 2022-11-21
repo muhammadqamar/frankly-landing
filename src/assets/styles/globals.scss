@@ -15,8 +15,8 @@ button {
   font-family: "Inter", sans-serif;
 }
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: none !important;
   font-weight: 500;
   font-size: 16px;
   font-family: "Plus Jakarta Display", sans-serif;
@@ -43,7 +43,6 @@ p {
   max-width: 1440px;
   margin: 0 auto;
 }
-
 // Header
 
 .nav_main {
@@ -53,6 +52,10 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (min-width: 992px) and (max-width: 1100px) {
+    padding: 28px 60px 31.41px 60px;
+  }
 
   @media (max-width: 768px) {
     padding: 28px 24px;
@@ -65,6 +68,10 @@ p {
   }
 
   .links {
+    margin-left: 100px;
+    @media (min-width: 992px) and (max-width: 1100px) {
+      margin-left: 20px;
+    }
     @media (max-width: 992px) {
       display: none;
     }
@@ -84,10 +91,22 @@ p {
   }
   .icon_logo {
     @media (max-width: 992px) {
-      display: none;
+      display: none !important;
     }
     .twitter_icon {
       margin-right: 24px;
+    }
+  }
+  .header_btns {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding-top: 5px;
+    .header_btn {
+      background: #000000;
+      font-weight: 500;
+      padding: 15px 20px;
+      color: #ffffff;
     }
   }
 }
@@ -117,9 +136,16 @@ p {
       color: #000000;
     }
   }
-  .icon_logo_mob {
+  .header_mob_btns {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 5px;
+    @media (max-width: 380px) {
+      gap: 7px;
+    }
     .twitter_icon {
       margin-right: 24px;
     }
@@ -198,6 +224,7 @@ p {
           font-family: "Plus Jakarta Display", sans-serif;
           border-radius: 243px;
           font-style: normal;
+          cursor: pointer;
           font-weight: 700;
           font-size: 16px;
           line-height: 21px;
@@ -319,6 +346,10 @@ p {
       z-index: 999;
       pointer-events: none;
 
+      @media (max-width: 992px) {
+        display: none;
+      }
+
       //
       width: 0;
       height: 30px;
@@ -399,15 +430,6 @@ p {
       background-clip: text;
       text-fill-color: transparent;
     }
-    // span {
-    //   background: linear-gradient(
-    //       173.29deg,
-    //       #ffadf2 40.09%,
-    //       #eefe8d 63.07%,
-    //       #a78eff 82.63%
-    //     ),
-    //     linear-gradient(0deg, #ffffff, #ffffff);
-    // }
   }
   .smile {
     position: absolute;
@@ -427,7 +449,6 @@ p {
     z-index: 2;
   }
 }
-
 // Earn Section
 
 .earn_main {
@@ -552,7 +573,6 @@ p {
     }
   }
 }
-
 /* register form */
 
 .register-form {
@@ -579,7 +599,6 @@ p {
   input {
     width: 356px;
     height: 61px;
-
     font-family: "Mabry Pro";
     font-style: normal;
     font-weight: 500;
@@ -587,10 +606,7 @@ p {
     line-height: 16px;
     text-align: center;
     border: none;
-    /* Black */
-
     color: #070928;
-
     background: #f4f5fb;
     border-radius: 16px;
   }
@@ -608,10 +624,7 @@ p {
       font-weight: 700;
       font-size: 20px;
       line-height: 20px;
-      /* identical to box height */
-
       text-align: center;
-
       color: #ffffff;
       background: #000000;
       border-radius: 83px;
@@ -885,7 +898,7 @@ p {
 
       img {
         @media (max-width: 768px) {
-          width: -webkit-fill-available;
+          width: 100%;
           height: auto;
         }
       }
@@ -927,43 +940,8 @@ p {
     @media (max-width: 768px) {
       margin: 47px 0 56px;
     }
-
-    ._let-break-btn-box {
-      background: #ffffff;
-      border: 1.05687px solid #010101;
-      border-radius: 129px;
-
-      // height:73.26px;
-      // height: 66px;
-      // width: 237.45px;
-      .btn {
-        // width: 192.88px;
-        // height: 24px;
-        padding: 21px 23px;
-        background: #000000;
-        border: 1px solid #000000;
-        border-radius: 126px;
-
-        font-family: "Inter", sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 24px;
-        letter-spacing: 0.03em;
-
-        color: #ffffff;
-
-        position: relative;
-        left: -5px;
-        top: -5px;
-      }
-      .btn_brand {
-        background: #000000;
-      }
-    }
   }
 }
-
 // _club-section
 
 .club_bg {
@@ -1123,30 +1101,33 @@ p {
   }
 }
 .great_moves {
-  padding: 30px 70px;
+  padding: 32px 70px;
   text-align: center;
-
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 992px) and (max-width: 1100px) {
+    padding: 32px 20px;
+  }
   @media (max-width: 768px) {
     padding: 30px 24px;
   }
-  h5 {
-    font-family: "Dream to Berich DEMO (FOR USE P";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 123%;
-    /* identical to box height, or 59px */
-    padding-top: 30px;
-    text-align: center;
-
-    background: linear-gradient(182.84deg, #ffadf2 -6.54%, #eefe8d 31.83%, #a78eff 64.5%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-
-    @media (max-width: 768px) {
-      font-size: 32px;
+  .great_moves_logo {
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  .mob_logo {
+    display: none;
+    @media (max-width: 767px) {
+      display: block;
+    }
+    @media (max-width: 580px) {
+      width: 100%;
     }
   }
 }
@@ -1258,5 +1239,38 @@ p {
         }
       }
     }
+  }
+}
+
+// unique button styling
+._let-break-btn-box {
+  background: #ffffff;
+  border: 1.05687px solid #010101;
+  border-radius: 129px;
+  .same-btn {
+    padding: 21px 23px;
+    background: #000000;
+    border: 1px solid #000000;
+    border-radius: 126px;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    position: relative;
+    left: -5px;
+    top: -5px;
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+  .unique_btn {
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 16px;
   }
 }

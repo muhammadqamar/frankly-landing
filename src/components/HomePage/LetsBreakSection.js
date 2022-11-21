@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const LetsBreakSection = () => {
   return (
@@ -50,11 +50,11 @@ const LetsBreakSection = () => {
             </div>
           </div>
           {/*Button  */}
-        <div className='_let-break-btn'>
-        <div className="_let-break-btn-box">
-            <button className="btn btn_brand">START EARNING</button>
+          <div className="_let-break-btn">
+            <div className="_let-break-btn-box">
+              <button className="same-btn btn_brand">START EARNING</button>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </section>

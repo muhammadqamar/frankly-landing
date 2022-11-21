@@ -105,7 +105,22 @@ const Index = () => {
           objectFit="cover"
           alt="logo"
         />
-        <h5>CREATE WHAT MOVES YOU</h5>
+        <Image
+          className="logo great_moves_logo"
+          src="/images/great_moves_logo3.svg"
+          width={976}
+          height={75}
+          objectFit="cover"
+          alt="logo"
+        />
+        <Image
+          className="logo mob_logo"
+          src="/images/mob_logo3.svg"
+          width={500}
+          height={75}
+          objectFit="cover"
+          alt="logo"
+        />
       </div>
     </>
   );
