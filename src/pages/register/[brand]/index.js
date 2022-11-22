@@ -93,14 +93,15 @@ const Register = () => {
             const sheet = doc.sheetsByIndex[0];
             const newDate = new Date();
             const result = await sheet.addRow({
-              Phone: "+91" + values.phone,
+              Name: values.name,
+              Phone: values.phone,
               Email: values.email,
               ["Reel Link"]: values.reelLink,
-              PayTM: values.paytm,
+              ["PayTM/UPI ID"]: values.paytm,
               Brand: router.query.brand,
               Timestamp: newDate.toLocaleString(),
             });
-
+            console.log(result.Name, result.Phone);
             if (result._rowNumber) {
               setActiveScreen("done");
             }
@@ -247,8 +248,8 @@ const Register = () => {
                     <li>
                       <Image src="/images/hashtag.svg" alt="home" width="24" height="24" />
                       <p>
-                        Post with <strong>#Frankly & @Dough&Cream</strong> and submit your reel
-                        link.
+                        PayTM/UPI ID Post with <strong>#Frankly & @Dough&Cream</strong> and submit
+                        your reel link.
                       </p>
                     </li>
                     <li>
@@ -335,7 +336,11 @@ const Register = () => {
                   <div className="payment-box">
                     <div
                       onClick={() => {
-                        setUpiId(true), setPaytm(false);
+                        if (!values.phone) {
+                          setUpiId(false);
+                        } else {
+                          setUpiId(true), setPaytm(false);
+                        }
                       }}
                       className={upiId ? `p-b-img bg-color` : `p-b-img`}
                     >
@@ -344,7 +349,11 @@ const Register = () => {
                     <div className="devider" />
                     <div
                       onClick={() => {
-                        setPaytm(true), setUpiId(false);
+                        if (!values.phone) {
+                          setPaytm(false);
+                        } else {
+                          setPaytm(true), setUpiId(false);
+                        }
                       }}
                       className={paytm ? `p-b-img bg-color` : `p-b-img`}
                     >
@@ -377,20 +386,32 @@ const Register = () => {
                       <div className="error">{errors.phone && touched.phone && errors.phone}</div>
                     </>
                   )}
-                  <input
-                    className="upi-input"
-                    type="text"
-                    name="paytm"
-                    placeholder={
-                      (paytm === true && "Enter your PayTm Number") ||
-                      (upiId === true && "Enter your UPI ID") ||
-                      "Select a payment method above"
-                    }
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.paytm}
-                  />
-                  <div className="error">{errors.paytm && touched.paytm && errors.paytm}</div>
+                  {paytm === true || upiId === true ? (
+                    <>
+                      <input
+                        className="upi-input"
+                        type="text"
+                        name="paytm"
+                        placeholder={
+                          (paytm === true && "Enter your PayTm Number") ||
+                          (upiId === true && "Enter your UPI ID") ||
+                          "Select a payment method above"
+                        }
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.paytm}
+                      />
+
+                      <div className="error">{errors.paytm && touched.paytm && errors.paytm}</div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="select-input-box">
+                        <p className="text">Select a payment method above</p>
+                      </div>
+                      {!values.phone && <div className="error">required</div>}
+                    </>
+                  )}
                   <div className="btn-cover">
                     <button disabled={isSubmitting} type="submit" className="register-button">
                       {isSubmitting ? "Submitting ..." : "Submit Reel"}
