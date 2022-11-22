@@ -2,16 +2,47 @@ import { useState, useRef, useEffect } from "react";
 import { Formik } from "formik";
 import Image from "next/image";
 import Link from "next/link";
+import Slider from "react-slick";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
+const earnCard = [
+  {
+    price: "₹3,000",
+    views: "5k - 10k",
+  },
+  {
+    price: "₹5,000",
+    views: "15k - 18k",
+  },
+  {
+    price: "₹10,000",
+    views: "45k - 50k",
+  },
+  {
+    price: "₹25,000",
+    views: "130k - 150k ",
+  },
+];
+
 const Register = () => {
   const [activeScreen, setActiveScreen] = useState("welcome");
   const [errorCustom, setErrorCustom] = useState("");
+  const [paytm, setPaytm] = useState(false);
+  const [upiId, setUpiId] = useState(false);
   const router = useRouter();
   const doc = new GoogleSpreadsheet(process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID);
   const formRef = useRef();
+
+  const settings = {
+    arrows: false,
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   return (
     <>
@@ -21,12 +52,15 @@ const Register = () => {
       <div className="register-form">
         <Formik
           innerRef={formRef}
-          initialValues={{ phone: "", reelLink: "", email: "", paytm: "" }}
+          initialValues={{ name: "", phone: "", reelLink: "", email: "", paytm: "" }}
           enableReinitialize
           validate={(values) => {
             const errors = {};
             if (!values.phone) {
               errors.phone = "Required";
+            }
+            if (!values.name) {
+              errors.name = "Required";
             }
             if (!values.reelLink) {
               errors.reelLink = "Required";
@@ -64,9 +98,9 @@ const Register = () => {
               Timestamp: newDate.toLocaleString(),
             });
 
-            if (result._rowNumber) {
-              setActiveScreen("done");
-            }
+            // if (result._rowNumber) {
+            //   setActiveScreen("done");
+            // }
           }}
         >
           {({
@@ -95,35 +129,22 @@ const Register = () => {
                     <Image
                       src="/images/welcome.png"
                       alt="Picture of the author"
-                      width="227"
-                      height="331"
+                      width="189"
+                      height="277"
                     />
                   </div>
-                  <div className="india_code">
-                    <span>+91</span>
-                    <input
-                      type="text"
-                      name="phone"
-                      placeholder="Phone number"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.phone.replace(/\D/g, "")}
-                    />
-                  </div>
-                  <div className="error">{errorCustom}</div>
+                  <h2 className="welcome-heading-two">
+                    Post a Reel about <br /> your <span> experience</span>
+                  </h2>
+                  <p className="welcome-text-bottom">with Dough and Cream & EARN!</p>
+
                   <div className="btn-cover">
                     <button
                       type="button"
-                      onClick={() => {
-                        if (values.phone) {
-                          setActiveScreen("earn now");
-                        } else {
-                          setErrorCustom("required");
-                        }
-                      }}
+                      onClick={() => setActiveScreen("earn now")}
                       className="register-button"
                     >
-                      Start earning
+                      Get Started
                     </button>
                   </div>
                 </div>
@@ -146,20 +167,49 @@ const Register = () => {
                   </div>
 
                   <h2 className="earn-text">
-                    Post a Reel about <br /> your <span>expereince</span>
+                    Reel It, <span> Get Paid!</span>
                   </h2>
+
                   <p className="earn-sub-text">
-                    with <span style={{ textTransform: "capitalize" }}>{router.query.brand}</span>{" "}
-                    and
+                    Earn Unlimited cash. <br />
+                    Get direct payment through UPI.
                   </p>
-                  <button className="earn-button">EARN ₹</button>
-                  <div className="hand-img">
-                    <Image src="/images/hand.svg" alt="hand" width="165" height="292" />
+                  <Slider {...settings}>
+                    {earnCard.map((item, index) => (
+                      <div key={index} className="earning-potential-box">
+                        <div className="e-p-heading">
+                          <p className="e-p-text">Earning Potential</p>
+                        </div>
+                        <h1 className="e-p-price">{item.price}</h1>
+                        <div className="hand-img">
+                          <Image src="/images/hand.svg" alt="hand" width="156" height="275" />
+                        </div>
+                        <div className="e-p-view-box">
+                          <Image src="/images/views.svg" alt="hand" width="12" height="12" />
+                          <p className="views-number">{item.views} Views</p>
+                        </div>
+                      </div>
+                    ))}
+                  </Slider>
+                  <div className="india_code earn-input">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="What’s your Name?"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.name}
+                    />
                   </div>
+                  <div className="error">{errorCustom}</div>
                   <div className="btn-cover">
                     <button
                       onClick={() => {
-                        setActiveScreen("reel");
+                        if (values.name) {
+                          setActiveScreen("reel");
+                        } else {
+                          setErrorCustom("required");
+                        }
                       }}
                       className="register-button"
                     >
@@ -191,10 +241,36 @@ const Register = () => {
                   </div>
 
                   <ul>
-                    <li>Tag @XXX and add our hashtag #Frankly to your caption.</li>
-                    <li> Show love to XXXX by making it the highlight of your reel.</li>
                     <li>
-                      Your CREATIVITY would be rewarded. Make sure to have fun with your Reel!
+                      <Image src="/images/hashtag.svg" alt="home" width="24" height="24" />
+                      <p>
+                        Post with <strong>#Frankly & @Dough&Cream</strong> and submit your reel
+                        link.
+                      </p>
+                    </li>
+                    <li>
+                      <Image src="/images/tag-2.svg" alt="home" width="24" height="24" />
+                      <p>
+                        Your newly purchased item should be <br /> the highlight of your reel.
+                      </p>
+                    </li>
+                    <li>
+                      <Image src="/images/video-play.svg" alt="home" width="24" height="24" />
+                      <p> Make sure your account is Public.</p>
+                    </li>
+                    <li>
+                      <Image src="/images/medal-star.svg" alt="home" width="24" height="24" />
+                      <p>
+                        Your creativity would be rewarded.
+                        <br /> Make sure to have fun with your Reel!
+                      </p>
+                    </li>
+                    <li>
+                      <Image src="/images/like-shapes.svg" alt="home" width="24" height="24" />
+                      <p>
+                        Good vibes only: Your videos must <br /> follow Instagram’s Community <br />
+                        Guidelines and general policies.
+                      </p>
                     </li>
                   </ul>
 
@@ -214,9 +290,9 @@ const Register = () => {
                     <button
                       type="button"
                       onClick={() => {
-                        if (!errors.reelLink) {
-                          setActiveScreen("congrats");
-                        }
+                        // if (!errors.reelLink) {
+                        setActiveScreen("congrats");
+                        // }
                       }}
                       className="register-button"
                     >
@@ -245,27 +321,68 @@ const Register = () => {
                   <div className="frankly-logo">
                     <Image src="/images/logo2.svg" alt="home" width="196" height="104" />
                   </div>
-                  <h2 className="congratulations-heading">Congratulations!</h2>
+                  <h2 className="congratulations-heading">Almost there</h2>
                   <h3 className="sub-heading">
-                    You’re on the path to make your purchases pay for themselves!
+                    You’re on the path to make your <br /> purchases pay for themselves!
                   </h3>
                   <h3 className="sub-heading-two">
-                    Enter your email address and phone number below.
+                    Enter your email address and <br /> payment details below.
                   </h3>
 
+                  <div className="payment-box">
+                    <div
+                      onClick={() => {
+                        setUpiId(true), setPaytm(false);
+                      }}
+                      className={upiId ? `p-b-img bg-color` : `p-b-img`}
+                    >
+                      <Image src="/images/bhim-upl.svg" alt="home" width="100" height="49" />
+                    </div>
+                    <div className="devider" />
+                    <div
+                      onClick={() => {
+                        setPaytm(true), setUpiId(false);
+                      }}
+                      className={paytm ? `p-b-img bg-color` : `p-b-img`}
+                    >
+                      <Image src="/images/paytm.svg" alt="home" width="100" height="31" />
+                    </div>
+                  </div>
+
+                  {paytm === true || upiId === true ? (
+                    <>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email address"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
+                      />
+                      <div className="error">{errors.email && touched.email && errors.email}</div>
+                    </>
+                  ) : (
+                    <>
+                      <input
+                        type="text"
+                        name="phone"
+                        placeholder="Phone Number"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.phone.replace(/\D/g, "")}
+                      />
+                      <div className="error">{errors.phone && touched.phone && errors.phone}</div>
+                    </>
+                  )}
                   <input
-                    type="email"
-                    name="email"
-                    placeholder="Email address"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.email}
-                  />
-                  <div className="error">{errors.email && touched.email && errors.email}</div>
-                  <input
+                    className="upi-input"
                     type="text"
                     name="paytm"
-                    placeholder="PayTm/UPI ID"
+                    placeholder={
+                      (paytm === true && "Enter your PayTm Number") ||
+                      (upiId === true && "Enter your UPI ID") ||
+                      "Select a payment method above"
+                    }
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.paytm}
@@ -273,7 +390,7 @@ const Register = () => {
                   <div className="error">{errors.paytm && touched.paytm && errors.paytm}</div>
                   <div className="btn-cover">
                     <button disabled={isSubmitting} type="submit" className="register-button">
-                      {isSubmitting ? "Submitting ..." : "Done"}
+                      {isSubmitting ? "Submitting ..." : "Submit Reel"}
                     </button>
                   </div>
                 </div>
@@ -296,12 +413,12 @@ const Register = () => {
                     </Link>
                   </div>
 
-                  <h2 className="posted-main-heading">YAY! You’re all set!</h2>
+                  <h2 className="posted-main-heading">Congratulations!</h2>
 
                   <h3 className="post-sub-heading">
-                    We’ll reach out to you via email to get you paid after 72
+                    We’ll reach out to you via Message to get <br /> you paid after 72 hours since
+                    the reel was <br /> posted.
                   </h3>
-                  <h3 className="post-sub-two-heading">hours after the reel was posted.</h3>
                   <div className="post-img">
                     <Image src="/images/done.svg" alt="home" width="304" height="327" />
                   </div>

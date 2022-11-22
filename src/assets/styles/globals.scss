@@ -361,8 +361,8 @@ p {
             top: 50%;
             left: 50%;
             transform: translate(-50%, 44%);
-            width: 16px;
-            height: 16px;
+            width: 12px;
+            height: 12px;
             background-image: url(/images/down-arrow.svg);
             background-repeat: no-repeat;
             background-position: center;
@@ -584,13 +584,21 @@ p {
 .register-form {
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding: 19px 17.5px 45px;
+  max-width: 392px;
+
+  margin: 0 auto;
+  form {
+    width: -webkit-fill-available;
+  }
   .form-register-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
   .india_code {
     position: relative;
+    width: 100%;
     span {
       font-family: "Mabry Pro";
       font-style: normal;
@@ -603,49 +611,52 @@ p {
     }
   }
   input {
-    width: 356px;
+    width: 100%;
     height: 61px;
     font-family: "Mabry Pro";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    line-height: 16px;
+    line-height: 20px;
     text-align: center;
     border: none;
     color: #070928;
     background: #f4f5fb;
     border-radius: 16px;
+
+    &::placeholder {
+      color: #070928;
+      opacity: 1; /* Firefox */
+    }
   }
   .btn-cover {
-    position: relative;
-    margin: 35px auto;
+    margin: 0 auto;
     button {
-      width: 216px;
-      height: 66px;
-      left: 106px;
-      top: 774px;
+      width: 175px;
+      height: 54px;
       font-family: "Mabry Pro";
       cursor: pointer;
       font-style: normal;
       font-weight: 700;
       font-size: 20px;
-      line-height: 20px;
+      line-height: 25px;
       text-align: center;
       color: #ffffff;
       background: #000000;
       border-radius: 83px;
+      position: relative;
 
       &:after {
-        width: 214px;
-        height: 66px;
+        width: 175px;
+        height: 55px;
         content: "";
         background: #4bd178;
         border: 1px solid #000000;
         border-radius: 83px;
         position: absolute;
-        left: 0px;
+        left: -2px;
+        top: 3px;
         z-index: -1;
-        top: 5px;
       }
     }
   }
@@ -660,12 +671,13 @@ p {
   .controls {
     display: flex;
     justify-content: space-between;
-    margin-top: 17px;
+
     img {
       cursor: pointer;
     }
   }
   .welcome {
+    width: 100%;
     h1 {
       font-family: "Mabry Pro";
       font-style: normal;
@@ -674,27 +686,55 @@ p {
       line-height: 174.28%;
       text-align: center;
       color: #000000;
-      margin: 52px 0 18px;
+      margin: 0 0 18px;
     }
     .well-come-fra {
       margin: 0 auto;
     }
     .welcome-img {
-      margin: 50px auto 47px;
+      margin: 48px auto 62px;
+    }
+
+    .welcome-heading-two {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 32px;
+      text-align: center;
+      color: #000000;
+      margin: 0 0 1px;
+
+      span {
+        font-size: 24px;
+        line-height: 38px;
+        background: linear-gradient(92.95deg, #ffadf2 47.96%, #ffdf35 67.19%, #8a68ff 83.57%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+    }
+    .welcome-text-bottom {
+      font-family: "Mabry Pro";
+      font-style: normal;
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 25.6px;
+      text-align: center;
+      color: #000000;
+      margin-bottom: 37px;
     }
   }
 
   .earn-section {
-    margin-top: 17px;
     .earn-text {
       font-family: "Dream to Berich DEMO (FOR USE P";
       font-style: normal;
       font-weight: 400;
-      font-size: 24px;
-      line-height: 160%;
-      text-align: center;
+      font-size: 22px;
+      line-height: 35px;
+      text-align: left;
       color: #000000;
-      margin: 45px 0 21px;
+      margin: 22px 0 3px;
 
       span {
         background: -webkit-linear-gradient(
@@ -711,140 +751,234 @@ p {
     .earn-sub-text {
       font-family: "Mabry Pro";
       font-style: normal;
-      font-weight: 900;
-      font-size: 20px;
-      line-height: 160%;
-      text-align: center;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 27px;
+      text-align: left;
       color: #000000;
-      margin: 0 0 21px;
+      margin: 0 0 22px;
     }
-    .earn-button {
-      width: 116.05px;
-      height: 42px;
-      background: #8a68ff;
-      border-radius: 50px;
-      font-family: "Mabry Pro";
-      font-style: normal;
-      font-weight: 900;
-      font-size: 20px;
-      line-height: 160%;
-      text-align: center;
-      color: #ffffff;
-      border: none;
-      margin: 0 auto 51px;
+
+    .earn-input {
+      margin-bottom: 23px;
     }
-    .hand-img {
-      margin: 0 auto 50px;
-      padding-left: 20px;
+
+    .earning-potential-box {
+      width: 100%;
+      height: 411px;
+      background: #f4f5fb;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 16px;
+      margin-bottom: 20px;
+
+      .e-p-heading {
+        width: 128px;
+        height: 23px;
+        background: #000000;
+        border-radius: 0px 0px 16px 16px;
+        text-align: center;
+        margin: 0 auto 6px;
+
+        .e-p-text {
+          font-family: "Mabry Pro";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 10px;
+          line-height: 13px;
+          text-align: center;
+          color: #ffffff;
+          margin: 0;
+          padding: 6px 0 6px;
+        }
+      }
+
+      .e-p-price {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 42px;
+        line-height: 160%;
+        color: #000000;
+        margin: 0;
+        text-align: center;
+      }
+      .hand-img {
+        width: 156px;
+        height: 275.17px;
+        margin: -35px auto 16px;
+        padding-left: 5px;
+      }
+
+      .e-p-view-box {
+        width: max-content;
+        height: 23px;
+        background: #ffffff;
+        border: 1px solid #000000;
+        border-radius: 16px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        gap: 6px;
+
+        .views-number {
+          font-family: "Mabry Pro";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 9px;
+          line-height: 11px;
+          text-align: center;
+          color: #000000;
+          margin: 0;
+        }
+      }
     }
   }
   .post-guideines {
-    padding: 0 20px;
     .title-flex {
       display: flex;
       align-items: flex-end;
+      justify-content: flex-start;
       gap: 13px;
-      margin: 47px 0 36px;
+      margin: 15px 0 45px;
       .post-title {
         font-weight: 400;
-        font-size: 24px;
-        line-height: 160%;
+        font-size: 22px;
+        line-height: 35px;
         color: #000000;
         margin: 0;
       }
     }
 
     input {
-      width: 100% !important;
-      max-width: 356px;
+      width: 100%;
+      margin-bottom: 23px;
     }
 
     ul {
       margin: 0 0 66px;
-      max-width: 381px;
-      padding: 0 53px 0 10px;
+      width: 100%;
+      padding: 0;
+
+      list-style: none;
       li {
-        font-family: "Mabry Pro";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 160%;
-        color: #000000;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+
+        p {
+          font-family: "Mabry Pro";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 17px;
+          line-height: 27px;
+          margin: 0;
+          color: #000000;
+        }
 
         + li {
-          margin-top: 25px;
+          margin-top: 28px;
         }
       }
     }
   }
 
   .congratulations {
-    max-width: 365px;
+    width: 100%;
 
     .frankly-logo {
-      margin: 25px auto 26px;
+      margin: 25px auto 20px;
     }
     .congratulations-heading {
       font-style: normal;
       font-weight: 400;
-      font-size: 24px;
-      line-height: 160%;
+      font-size: 22px;
+      line-height: 35px;
       text-align: center;
       color: #000000;
-      margin: 0 0 44px;
+      margin: 0 0 24px;
     }
     .sub-heading {
       font-family: "Mabry Pro";
       font-style: normal;
       font-weight: 500;
-      font-size: 22px;
-      line-height: 129%;
+      font-size: 17px;
+      line-height: 21px;
       text-align: center;
       color: #000000;
-      margin: 0 0 44px;
+      margin: 0 0 28px;
     }
 
     .sub-heading-two {
       font-family: "Mabry Pro";
       font-style: normal;
       font-weight: 500;
-      font-size: 22px;
-      line-height: 129%;
+      font-size: 17px;
+      line-height: 21px;
       text-align: center;
       color: #000000;
-      margin: 0 0 65px;
+      margin: 0 0 36px;
+    }
+
+    .upi-input {
+      margin-bottom: 23px;
+    }
+
+    .payment-box {
+      width: 100%;
+      height: 98px;
+      background: #f4f5fb;
+      border: 1px solid rgba(0, 0, 0, 0.22);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+      margin-bottom: 30px;
+
+      .p-b-img {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+          background: #c8f0ff;
+        }
+      }
+      .bg-color {
+        background: #c8f0ff;
+      }
+
+      .devider {
+        width: 1px;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.22);
+      }
     }
   }
   .posted {
-    max-width: 351px;
+    width: 100%;
     .posted-main-heading {
       font-weight: 400;
       font-size: 24px;
       line-height: 160%;
       text-align: center;
       color: #000000;
-      margin: 98px 0 0;
+      margin: 22px 0 36px;
     }
     .post-sub-heading {
       font-family: "Mabry Pro";
       font-style: normal;
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 160%;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 27px;
       text-align: center;
       color: #000000;
-      margin: 20px 0;
-    }
-
-    .post-sub-two-heading {
-      font-family: "Mabry Pro";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 160%;
-      text-align: center;
-      color: #000000;
-      margin: 0 0 79px;
+      margin: 0 0 74px;
     }
 
     .post-img {
@@ -1278,5 +1412,17 @@ p {
     font-weight: 500;
     font-size: 14px;
     padding: 10px 16px;
+  }
+}
+
+// slider control
+
+.slick-dots {
+  bottom: 33px !important;
+  left: -7px;
+
+  li {
+    width: 2px !important;
+    height: 2px !important;
   }
 }
