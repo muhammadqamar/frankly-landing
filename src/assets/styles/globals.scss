@@ -586,8 +586,16 @@ p {
   justify-content: center;
   padding: 19px 17.5px 45px;
   max-width: 392px;
-
   margin: 0 auto;
+  position: relative;
+
+  .chat_icon {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    cursor: pointer;
+  }
+
   form {
     width: -webkit-fill-available;
   }
