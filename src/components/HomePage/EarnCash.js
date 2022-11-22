@@ -17,7 +17,7 @@ const EarnCash = () => {
           </div>
           <div className="earn_right">
             <Image
-              src="/images/earn_cash_logo.svg"
+              src="/images/earn_cash_logo.png"
               width={546}
               height={503}
               objectFit="cover"

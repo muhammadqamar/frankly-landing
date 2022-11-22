@@ -16,7 +16,7 @@ export const FranklyAbout = () => {
           </p>
         </div>
         <div className="fink-img">
-          <Image src="/images/fran_01.svg" width={556} height={701} objectFit="cover" alt="logo" />
+          <Image src="/images/fran_01.png" width={556} height={701} objectFit="cover" alt="logo" />
         </div>
       </div>
     </div>

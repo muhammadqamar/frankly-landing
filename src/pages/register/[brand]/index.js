@@ -101,7 +101,6 @@ const Register = () => {
               Brand: router.query.brand,
               Timestamp: newDate.toLocaleString(),
             });
-            console.log(result.Name, result.Phone);
             if (result._rowNumber) {
               setActiveScreen("done");
             }
@@ -409,7 +408,6 @@ const Register = () => {
                       <div className="select-input-box">
                         <p className="text">Select a payment method above</p>
                       </div>
-                      {!values.phone && <div className="error">required</div>}
                     </>
                   )}
                   <div className="btn-cover">

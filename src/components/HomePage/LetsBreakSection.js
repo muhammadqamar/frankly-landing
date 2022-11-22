@@ -15,7 +15,7 @@ const LetsBreakSection = () => {
             {/* One */}
             <div className="card-detail">
               <Image
-                src="/images/break_01.svg"
+                src="/images/break_01.png"
                 width={342}
                 height={308}
                 objectFit="cover"
@@ -27,7 +27,7 @@ const LetsBreakSection = () => {
             {/* Two */}
             <div className="card-detail">
               <Image
-                src="/images/break_02.svg"
+                src="/images/break_02.png"
                 width={342}
                 height={308}
                 objectFit="cover"
@@ -39,7 +39,7 @@ const LetsBreakSection = () => {
             {/* Three */}
             <div className="card-detail">
               <Image
-                src="/images/break_03.svg"
+                src="/images/break_03.png"
                 width={342}
                 height={308}
                 objectFit="cover"
