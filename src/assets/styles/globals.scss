@@ -4,6 +4,7 @@
 @import url("/fonts/stylesheet.css");
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 html,
 body {
@@ -304,10 +305,10 @@ p {
 .hero_container {
   max-width: 1440px;
   margin: 0 auto;
-  cursor: none;
 
   .hero_main {
     padding: 0 26px 24px 27px;
+    position: relative;
     @media (max-width: 768px) {
       padding: 0 16px 24px;
     }
@@ -328,57 +329,62 @@ p {
         padding: 50px 24px;
       }
     }
-
-    .mouse-style {
-      position: fixed;
-      top: 0;
+    .down-arrow-box {
+      width: 100%;
+      position: absolute;
       left: 0;
-      // width: 22px;
-      // height: 22px;
-      // border: 2px solid rgba(31, 30, 30, 0.808);
-      // border-radius: 100%;
-      transform: translate(-50%, -50%);
-      -webkit-transition-duration: 100ms;
-      transition-duration: 100ms;
-      -webkit-transition-timing-function: ease-out;
-      transition-timing-function: ease-out;
-      will-change: width, height, transform, border;
-      z-index: 999;
-      pointer-events: none;
+      bottom: 46px;
 
-      @media (max-width: 992px) {
-        display: none;
+      @media (max-width: 768px) {
+        bottom: 26px;
       }
 
-      //
-      width: 0;
-      height: 30px;
-      border: 2px solid;
-      border-radius: 2px;
-      animation: jumpInfinite 1.5s infinite;
+      .mouse-style-box {
+        width: 30px;
+        height: 41px;
+        margin: 0 auto;
+        border: 1px solid #000000;
+        border-radius: 122px;
+        cursor: pointer;
 
-      &:after {
-        content: " ";
-        position: absolute;
-        top: 13px;
-        left: -8px;
-        width: 16px;
-        height: 16px;
-        border-bottom: 4px solid;
-        border-right: 4px solid;
-        border-radius: 4px;
-        transform: rotateZ(45deg);
-      }
+        @media (max-width: 768px) {
+          width: 18px;
+          height: 26px;
+        }
 
-      @keyframes jumpInfinite {
-        0% {
-          margin-top: 0;
-        }
-        50% {
-          margin-top: 20px;
-        }
-        100% {
-          margin-top: 0;
+        .mouse-style {
+          animation: jumpInfinite 1.5s infinite;
+          position: relative;
+          &:after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 44%);
+            width: 16px;
+            height: 16px;
+            background-image: url(/images/down-arrow.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            @media (max-width: 768px) {
+              width: 8px;
+              height: 8px;
+            }
+          }
+
+          @keyframes jumpInfinite {
+            0% {
+              margin-top: 0;
+            }
+            50% {
+              margin-top: 10px;
+            }
+            100% {
+              margin-top: 0;
+            }
+          }
         }
       }
     }

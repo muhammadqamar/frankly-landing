@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import LetsBreakSection from "./LetsBreakSection";
 import ClubSection from "./ClubSection";
@@ -6,47 +7,17 @@ import { FranklyAbout } from "./FranklyAbout";
 import EarnCash from "./EarnCash";
 
 const Index = () => {
-  const [mousePos, setMousePos] = useState({ x: null, y: null });
-  const [mouseNone, setMouseNone] = useState(true);
-  const [windowSize, setWindowSize] = useState(0);
-
-  console.log(windowSize);
-
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      setMousePos({ x: event.clientX, y: event.clientY });
-    };
-
-    const ScrollDown = () => {
-      if (window.scrollY >= 450) {
-        setMouseNone(false);
-      } else {
-        setMouseNone(true);
-      }
-    };
-
-    setWindowSize(window.innerHeight);
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", ScrollDown);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", ScrollDown);
-    };
-  }, []);
-
   return (
     <>
       <div className="hero_container">
         <div className="hero_main">
-          {mouseNone === true && (
-            <div
-              style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-              className="mouse-style"
-            />
-          )}
-
+          <div className="down-arrow-box">
+            <Link href="#downarrow">
+              <div className="mouse-style-box">
+                <div className="mouse-style" />
+              </div>
+            </Link>
+          </div>
           <div className="hero_bx">
             <Image
               src="/images/hero_Img.svg"
@@ -58,7 +29,7 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <div className="reel_paid_bg">
+      <div id="downarrow" className="reel_paid_bg">
         <div className="reel_paid">
           <h4 className="hero_heading">
             Just Shopped? <br /> Reel It.
