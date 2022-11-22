@@ -290,9 +290,9 @@ const Register = () => {
                     <button
                       type="button"
                       onClick={() => {
-                        // if (!errors.reelLink) {
-                        setActiveScreen("congrats");
-                        // }
+                        if (!errors.reelLink) {
+                          setActiveScreen("congrats");
+                        }
                       }}
                       className="register-button"
                     >
