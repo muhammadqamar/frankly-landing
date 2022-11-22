@@ -89,9 +89,9 @@ const Index = () => {
             <a className="header_link work_link" href="">
               How it works?
             </a>
-            <a className="header_link faq_link" href="">
+            <Link className="header_link faq_link" href="/faq">
               FAQs
-            </a>
+            </Link>
             <a className="header_link" href="">
               Say hi
             </a>
