@@ -50,9 +50,9 @@ const Register = () => {
         <title>Frankly | Register/{router.query.brand} </title>
       </Head>
       <div className="register-form">
-        <div className="chat_icon">
+        {/*<div className="chat_icon">
           <Image src="/images/chat-icon.svg" alt="Picture of the author" width="38" height="38" />
-        </div>
+  </div>*/}
         <Formik
           innerRef={formRef}
           initialValues={{ name: "", phone: "", reelLink: "", email: "", paytm: "" }}
@@ -101,9 +101,9 @@ const Register = () => {
               Timestamp: newDate.toLocaleString(),
             });
 
-            // if (result._rowNumber) {
-            //   setActiveScreen("done");
-            // }
+            if (result._rowNumber) {
+              setActiveScreen("done");
+            }
           }}
         >
           {({
