@@ -209,7 +209,7 @@ const Register = () => {
                           Dough & Cream
                         </p>
                         <p className={styles.earn_sub_text}>
-                          <span className={styles.tag}>TAG</span>#Frankly &
+                          <span className={styles.tag}>TAG</span> #Frankly &
                           @Dough&Cream <br />
                           in caption
                         </p>
