@@ -1,7 +1,18 @@
 @import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/plus-jakarta-display.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap");
 @import url("/fonts/stylesheet.css");
+
+@font-face {
+  font-family: "Druk Wide Trial";
+  src: url("../fonts/DrukWide-Medium-Trial.otf");
+}
+@font-face {
+  font-family: "The Sidestream";
+  src: url("../fonts/The\ Sidestream.ttf");
+}
+
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -50,6 +61,8 @@ p {
   max-width: 1440px;
   margin: 0 auto;
   padding: 28px 87px 31.41px 95px;
+  position: relative;
+  z-index: 9;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -316,7 +329,12 @@ p {
     .hero_bx {
       max-width: 1387px;
       padding: 172px 84.76px 192px 128px;
-      background: linear-gradient(182.45deg, #ffadf2 -5.17%, #eefe8d 51.85%, #a78eff 100.4%);
+      background: linear-gradient(
+        182.45deg,
+        #ffadf2 -5.17%,
+        #eefe8d 51.85%,
+        #a78eff 100.4%
+      );
       border-radius: 38px;
       img {
         width: -webkit-fill-available;
@@ -430,7 +448,12 @@ p {
     }
 
     .get-paid-text {
-      background: linear-gradient(182.45deg, #ffadf2 40.09%, #eefe8d 63.07%, #a78eff 82.63%);
+      background: linear-gradient(
+        182.45deg,
+        #ffadf2 40.09%,
+        #eefe8d 63.07%,
+        #a78eff 82.63%
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -714,7 +737,12 @@ p {
       span {
         font-size: 24px;
         line-height: 38px;
-        background: linear-gradient(92.95deg, #ffadf2 47.96%, #ffdf35 67.19%, #8a68ff 83.57%);
+        background: linear-gradient(
+          92.95deg,
+          #ffadf2 47.96%,
+          #ffdf35 67.19%,
+          #8a68ff 83.57%
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -1454,5 +1482,43 @@ p {
   li {
     width: 2px !important;
     height: 2px !important;
+  }
+}
+
+// Frankly Reel Page
+.main_reel_section {
+  width: 100%;
+  height: 85vh;
+  // opacity: 0.9;
+
+  .main_reel_container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-width: 2560px;
+    // width: 100%;
+    height: 100%;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+    // background: #eee;
+    margin: 0 auto;
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+    .play_pause_box {
+      display: flex;
+
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      img {
+        cursor: pointer;
+      }
+    }
   }
 }
