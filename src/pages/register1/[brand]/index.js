@@ -135,7 +135,9 @@ const Register = () => {
                       height="35"
                     />
                   </div>
-                  <div className={styles.reel_img_box}>
+                  <div
+                    className={`${styles.reel_img_box} ${styles.reel_img_box1}`}
+                  >
                     <Image
                       src="/images/reel-logo4.png"
                       alt="logo"
@@ -234,33 +236,21 @@ const Register = () => {
                         height="59"
                       />
                     </div>
-                    {/* <div className="india_code earn-input">
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="What’s your Name?"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.name}
-                    />
-                  </div> */}
                     <div className="error">{errorCustom}</div>
-                    <div className="btn-cover">
-                      <button
-                        onClick={() => {
-                          setActiveScreen("submit reel");
-                        }}
-                        className={styles.earn_btn}
-                      >
-                        Start Earning
-                        <Image
-                          src="/images/top-reel-arrow.png"
-                          alt="arrow logo"
-                          width="17"
-                          height="18"
-                        />
-                      </button>
-                    </div>
+                    <button
+                      onClick={() => {
+                        setActiveScreen("submit reel");
+                      }}
+                      className={styles.earn_btn}
+                    >
+                      Start Earning
+                      <Image
+                        src="/images/top-reel-arrow.png"
+                        alt="arrow logo"
+                        width="17"
+                        height="18"
+                      />
+                    </button>
                   </div>
                 </>
               )}
@@ -289,37 +279,60 @@ const Register = () => {
                       </Link>
                     </div>
                     <h2 className={styles.earn_heading}>
-                      Submit your Reel
-                      <br /> link, <span>get Rewarded !</span>
+                      Submit your Reel link, <span>get Rewarded !</span>
                     </h2>
-                    <div className="india_code earn-input">
+                    <div className={styles.earn_input_box}>
                       <label className={styles.label}>Full Name</label>
                       <input
+                        className={styles.earn_input}
                         type="text"
                         name="name"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.name}
                       />
+                      <div className="error">
+                        {errors.name && touched.name && errors.name}
+                      </div>
+                    </div>
+                    <div className={styles.earn_input_box}>
+                      <label className={styles.label}>Phone number</label>
+                      <>
+                        <input
+                          className={styles.earn_input}
+                          type="text"
+                          name="phone"
+                          placeholder="+91"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.phone.replace(/\D/g, "")}
+                        />
+                        <div className="error">
+                          {errors.phone && touched.phone && errors.phone}
+                        </div>
+                      </>
+                    </div>
+                    <div className={styles.earn_input_box}>
+                      <label className={styles.label}>Paste Reel Link</label>
+                      <input
+                        className={styles.earn_input}
+                        type="url"
+                        name="reelLink"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.reelLink}
+                      />
+                      <div className="error">
+                        {errors.reelLink && touched.reelLink && errors.reelLink}
+                      </div>
                     </div>
                     <div className="error">{errorCustom}</div>
-                    <input
-                      type="url"
-                      name="reelLink"
-                      placeholder="Paste Reel Link here"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.reelLink}
-                    />
-                    <div className="error">
-                      {errors.reelLink && touched.reelLink && errors.reelLink}
-                    </div>
                   </div>
                   <button
                     onClick={() => {
                       setActiveScreen("congrats");
                     }}
-                    className={styles.earn_btn}
+                    className={`${styles.earn_btn} ${styles.submit_btn}`}
                   >
                     Submit Reel
                     <Image
@@ -332,7 +345,6 @@ const Register = () => {
                 </>
               )}
               {activeScreen === "congrats" && (
-                // <>
                 <div
                   className={`${styles.form_reel_container} ${styles.earn_now}`}
                 >
@@ -363,45 +375,6 @@ const Register = () => {
                       for themselves. We&rsquo;ll be in touch with you in{" "}
                       <span>72 hours.</span>
                     </p>
-                  </div>
-                </div>
-              )}
-
-              {activeScreen === "done" && (
-                <div className="form-register-container  posted">
-                  <div className="controls">
-                    <Image
-                      src="/images/back.svg"
-                      alt="back"
-                      width="10"
-                      height="19"
-                      onClick={() => {
-                        setActiveScreen("congrats");
-                      }}
-                    />
-                    <Link href="/">
-                      <Image
-                        src="/images/home.svg"
-                        alt="home"
-                        width="23"
-                        height="23"
-                      />
-                    </Link>
-                  </div>
-
-                  <h2 className="posted-main-heading">Congratulations!</h2>
-
-                  <h3 className="post-sub-heading">
-                    We’ll reach out to you via Message to get <br /> you paid
-                    after 72 hours since the reel was <br /> posted.
-                  </h3>
-                  <div className="post-img">
-                    <Image
-                      src="/images/done.svg"
-                      alt="home"
-                      width="304"
-                      height="327"
-                    />
                   </div>
                 </div>
               )}

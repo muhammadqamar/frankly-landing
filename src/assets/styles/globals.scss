@@ -55,6 +55,13 @@ p {
   max-width: 1440px;
   margin: 0 auto;
 }
+
+.error {
+  font-size: 12px;
+  padding: 5px;
+  color: red;
+  text-transform: lowercase;
+}
 // Header
 
 .nav_main {

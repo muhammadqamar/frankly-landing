@@ -43,7 +43,7 @@
       width: 100%;
       justify-content: space-between;
       .reel_img {
-        margin: 54.82px 0 148.7px 26px;
+        margin: 97px 0 148.7px 20px;
       }
 
       .reel_img1 {
@@ -52,6 +52,9 @@
       .reel_img3 {
         margin: 13px 13px 0 0;
       }
+    }
+    .reel_img_box1 {
+      align-items: center;
     }
     .reel_para {
       font-family: "Poppins";
@@ -65,7 +68,8 @@
       color: #ffffff;
     }
     .reel_started_btn {
-      width: 334px;
+      max-width: 334px;
+      width: 100%;
       height: 62px;
       position: relative;
       display: flex;
@@ -132,6 +136,9 @@
     display: flex;
     gap: 11.7px;
     margin: 0 0 0 -31px;
+    @media (min-width: 320px) and (max-width: 363px) {
+      margin: 0;
+    }
     .text_box {
       margin: -8px 0 0;
       .earn_sub_text {
@@ -167,10 +174,14 @@
     top: -24px;
     .lines_logo {
       position: absolute;
-      top: 80px;
+      top: 72px;
       right: 108px;
+      @media (min-width: 320px) and (max-width: 363px) {
+        top: 63px;
+      }
     }
     .earnd_logo {
+      width: 100%;
       height: auto;
       position: relative;
     }
@@ -178,7 +189,8 @@
   .earn_btn {
     background: #ff6434;
     color: #ffffff;
-    width: 334px;
+    max-width: 334px;
+    width: 100%;
     height: 62px;
     position: relative;
     display: flex;
@@ -192,7 +204,7 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
-    margin: 0 0 45px;
+    // margin: 0 0 45px;
     text-align: center;
   }
   .earn_heading {
@@ -204,13 +216,46 @@
     text-align: center;
     text-transform: capitalize;
     color: #215647;
-    margin: 0 0 27px;
+    margin: 0 0 65px;
     span {
       font-family: "The Sidestream";
       color: #ff6434;
       font-size: 38px;
       font-weight: 400;
     }
+  }
+  .earn_input_box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+    &:nth-last-child(2) {
+      margin-bottom: 0;
+    }
+    .label {
+      font-family: "Poppins";
+      position: absolute;
+      top: -10px;
+      left: 14px;
+      padding: 0 5px 0 6px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      background-color: #fff;
+      color: #215647;
+    }
+    .earn_input {
+      padding: 16px 0 16px 15px;
+      width: 100%;
+      height: 56px;
+      border: 1.5px solid #215647;
+      border-radius: 15px;
+    }
+  }
+  .submit_btn {
+    margin: 147px auto 0;
   }
 }
 
@@ -246,6 +291,9 @@
       text-transform: capitalize;
       color: #fefbd6;
       position: relative;
+      @media (min-width: 320px) and (max-width: 348px) {
+        font-size: 26px;
+      }
       &::before {
         content: "";
         position: absolute;
@@ -274,6 +322,9 @@
         bottom: -18px;
         width: 105px;
         height: 17px;
+        @media (min-width: 320px) and (max-width: 348px) {
+          right: 0;
+        }
       }
       span {
         font-family: "The Sidestream";
