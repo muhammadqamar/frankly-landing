@@ -1,33 +1,54 @@
 // Welcome
+
+.myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -111
+}
+
 .reel_form {
   display: flex;
   justify-content: center;
-  padding: 19px 21px 45px;
-  max-width: 392px;
+
+  //max-width: 392px;
   margin: 0 auto;
-  position: relative;
-  background-image: url("/images/bg-darina-img.png");
+
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  height: 100vh;
+
+  .imgtoplogo {
+    text-align: center;
+    margin: 46px auto 0px;
+    display: flex;
+  }
+
   &::before {
     content: "";
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 166px;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.40869) 31.42%,
-      #000000 100%
-    );
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.40869) 31.42%,
+        #000000 100%);
   }
+
   .form_reel_container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 375px;
+    position: relative;
+
     .wlcm {
       font-family: "Druk Wide Trial";
       font-style: normal;
@@ -37,25 +58,41 @@
       margin: 20.92px 0 6px;
       text-align: center;
       color: #fefbd6;
+      max-width: 352px;
+      position: relative;
     }
-    .reel_img_box {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      .reel_img {
-        margin: 97px 0 148.7px 20px;
-      }
 
-      .reel_img1 {
-        margin: 0 13px 0 0;
-      }
-      .reel_img3 {
-        margin: 13px 13px 0 0;
-      }
+
+
+    .reel_img1 {
+      position: absolute;
+      top: 217px;
+      right: 20px
     }
+
+    .reel_img {
+      position: absolute;
+      top: 45%;
+      left: 20px
+    }
+
+    .reel_img3 {
+      position: absolute;
+      top: 70%;
+      left: 0px
+    }
+
+    .reel_img4 {
+      position: absolute;
+      top: 70%;
+      right: 20px
+    }
+
+
     .reel_img_box1 {
       align-items: center;
     }
+
     .reel_para {
       font-family: "Poppins";
       font-style: normal;
@@ -67,6 +104,7 @@
       text-transform: uppercase;
       color: #ffffff;
     }
+
     .reel_started_btn {
       max-width: 334px;
       width: 100%;
@@ -84,10 +122,12 @@
       font-weight: 600;
       font-size: 16px;
       line-height: 24px;
-      margin: 0 0 18px;
+      margin: 0 auto;
+      margin-bottom: 18px;
       text-align: center;
       color: #215647;
     }
+
     .terms_para {
       font-family: "Poppins";
       position: relative;
@@ -95,27 +135,36 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 21px;
-      margin: 0 0 6px;
+      margin-bottom: 26px;
       text-align: center;
       color: #ffffff;
     }
   }
 }
 
+.padder {
+  padding: 0px 30px;
+}
+
 // Steps Earn
 .earn_reel_form {
   background-image: none;
   background-color: #ffffff;
+
   &::before {
     content: none;
   }
+
   .controls {
     width: 100%;
     display: flex;
-    margin-bottom: 68px;
+    //margin-bottom: 68px;
     align-items: center;
     justify-content: space-between;
+    margin-top: 30px;
+    padding: 0px 30px;
   }
+
   .earn_text {
     font-family: "Druk Wide Trial";
     font-style: normal;
@@ -126,6 +175,8 @@
     text-align: center;
     text-transform: capitalize;
     color: #215647;
+
+
     span {
       font-family: "The Sidestream";
       font-weight: 400;
@@ -133,15 +184,17 @@
       line-height: 46.91px;
     }
   }
+
   .reel_content {
     display: flex;
     gap: 11.7px;
-    margin: 0 0 0 -31px;
-    @media (min-width: 320px) and (max-width: 363px) {
-      margin: 0;
-    }
+    // max-width: 325px;
+    padding: 0px 20px 0px 15px;
+
+
     .text_box {
       margin: -8px 0 0;
+
       .earn_sub_text {
         font-family: "Poppins";
         font-style: normal;
@@ -155,10 +208,12 @@
           color: #4b94f0;
           font-weight: 700;
         }
+
         .tag {
           color: #ffa4c4;
           font-weight: 700;
         }
+
         .earn {
           color: #ff6434;
           font-weight: 700;
@@ -166,27 +221,20 @@
       }
     }
   }
+
   .images_box {
-    display: flex;
-    align-items: end;
-    flex-direction: column;
-    position: relative;
-    margin-bottom: 45px;
-    top: -24px;
+
     .lines_logo {
       position: absolute;
       top: 72px;
-      right: 108px;
-      @media (min-width: 320px) and (max-width: 363px) {
-        top: 63px;
-      }
+      right: 110px;
+
+
     }
-    .earnd_logo {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
+    position: relative;
+
   }
+
   .earn_btn {
     background: #ff6434;
     color: #ffffff;
@@ -205,9 +253,12 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
-    // margin: 0 0 45px;
+
     text-align: center;
+    margin: 0 auto;
+    margin-bottom: 65px;
   }
+
   .earn_heading {
     font-family: "Druk Wide Trial";
     font-style: normal;
@@ -218,6 +269,7 @@
     text-transform: capitalize;
     color: #215647;
     margin: 0 0 65px;
+
     span {
       font-family: "The Sidestream";
       color: #ff6434;
@@ -225,15 +277,18 @@
       font-weight: 400;
     }
   }
+
   .earn_input_box {
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
     margin-bottom: 25px;
+
     &:nth-last-child(2) {
       margin-bottom: 0;
     }
+
     .label {
       font-family: "Poppins";
       position: absolute;
@@ -247,12 +302,14 @@
       background-color: #fff;
       color: #215647;
     }
+
     .earn_input {
       padding: 16px 0 16px 15px;
       width: 100%;
       height: 56px;
       border: 1.5px solid #215647;
       border-radius: 15px;
+
       &::placeholder {
         font-family: "Poppins";
         font-style: normal;
@@ -263,31 +320,44 @@
       }
     }
   }
+
   .submit_btn {
-    margin: 147px auto 0;
+    margin: px auto 65px;
   }
 }
 
 // congrats
 .congrats_form {
-  max-width: 392px;
+
   background-color: #4b94f0;
   background-image: url("/images/bg-congrates.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  .congrats_box {
-    width: 100%;
-    height: auto;
-    padding: 142px 0 270px;
+   background-size: contain;
+
+   .congrats_container {
+    height: 100%;
+    justify-content: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+   }
+
+  .congrats_box {
+     text-align: center;
+     height: calc(100% - 100px);
+
     .congrats_logo {
-      width: auto;
-      height: auto;
+      width: 62px;
+      margin:0 auto
+
     }
+
+    .controls_welcome {
+      text-align: left;
+      padding-top: 30px;
+      cursor: pointer;
+      padding: 30px 30px 0px;
+    }
+
     .congrats_heading {
       font-family: "Druk Wide Trial";
       font-style: normal;
@@ -299,9 +369,11 @@
       text-transform: capitalize;
       color: #fefbd6;
       position: relative;
+
       @media (min-width: 320px) and (max-width: 348px) {
         font-size: 26px;
       }
+
       &::before {
         content: "";
         position: absolute;
@@ -312,6 +384,7 @@
         left: -12px;
       }
     }
+
     .congrats_para {
       font-family: "Poppins";
       font-style: normal;
@@ -322,6 +395,7 @@
       text-transform: uppercase;
       color: #ffffff;
       position: relative;
+
       &::before {
         content: "";
         background-image: url("/images/congrats-line.png");
@@ -330,10 +404,12 @@
         bottom: -18px;
         width: 105px;
         height: 17px;
+
         @media (min-width: 320px) and (max-width: 348px) {
           right: 0;
         }
       }
+
       span {
         font-family: "The Sidestream";
         font-weight: 400;
@@ -344,24 +420,3 @@
   }
 }
 
-// same styling
-// .reel_started_btn {
-//   width: 334px;
-//   height: 62px;
-//   position: relative;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   gap: 12px;
-//   background: #ffffff;
-//   border: none;
-//   border-radius: 83px;
-//   font-family: "Poppins";
-//   font-style: normal;
-//   font-weight: 600;
-//   font-size: 16px;
-//   line-height: 24px;
-//   margin: 0 0 18px;
-//   text-align: center;
-//   color: #215647;
-// }

@@ -109,65 +109,75 @@ const Register = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               {activeScreen === "welcome" && (
+                <>
+                 <video autoPlay muted playsInline className={styles.myVideo}>
+                 <source src="/video.mp4" type="video/mp4" />
+               </video>
                 <div
                   className={`${styles.form_reel_container} ${styles.welcome}`}
                 >
+                  <div>
+                    <Image
+                      src="/images/cream-logo.png"
+                      alt="logo"
+                      width="111"
+                      height="69"
+                      className={styles.imgtoplogo}
+                    />
+
+                    <h1 className={styles.wlcm}>Reel Banao Reward Kamao</h1>
+                  </div>
+
                   <Image
-                    src="/images/cream-logo.png"
+                    className={styles.reel_img}
+                    src="/images/reel-logo2.png"
                     alt="logo"
-                    width="111"
-                    height="69"
+                    width="23"
+                    height="53"
                   />
-                  <h1 className={styles.wlcm}>Reel Banao Reward Kamao</h1>
-                  <div className={styles.reel_img_box}>
-                    <Image
-                      className={styles.reel_img}
-                      src="/images/reel-logo2.png"
-                      alt="logo"
-                      width="23"
-                      height="53"
-                    />
-                    <Image
-                      className={styles.reel_img1}
-                      src="/images/reel-logo1.png"
-                      alt="logo"
-                      width="51"
-                      height="35"
-                    />
+                  <Image
+                    className={styles.reel_img1}
+                    src="/images/reel-logo1.png"
+                    alt="logo"
+                    width="51"
+                    height="35"
+                  />
+
+
+                  <Image
+                    src="/images/reel-logo4.png"
+                    alt="logo"
+                    width="42"
+                    height="42"
+                    className={styles.reel_img3}
+                  />
+                  <Image
+                    className={styles.reel_img4}
+                    src="/images/reel-logo3.png"
+                    alt="logo"
+                    width="52"
+                    height="65"
+                  />
+
+                  <div>
+                    <p className={styles.reel_para}>powered by #FRANKLY</p>
+                    <button
+                      type="button"
+                      onClick={() => setActiveScreen("earn now")}
+                      className={styles.reel_started_btn}
+                    >
+                      Get Started
+                      <Image
+                        src="/images/reel-arrow.png"
+                        alt="arrow logo"
+                        width="17"
+                        height="18"
+                      />
+                    </button>
+                    <p className={styles.terms_para}>Terms & Conditions Apply</p>
                   </div>
-                  <div
-                    className={`${styles.reel_img_box} ${styles.reel_img_box1}`}
-                  >
-                    <Image
-                      src="/images/reel-logo4.png"
-                      alt="logo"
-                      width="42"
-                      height="42"
-                    />
-                    <Image
-                      className={styles.reel_img3}
-                      src="/images/reel-logo3.png"
-                      alt="logo"
-                      width="52"
-                      height="65"
-                    />
-                  </div>
-                  <p className={styles.reel_para}>powered by #FRANKLY</p>
-                  <button
-                    type="button"
-                    onClick={() => setActiveScreen("earn now")}
-                    className={styles.reel_started_btn}
-                  >
-                    Get Started
-                    <Image
-                      src="/images/reel-arrow.png"
-                      alt="arrow logo"
-                      width="17"
-                      height="18"
-                    />
-                  </button>
-                  <p className={styles.terms_para}>Terms & Conditions Apply</p>
                 </div>
+                </>
               )}
               {activeScreen === "earn now" && (
                 <>
@@ -193,6 +203,7 @@ const Register = () => {
                         />
                       </Link>
                     </div>
+                    <>
                     <h2 className={styles.earn_text}>
                       Steps to<span> Earn💰</span>
                     </h2>
@@ -220,6 +231,7 @@ const Register = () => {
                         </p>
                       </div>
                     </div>
+                    </>
                     <div className={styles.images_box}>
                       <Image
                         className={styles.lines_logo}
@@ -228,15 +240,14 @@ const Register = () => {
                         width="18"
                         height="15"
                       />
-                      <Image
+                      <img
                         className={styles.earnd_logo}
                         src="/images/reel-earnd-logo.png"
                         alt="logo"
-                        width="375"
-                        height="59"
+
                       />
                     </div>
-                    <div className="error">{errorCustom}</div>
+
                     <button
                       onClick={() => {
                         setActiveScreen("submit reel");
@@ -278,9 +289,11 @@ const Register = () => {
                         />
                       </Link>
                     </div>
+                    <div >
                     <h2 className={styles.earn_heading}>
                       Submit your Reel link, <span>get Rewarded !</span>
                     </h2>
+                    <div className={styles.padder}>
                     <div className={styles.earn_input_box}>
                       <label className={styles.label}>Full Name</label>
                       <input
@@ -327,7 +340,10 @@ const Register = () => {
                       </div>
                     </div>
                     <div className="error">{errorCustom}</div>
-                  </div>
+                    </div>
+                    </div>
+
+
                   <button
                     onClick={() => {
                       setActiveScreen("congrats");
@@ -342,13 +358,16 @@ const Register = () => {
                       height="18"
                     />
                   </button>
+                  </div>
                 </>
               )}
               {activeScreen === "congrats" && (
                 <div
                   className={`${styles.form_reel_container} ${styles.earn_now}`}
                 >
-                  <div className={styles.controls}>
+
+                  <div className={styles.congrats_box}>
+                  <div className={styles.controls_welcome}>
                     <Image
                       src="/images/back-arrow.png"
                       alt="back"
@@ -359,7 +378,7 @@ const Register = () => {
                       }}
                     />
                   </div>
-                  <div className={styles.congrats_box}>
+                  <div className={styles.congrats_container}>
                     <Image
                       className={styles.congrats_logo}
                       src="/images/congrats.png"
@@ -375,6 +394,7 @@ const Register = () => {
                       for themselves. We&rsquo;ll be in touch with you in{" "}
                       <span>72 hours.</span>
                     </p>
+                  </div>
                   </div>
                 </div>
               )}
