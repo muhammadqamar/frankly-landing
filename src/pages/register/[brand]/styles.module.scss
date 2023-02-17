@@ -12,15 +12,19 @@
 .reel_form {
   display: flex;
   justify-content: center;
-
   //max-width: 392px;
   margin: 0 auto;
-
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
-
+  .main_welcome {
+    backdrop-filter: brightness(0.8);
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
   .imgtoplogo {
     text-align: center;
     margin: 46px auto 0px;
@@ -56,11 +60,15 @@
       font-weight: 500;
       font-size: 32px;
       line-height: 120.28%;
-      margin: 20.92px 0 6px;
+      margin: 20.92px auto 6px;
       text-align: center;
       color: #fefbd6;
       max-width: 352px;
       position: relative;
+      @media (min-width: 320px) and (max-width: 344px) {
+        margin: 20.92px 0 6px;
+        font-size: 30px;
+      }
     }
 
     .reel_img1 {
@@ -146,12 +154,10 @@
 .padder {
   padding: 0px 30px;
 }
-
 // Steps Earn
 .earn_reel_form {
   background-image: none;
   background-color: #ffffff;
-
   &::before {
     content: none;
   }

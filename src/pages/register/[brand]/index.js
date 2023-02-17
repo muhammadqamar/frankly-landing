@@ -110,72 +110,80 @@ const Register = () => {
             <form onSubmit={handleSubmit}>
               {activeScreen === "welcome" && (
                 <>
-                  <video autoPlay muted playsInline className={styles.myVideo}>
+                  <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    className={styles.myVideo}
+                  >
                     <source src="/video.mp4" type="video/mp4" />
                   </video>
-                  <div
-                    className={`${styles.form_reel_container} ${styles.welcome}`}
-                  >
-                    <div>
+                  <div className={styles.main_welcome}>
+                    <div
+                      className={`${styles.form_reel_container} ${styles.welcome}`}
+                    >
+                      <div>
+                        <Image
+                          src="/images/dough-cream-logo.svg"
+                          alt="logo"
+                          width="111"
+                          height="69"
+                          className={styles.imgtoplogo}
+                        />
+
+                        <h1 className={styles.wlcm}>Reel Banao Reward Kamao</h1>
+                      </div>
+
                       <Image
-                        src="/images/dough-cream-logo.svg"
+                        className={styles.reel_img}
+                        src="/images/doodle-logo2.svg"
                         alt="logo"
-                        width="111"
-                        height="69"
-                        className={styles.imgtoplogo}
+                        width="23"
+                        height="53"
+                      />
+                      <Image
+                        className={styles.reel_img1}
+                        src="/images/doodle-logo1.svg"
+                        alt="logo"
+                        width="51"
+                        height="35"
                       />
 
-                      <h1 className={styles.wlcm}>Reel Banao Reward Kamao</h1>
-                    </div>
+                      <Image
+                        src="/images/star-doodle-logo.svg"
+                        alt="logo"
+                        width="42"
+                        height="42"
+                        className={styles.reel_img3}
+                      />
+                      <Image
+                        className={styles.reel_img4}
+                        src="/images/doodle-logo3.svg"
+                        alt="logo"
+                        width="52"
+                        height="65"
+                      />
 
-                    <Image
-                      className={styles.reel_img}
-                      src="/images/doodle-logo2.svg"
-                      alt="logo"
-                      width="23"
-                      height="53"
-                    />
-                    <Image
-                      className={styles.reel_img1}
-                      src="/images/doodle-logo1.svg"
-                      alt="logo"
-                      width="51"
-                      height="35"
-                    />
-
-                    <Image
-                      src="/images/star-doodle-logo.svg"
-                      alt="logo"
-                      width="42"
-                      height="42"
-                      className={styles.reel_img3}
-                    />
-                    <Image
-                      className={styles.reel_img4}
-                      src="/images/doodle-logo3.svg"
-                      alt="logo"
-                      width="52"
-                      height="65"
-                    />
-
-                    <div>
-                      <p className={styles.reel_para}>powered by #FRANKLY</p>
-                      <button
-                        type="button"
-                        onClick={() => setActiveScreen("earn now")}
-                        className={styles.reel_started_btn}
-                      >
-                        Get Started
-                        <Image
-                          src="/images/btn-arrow.svg"
-                          alt="arrow logo"
-                          width="17"
-                          height="18"
-                        />
-                      </button>
-                      <p className={styles.terms_para}>
-                        Terms & Conditions Apply
-                      </p>
+                      <div>
+                        <p className={styles.reel_para}>powered by #FRANKLY</p>
+                        <button
+                          type="button"
+                          onClick={() => setActiveScreen("earn now")}
+                          className={styles.reel_started_btn}
+                        >
+                          Get Started
+                          <Image
+                            src="/images/btn-arrow.svg"
+                            alt="arrow logo"
+                            width="17"
+                            height="18"
+                          />
+                        </button>
+                        <p className={styles.terms_para}>
+                          Terms & Conditions Apply
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </>
