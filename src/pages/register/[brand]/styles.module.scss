@@ -6,7 +6,7 @@
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  z-index: -111
+  z-index: -111;
 }
 
 .reel_form {
@@ -15,7 +15,6 @@
 
   //max-width: 392px;
   margin: 0 auto;
-
 
   background-repeat: no-repeat;
   background-position: center;
@@ -34,10 +33,12 @@
     bottom: 0;
     width: 100%;
     height: 166px;
-    background: linear-gradient(180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.40869) 31.42%,
-        #000000 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.40869) 31.42%,
+      #000000 100%
+    );
   }
 
   .form_reel_container {
@@ -62,32 +63,32 @@
       position: relative;
     }
 
-
-
     .reel_img1 {
       position: absolute;
       top: 217px;
-      right: 20px
+      right: 20px;
     }
 
     .reel_img {
       position: absolute;
-      top: 45%;
-      left: 20px
+      // top: 45%;
+      top: 44%;
+      left: 20px;
     }
 
     .reel_img3 {
       position: absolute;
-      top: 70%;
-      left: 0px
+      // top: 70%;
+      top: 65%;
+      left: 0px;
     }
 
     .reel_img4 {
       position: absolute;
-      top: 70%;
-      right: 20px
+      // top: 70%;
+      top: 66%;
+      right: 20px;
     }
-
 
     .reel_img_box1 {
       align-items: center;
@@ -155,7 +156,7 @@
     content: none;
   }
 
-  .controls {
+  .controls_box {
     width: 100%;
     display: flex;
     //margin-bottom: 68px;
@@ -163,6 +164,9 @@
     justify-content: space-between;
     margin-top: 30px;
     padding: 0px 30px;
+    .control_img {
+      cursor: pointer;
+    }
   }
 
   .earn_text {
@@ -170,12 +174,12 @@
     font-style: normal;
     font-weight: 500;
     font-size: 32px;
-    margin: 0 0 32px;
+    // margin: 0 0 32px;
+    margin: 0;
     line-height: 120.28%;
     text-align: center;
     text-transform: capitalize;
     color: #215647;
-
 
     span {
       font-family: "The Sidestream";
@@ -190,7 +194,6 @@
     gap: 11.7px;
     // max-width: 325px;
     padding: 0px 20px 0px 15px;
-
 
     .text_box {
       margin: -8px 0 0;
@@ -223,16 +226,17 @@
   }
 
   .images_box {
-
     .lines_logo {
       position: absolute;
-      top: 72px;
+      top: 0;
       right: 110px;
-
-
     }
     position: relative;
-
+    .earnd_logo {
+      @media (min-width: 320px) and (max-width: 360px) {
+        width: 100%;
+      }
+    }
   }
 
   .earn_btn {
@@ -328,27 +332,38 @@
 
 // congrats
 .congrats_form {
-
   background-color: #4b94f0;
   background-image: url("/images/bg-congrates.png");
-   background-size: contain;
-
-   .congrats_container {
+  background-size: contain;
+  background-position: center 0;
+  .congrats_container {
     height: 100%;
     justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-   }
+  }
 
   .congrats_box {
-     text-align: center;
-     height: calc(100% - 100px);
+    text-align: center;
+    height: calc(100% - 100px);
 
     .congrats_logo {
       width: 62px;
-      margin:0 auto
-
+      margin: 0 auto;
+      position: relative;
+      animation: congratsLogo 6s ease-in-out infinite;
+      @keyframes congratsLogo {
+        0% {
+          top: 0;
+        }
+        50% {
+          top: -35px;
+        }
+        100% {
+          top: 0;
+        }
+      }
     }
 
     .controls_welcome {
@@ -389,8 +404,9 @@
       font-family: "Poppins";
       font-style: normal;
       font-weight: 500;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 24px;
+      margin: 0 37px 0 38px;
       text-align: center;
       text-transform: uppercase;
       color: #ffffff;
@@ -415,8 +431,8 @@
         font-weight: 400;
         font-size: 17px;
         line-height: 21.11px;
+        text-align: center;
       }
     }
   }
 }
-

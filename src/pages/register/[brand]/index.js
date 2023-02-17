@@ -2,29 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import { Formik } from "formik";
 import Image from "next/image";
 import Link from "next/link";
-import Slider from "react-slick";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { useRouter } from "next/router";
 import Head from "next/head";
-
-const earnCard = [
-  {
-    price: "₹3,000",
-    views: "5k - 10k",
-  },
-  {
-    price: "₹5,000",
-    views: "15k - 18k",
-  },
-  {
-    price: "₹10,000",
-    views: "45k - 50k",
-  },
-  {
-    price: "₹25,000",
-    views: "130k - 150k ",
-  },
-];
+import styles from "./styles.module.scss";
 
 const Register = () => {
   const [activeScreen, setActiveScreen] = useState("welcome");
@@ -35,27 +16,31 @@ const Register = () => {
   const doc = new GoogleSpreadsheet(process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID);
   const formRef = useRef();
 
-  const settings = {
-    arrows: false,
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
   return (
     <>
       <Head>
         <title>Frankly | Register/{router.query.brand} </title>
       </Head>
-      <div className="register-form">
+      <div
+        className={
+          (activeScreen === "welcome" && `${styles.reel_form}`) ||
+          (activeScreen === "congrats" &&
+            `${styles.reel_form} ${styles.earn_reel_form} ${styles.congrats_form}`) ||
+          `${styles.reel_form} ${styles.earn_reel_form}`
+        }
+      >
         {/*<div className="chat_icon">
           <Image src="/images/chat-icon.svg" alt="Picture of the author" width="38" height="38" />
   </div>*/}
         <Formik
           innerRef={formRef}
-          initialValues={{ name: "", phone: "", reelLink: "", email: "", paytm: "" }}
+          initialValues={{
+            name: "",
+            phone: "",
+            reelLink: "",
+            email: "",
+            paytm: "",
+          }}
           enableReinitialize
           validate={(values) => {
             const errors = {};
@@ -79,15 +64,21 @@ const Register = () => {
             }
             if (!values.email) {
               errors.email = "Required";
-            } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+            } else if (
+              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+            ) {
               errors.email = "Invalid email address";
             }
             return errors;
           }}
           onSubmit={async (values, { setSubmitting }) => {
             await doc.useServiceAccountAuth({
-              client_email: process.env.NEXT_PUBLIC_GOOGLE_SERVICE_ACCOUNT_EMAIL,
-              private_key: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+              client_email:
+                process.env.NEXT_PUBLIC_GOOGLE_SERVICE_ACCOUNT_EMAIL,
+              private_key: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY.replace(
+                /\\n/g,
+                "\n"
+              ),
             });
             await doc.loadInfo();
             const sheet = doc.sheetsByIndex[0];
@@ -118,331 +109,296 @@ const Register = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               {activeScreen === "welcome" && (
-                <div className="form-register-container welcome">
-                  <h1>Welcome to</h1>
-                  <div className="well-come-fra">
-                    <Image
-                      src="/images/logo.svg"
-                      alt="Picture of the author"
-                      width="280"
-                      height="82"
-                    />
-                  </div>
-                  <div className="welcome-img">
-                    <Image
-                      src="/images/welcome.png"
-                      alt="Picture of the author"
-                      width="189"
-                      height="277"
-                    />
-                  </div>
-                  <h2 className="welcome-heading-two">
-                    Post a Reel about <br /> your <span> experience</span>
-                  </h2>
-                  <p className="welcome-text-bottom">with Dough and Cream & EARN!</p>
+                <>
+                  <video autoPlay muted playsInline className={styles.myVideo}>
+                    <source src="/video.mp4" type="video/mp4" />
+                  </video>
+                  <div
+                    className={`${styles.form_reel_container} ${styles.welcome}`}
+                  >
+                    <div>
+                      <Image
+                        src="/images/dough-cream-logo.svg"
+                        alt="logo"
+                        width="111"
+                        height="69"
+                        className={styles.imgtoplogo}
+                      />
 
-                  <div className="btn-cover">
-                    <button
-                      type="button"
-                      onClick={() => setActiveScreen("earn now")}
-                      className="register-button"
-                    >
-                      Get Started
-                    </button>
+                      <h1 className={styles.wlcm}>Reel Banao Reward Kamao</h1>
+                    </div>
+
+                    <Image
+                      className={styles.reel_img}
+                      src="/images/doodle-logo2.svg"
+                      alt="logo"
+                      width="23"
+                      height="53"
+                    />
+                    <Image
+                      className={styles.reel_img1}
+                      src="/images/doodle-logo1.svg"
+                      alt="logo"
+                      width="51"
+                      height="35"
+                    />
+
+                    <Image
+                      src="/images/star-doodle-logo.svg"
+                      alt="logo"
+                      width="42"
+                      height="42"
+                      className={styles.reel_img3}
+                    />
+                    <Image
+                      className={styles.reel_img4}
+                      src="/images/doodle-logo3.svg"
+                      alt="logo"
+                      width="52"
+                      height="65"
+                    />
+
+                    <div>
+                      <p className={styles.reel_para}>powered by #FRANKLY</p>
+                      <button
+                        type="button"
+                        onClick={() => setActiveScreen("earn now")}
+                        className={styles.reel_started_btn}
+                      >
+                        Get Started
+                        <Image
+                          src="/images/btn-arrow.svg"
+                          alt="arrow logo"
+                          width="17"
+                          height="18"
+                        />
+                      </button>
+                      <p className={styles.terms_para}>
+                        Terms & Conditions Apply
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </>
               )}
               {activeScreen === "earn now" && (
-                <div className="form-register-container earn-section">
-                  <div className="controls">
-                    <Image
-                      src="/images/back.svg"
-                      alt="back"
-                      width="10"
-                      height="19"
-                      onClick={() => {
-                        setActiveScreen("welcome");
-                      }}
-                    />
-                    <Link href="/">
-                      <Image src="/images/home.svg" alt="home" width="23" height="23" />
-                    </Link>
-                  </div>
-
-                  <h2 className="earn-text">
-                    Reel It, <span> Get Paid!</span>
-                  </h2>
-
-                  <p className="earn-sub-text">
-                    Earn Unlimited cash. <br />
-                    Get direct payment through UPI.
-                  </p>
-                  <Slider {...settings}>
-                    {earnCard.map((item, index) => (
-                      <div key={index} className="earning-potential-box">
-                        <div className="e-p-heading">
-                          <p className="e-p-text">Earning Potential</p>
-                        </div>
-                        <h1 className="e-p-price">{item.price}</h1>
-                        <div className="hand-img">
-                          <Image src="/images/hand.svg" alt="hand" width="156" height="275" />
-                        </div>
-                        <div className="e-p-view-box">
-                          <Image src="/images/views.svg" alt="hand" width="12" height="12" />
-                          <p className="views-number">{item.views} Views</p>
+                <>
+                  <div
+                    className={`${styles.form_reel_container} ${styles.earn_now}`}
+                  >
+                    <div className={styles.controls_box}>
+                      <Image
+                        className={styles.control_img}
+                        src="/images/back-arrow.png"
+                        alt="back"
+                        width="7"
+                        height="10"
+                        onClick={() => {
+                          setActiveScreen("welcome");
+                        }}
+                      />
+                      <Link href="/">
+                        <Image
+                          src="/images/comment-logo.svg"
+                          alt="comment"
+                          width="28"
+                          height="28"
+                        />
+                      </Link>
+                    </div>
+                    <>
+                      <h2 className={styles.earn_text}>
+                        Steps to<span> Earn💰</span>
+                      </h2>
+                      <div className={styles.reel_content}>
+                        <Image
+                          src="/images/reel-gradient-logo.svg"
+                          alt="logo"
+                          width="37"
+                          height="85"
+                        />
+                        <div className={styles.text_box}>
+                          <p className={styles.earn_sub_text}>
+                            <span className={styles.post}>POST</span> a Reel
+                            with Dough & Cream
+                          </p>
+                          <p className={styles.earn_sub_text}>
+                            <span className={styles.tag}>TAG</span> #Frankly &
+                            @Dough&Cream <br />
+                            in caption
+                          </p>
+                          <p className={styles.earn_sub_text}>
+                            <span className={styles.earn}>EARN</span> Dough &
+                            Cream Cash <br />
+                            Vouchers for your creativity
+                          </p>
                         </div>
                       </div>
-                    ))}
-                  </Slider>
-                  <div className="india_code earn-input">
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="What’s your Name?"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.name}
-                    />
-                  </div>
-                  <div className="error">{errorCustom}</div>
-                  <div className="btn-cover">
+                    </>
+                    <div className={styles.images_box}>
+                      <Image
+                        className={styles.lines_logo}
+                        src="/images/blue-lines-logo.svg"
+                        alt="logo"
+                        width="18"
+                        height="15"
+                      />
+                      <img
+                        className={styles.earnd_logo}
+                        src="/images/reel-earnd-logo1.png"
+                        alt="logo"
+                      />
+                    </div>
+
                     <button
                       onClick={() => {
-                        if (values.name) {
-                          setActiveScreen("reel");
-                        } else {
-                          setErrorCustom("required");
-                        }
+                        setActiveScreen("submit reel");
                       }}
-                      className="register-button"
+                      className={styles.earn_btn}
                     >
-                      Earn Now
+                      Start Earning
+                      <Image
+                        src="/images/reel-btn-arrow.svg"
+                        alt="arrow logo"
+                        width="17"
+                        height="18"
+                      />
                     </button>
                   </div>
-                </div>
+                </>
               )}
-              {activeScreen === "reel" && (
-                <div className="form-register-container post-guideines">
-                  <div className="controls">
-                    <Image
-                      src="/images/back.svg"
-                      alt="back"
-                      width="10"
-                      height="19"
-                      onClick={() => {
-                        setActiveScreen("earn now");
-                      }}
-                    />
-
-                    <Link href="/">
-                      <Image src="/images/home.svg" alt="home" width="23" height="23" />
-                    </Link>
-                  </div>
-                  <div className="title-flex">
-                    <Image src="/images/hash.svg" alt="hash" width="36" height="44" />
-                    <h2 className="post-title">Post Guideines</h2>
-                  </div>
-
-                  <ul>
-                    <li>
-                      <Image src="/images/hashtag.svg" alt="home" width="24" height="24" />
-                      <p>
-                        PayTM/UPI ID Post with <strong>#Frankly & @Dough&Cream</strong> and submit
-                        your reel link.
-                      </p>
-                    </li>
-                    <li>
-                      <Image src="/images/tag-2.svg" alt="home" width="24" height="24" />
-                      <p>
-                        Your newly purchased item should be <br /> the highlight of your reel.
-                      </p>
-                    </li>
-                    <li>
-                      <Image src="/images/video-play.svg" alt="home" width="24" height="24" />
-                      <p> Make sure your account is Public.</p>
-                    </li>
-                    <li>
-                      <Image src="/images/medal-star.svg" alt="home" width="24" height="24" />
-                      <p>
-                        Your creativity would be rewarded.
-                        <br /> Make sure to have fun with your Reel!
-                      </p>
-                    </li>
-                    <li>
-                      <Image src="/images/like-shapes.svg" alt="home" width="24" height="24" />
-                      <p>
-                        Good vibes only: Your videos must <br /> follow Instagram’s Community <br />
-                        Guidelines and general policies.
-                      </p>
-                    </li>
-                  </ul>
-
-                  <input
-                    type="url"
-                    name="reelLink"
-                    placeholder="Paste Reel Link here"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.reelLink}
-                  />
-                  <div className="error">
-                    {errors.reelLink && touched.reelLink && errors.reelLink}
-                  </div>
-
-                  <div className="btn-cover">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (!errors.reelLink) {
-                          setActiveScreen("congrats");
-                        }
-                      }}
-                      className="register-button"
-                    >
-                      Next
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {activeScreen === "congrats" && (
-                <div className="form-register-container congratulations ">
-                  <div className="controls">
-                    <Image
-                      src="/images/back.svg"
-                      alt="back"
-                      width="10"
-                      height="19"
-                      onClick={() => {
-                        setActiveScreen("reel");
-                      }}
-                    />
-                    <Link href="/">
-                      <Image src="/images/home.svg" alt="home" width="23" height="23" />
-                    </Link>
-                  </div>
-                  <div className="frankly-logo">
-                    <Image src="/images/logo2.svg" alt="home" width="196" height="104" />
-                  </div>
-                  <h2 className="congratulations-heading">Almost there</h2>
-                  <h3 className="sub-heading">
-                    You’re on the path to make your <br /> purchases pay for themselves!
-                  </h3>
-                  <h3 className="sub-heading-two">
-                    Enter your email address and <br /> payment details below.
-                  </h3>
-
-                  <div className="payment-box">
-                    <div
-                      onClick={() => {
-                        if (!values.phone) {
-                          setUpiId(false);
-                        } else {
-                          setUpiId(true), setPaytm(false);
-                        }
-                      }}
-                      className={upiId ? `p-b-img bg-color` : `p-b-img`}
-                    >
-                      <Image src="/images/bhim-upl.svg" alt="home" width="100" height="49" />
+              {activeScreen === "submit reel" && (
+                <>
+                  <div
+                    className={`${styles.form_reel_container} ${styles.earn_now}`}
+                  >
+                    <div className={styles.controls_box}>
+                      <Image
+                        className={styles.control_img}
+                        src="/images/back-arrow.png"
+                        alt="back"
+                        width="7"
+                        height="10"
+                        onClick={() => {
+                          setActiveScreen("earn now");
+                        }}
+                      />
+                      <Link href="/">
+                        <Image
+                          src="/images/comment-logo.svg"
+                          alt="comment"
+                          width="28"
+                          height="28"
+                        />
+                      </Link>
                     </div>
-                    <div className="devider" />
-                    <div
-                      onClick={() => {
-                        if (!values.phone) {
-                          setPaytm(false);
-                        } else {
-                          setPaytm(true), setUpiId(false);
-                        }
-                      }}
-                      className={paytm ? `p-b-img bg-color` : `p-b-img`}
-                    >
-                      <Image src="/images/paytm.svg" alt="home" width="100" height="31" />
-                    </div>
-                  </div>
-
-                  {paytm === true || upiId === true ? (
-                    <>
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Email address"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.email}
-                      />
-                      <div className="error">{errors.email && touched.email && errors.email}</div>
-                    </>
-                  ) : (
-                    <>
-                      <input
-                        type="text"
-                        name="phone"
-                        placeholder="Phone Number"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.phone.replace(/\D/g, "")}
-                      />
-                      <div className="error">{errors.phone && touched.phone && errors.phone}</div>
-                    </>
-                  )}
-                  {paytm === true || upiId === true ? (
-                    <>
-                      <input
-                        className="upi-input"
-                        type="text"
-                        name="paytm"
-                        placeholder={
-                          (paytm === true && "Enter your PayTm Number") ||
-                          (upiId === true && "Enter your UPI ID") ||
-                          "Select a payment method above"
-                        }
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.paytm}
-                      />
-
-                      <div className="error">{errors.paytm && touched.paytm && errors.paytm}</div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="select-input-box">
-                        <p className="text">Select a payment method above</p>
+                    <div>
+                      <h2 className={styles.earn_heading}>
+                        Submit your Reel link, <span>get Rewarded !</span>
+                      </h2>
+                      <div className={styles.padder}>
+                        <div className={styles.earn_input_box}>
+                          <label className={styles.label}>Full Name</label>
+                          <input
+                            className={styles.earn_input}
+                            type="text"
+                            name="name"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.name}
+                          />
+                          <div className="error">
+                            {errors.name && touched.name && errors.name}
+                          </div>
+                        </div>
+                        <div className={styles.earn_input_box}>
+                          <label className={styles.label}>Phone number</label>
+                          <>
+                            <input
+                              className={styles.earn_input}
+                              type="text"
+                              name="phone"
+                              placeholder="+91"
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.phone.replace(/\D/g, "")}
+                            />
+                            <div className="error">
+                              {errors.phone && touched.phone && errors.phone}
+                            </div>
+                          </>
+                        </div>
+                        <div className={styles.earn_input_box}>
+                          <label className={styles.label}>
+                            Paste Reel Link
+                          </label>
+                          <input
+                            className={styles.earn_input}
+                            type="url"
+                            name="reelLink"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.reelLink}
+                          />
+                          <div className="error">
+                            {errors.reelLink &&
+                              touched.reelLink &&
+                              errors.reelLink}
+                          </div>
+                        </div>
+                        <div className="error">{errorCustom}</div>
                       </div>
-                    </>
-                  )}
-                  <div className="btn-cover">
-                    <button disabled={isSubmitting} type="submit" className="register-button">
-                      {isSubmitting ? "Submitting ..." : "Submit Reel"}
-                    </button>
-                  </div>
-                </div>
-              )}
+                    </div>
 
-              {activeScreen === "done" && (
-                <div className="form-register-container  posted">
-                  <div className="controls">
-                    <Image
-                      src="/images/back.svg"
-                      alt="back"
-                      width="10"
-                      height="19"
+                    <button
                       onClick={() => {
                         setActiveScreen("congrats");
                       }}
-                    />
-                    <Link href="/">
-                      <Image src="/images/home.svg" alt="home" width="23" height="23" />
-                    </Link>
+                      className={`${styles.earn_btn} ${styles.submit_btn}`}
+                    >
+                      Submit Reel
+                      <Image
+                        src="/images/reel-btn-arrow.svg"
+                        alt="arrow logo"
+                        width="17"
+                        height="18"
+                      />
+                    </button>
                   </div>
-
-                  <h2 className="posted-main-heading">Congratulations!</h2>
-
-                  <h3 className="post-sub-heading">
-                    We’ll reach out to you via Message to get <br /> you paid after 72 hours since
-                    the reel was <br /> posted.
-                  </h3>
-                  <div className="post-img">
-                    <Image src="/images/done.svg" alt="home" width="304" height="327" />
+                </>
+              )}
+              {activeScreen === "congrats" && (
+                <div
+                  className={`${styles.form_reel_container} ${styles.earn_now}`}
+                >
+                  <div className={styles.congrats_box}>
+                    <div className={styles.controls_welcome}>
+                      <Image
+                        src="/images/left-back-arrow.svg"
+                        alt="back"
+                        width="7"
+                        height="10"
+                        onClick={() => {
+                          setActiveScreen("submit reel");
+                        }}
+                      />
+                    </div>
+                    <div className={styles.congrats_container}>
+                      <Image
+                        className={styles.congrats_logo}
+                        src="/images/reel-congrats-logo.svg"
+                        alt="congrats logo"
+                        width="62"
+                        height="75"
+                      />
+                      <h2 className={styles.congrats_heading}>
+                        Congratulations!
+                      </h2>
+                      <p className={styles.congrats_para}>
+                        You&rsquo;re now on the path to making your purchases
+                        pay for themselves. We&rsquo;ll be in touch with you in{" "}
+                        <span>72 hours.</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
               )}
