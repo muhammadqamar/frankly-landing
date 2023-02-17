@@ -19,7 +19,7 @@ const Register = () => {
   return (
     <>
       <Head>
-        <title>Frankly | Register/{router.query.brand} </title>
+        <title>Frankly | Register</title>
       </Head>
       <div
         className={
@@ -89,7 +89,7 @@ const Register = () => {
               // Email: values.email,
               ["Reel Link"]: values.reelLink,
               // ["PayTM/UPI ID"]: values.paytm,
-              Brand: router.query.brand,
+              // Brand: router.query.brand,
               Timestamp: newDate.toLocaleString(),
             });
             if (result._rowNumber) {
@@ -131,7 +131,6 @@ const Register = () => {
                           height="69"
                           className={styles.imgtoplogo}
                         />
-
                         <h1 className={styles.wlcm}>Reel Banao Reward Kamao</h1>
                       </div>
 
@@ -204,7 +203,10 @@ const Register = () => {
                           setActiveScreen("welcome");
                         }}
                       />
-                      <Link href="/">
+                      <Link
+                        href="https://wa.me/8800581181?text=Hey%20there%2C%20I%27d%20like%20to%20ask%20something%20about%20earning%20by%20posting%20Insta%20Reels"
+                        target="_blank"
+                      >
                         <Image
                           src="/images/comment-logo.svg"
                           alt="comment"
@@ -290,7 +292,10 @@ const Register = () => {
                           setActiveScreen("earn now");
                         }}
                       />
-                      <Link href="/">
+                      <Link
+                        href="https://wa.me/8800581181?text=Hey%20there%2C%20I%27d%20like%20to%20ask%20something%20about%20earning%20by%20posting%20Insta%20Reels"
+                        target="_blank"
+                      >
                         <Image
                           src="/images/comment-logo.svg"
                           alt="comment"
