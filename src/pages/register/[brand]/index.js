@@ -10,8 +10,8 @@ import styles from "./styles.module.scss";
 const Register = () => {
   const [activeScreen, setActiveScreen] = useState("welcome");
   const [errorCustom, setErrorCustom] = useState("");
-  const [paytm, setPaytm] = useState(false);
-  const [upiId, setUpiId] = useState(false);
+  // const [paytm, setPaytm] = useState(false);
+  // const [upiId, setUpiId] = useState(false);
   const router = useRouter();
   const doc = new GoogleSpreadsheet(process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID);
   const formRef = useRef();
@@ -38,8 +38,8 @@ const Register = () => {
             name: "",
             phone: "",
             reelLink: "",
-            email: "",
-            paytm: "",
+            // email: "",
+            // paytm: "",
           }}
           enableReinitialize
           validate={(values) => {
@@ -59,16 +59,16 @@ const Register = () => {
             ) {
               errors.reelLink = "Invalid URL";
             }
-            if (!values.paytm) {
-              errors.paytm = "Required";
-            }
-            if (!values.email) {
-              errors.email = "Required";
-            } else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-              errors.email = "Invalid email address";
-            }
+            // if (!values.paytm) {
+            //   errors.paytm = "Required";
+            // }
+            // if (!values.email) {
+            //   errors.email = "Required";
+            // } else if (
+            //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+            // ) {
+            //   errors.email = "Invalid email address";
+            // }
             return errors;
           }}
           onSubmit={async (values, { setSubmitting }) => {
@@ -86,14 +86,14 @@ const Register = () => {
             const result = await sheet.addRow({
               Name: values.name,
               Phone: values.phone,
-              Email: values.email,
+              // Email: values.email,
               ["Reel Link"]: values.reelLink,
-              ["PayTM/UPI ID"]: values.paytm,
+              // ["PayTM/UPI ID"]: values.paytm,
               Brand: router.query.brand,
               Timestamp: newDate.toLocaleString(),
             });
             if (result._rowNumber) {
-              setActiveScreen("done");
+              setActiveScreen("congrats");
             }
           }}
         >
@@ -351,11 +351,17 @@ const Register = () => {
 
                     <button
                       onClick={() => {
-                        setActiveScreen("congrats");
+                        if (isSubmitting) {
+                          setActiveScreen("congrats");
+                        } else {
+                          setErrorCustom("");
+                        }
                       }}
+                      disabled={isSubmitting}
+                      type="submit"
                       className={`${styles.earn_btn} ${styles.submit_btn}`}
                     >
-                      Submit Reel
+                      {isSubmitting ? "Submitting ..." : "Submit Reel"}
                       <Image
                         src="/images/reel-btn-arrow.svg"
                         alt="arrow logo"
