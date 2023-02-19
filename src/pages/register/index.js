@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { Formik } from "formik";
 import Image from "next/image";
@@ -15,7 +16,11 @@ const Register = () => {
   const router = useRouter();
   const doc = new GoogleSpreadsheet(process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID);
   const formRef = useRef();
+  const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    setLoading(true);
+  }, []);
 
 
   return (
@@ -23,6 +28,7 @@ const Register = () => {
       <Head>
         <title>Frankly | Register</title>
       </Head>
+      {loading ?
       <div
         className={
           (activeScreen === "welcome" && `${styles.reel_form} reel_form `) ||
@@ -431,7 +437,7 @@ const Register = () => {
             </form>
           )}
         </Formik>
-      </div>
+      </div>: 'loading'}
     </>
   );
 };
