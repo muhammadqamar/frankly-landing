@@ -12,11 +12,7 @@
 .reel_form {
   display: flex;
   justify-content: center;
-  //max-width: 392px;
-  margin: 0 auto;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+
   height: 100vh;
   .main_welcome {
     backdrop-filter: brightness(0.8);
