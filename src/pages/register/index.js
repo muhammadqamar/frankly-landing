@@ -41,6 +41,7 @@ const Register = () => {
             // email: "",
             // paytm: "",
           }}
+
           enableReinitialize
           validate={(values) => {
             const errors = {};
@@ -119,7 +120,7 @@ const Register = () => {
                   >
                     <source src="/video.mp4" type="video/mp4" />
                   </video>
-                  <div className={styles.main_welcome}>
+                  <div  className={styles.main_welcome}>
                     <div
                       className={`${styles.form_reel_container} ${styles.welcome}`}
                     >
