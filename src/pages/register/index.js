@@ -437,7 +437,7 @@ const Register = () => {
             </form>
           )}
         </Formik>
-      </div>: 'loading'}
+      </div>: ''}
     </>
   );
 };
