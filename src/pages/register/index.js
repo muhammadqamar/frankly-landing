@@ -111,7 +111,7 @@ const Register = () => {
             <form onSubmit={handleSubmit}>
               {activeScreen === "welcome" && (
                 <>
-                  {/* <video
+                  <video
                     autoPlay
                     muted
                     playsInline
@@ -119,7 +119,7 @@ const Register = () => {
                     className={styles.myVideo}
                   >
                     <source src="/video.mp4" type="video/mp4" />
-                  </video> */}
+                  </video>
                   <div  className={styles.main_welcome}>
                     <div
                       className={`${styles.form_reel_container} ${styles.welcome}`}
