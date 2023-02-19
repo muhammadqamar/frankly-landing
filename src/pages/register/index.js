@@ -49,6 +49,8 @@ const Register = () => {
             const errors = {};
             if (!values.phone) {
               errors.phone = "Required";
+            } else if (values.phone.length !== 10) {
+              errors.phone = "invalid phone number";
             }
             if (!values.name) {
               errors.name = "Required";
@@ -256,7 +258,7 @@ const Register = () => {
                         height="15"
                       />
                       <div className={styles.line_moving}>
-                      <Marquee gradient={false}>
+                      <Marquee speed={50} gradient={false}>
                         Rajeev earned Rs. 400 Voucher Neha earned Rs. 300 Voucher Vishal earned a Free Drink!
                         </Marquee>
                       </div>
