@@ -21,6 +21,7 @@
     display: flex;
     justify-content: center;
   }
+
   .imgtoplogo {
     text-align: center;
     margin: 46px auto 0px;
@@ -47,6 +48,7 @@
       color: #fefbd6;
       max-width: 352px;
       position: relative;
+
       @media (min-width: 320px) and (max-width: 344px) {
         margin: 20.92px 0 6px;
         font-size: 30px;
@@ -137,10 +139,12 @@
 .padder {
   padding: 0px 30px;
 }
+
 // Steps Earn
 .earn_reel_form {
   background-image: none;
   background-color: #ffffff;
+
   &::before {
     content: none;
   }
@@ -153,6 +157,7 @@
     justify-content: space-between;
     margin-top: 30px;
     padding: 0px 30px;
+
     .control_img {
       cursor: pointer;
     }
@@ -182,7 +187,9 @@
     display: flex;
     gap: 11.7px;
     // max-width: 325px;
+    max-width: 375px;
     padding: 0px 20px 0px 15px;
+    margin: 0 auto;
 
     .text_box {
       margin: -8px 0 0;
@@ -217,15 +224,46 @@
   .images_box {
     .lines_logo {
       position: absolute;
-      top: 0;
+      top: -40px;
       right: 110px;
     }
+
+    .line_moving {
+      background-color: #4B94F0;
+      border-top: 7px solid #215647;
+      border-bottom: 7px solid #215647;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      font-family: 'Druk Wide Trial';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;    width: 107%;
+      margin-left: -2%;
+      line-height: 132.78%;
+
+      // width: 100vw;
+      text-align: center;
+      justify-content: center;
+      text-transform: uppercase;
+
+      color: #FEFBD6;
+
+      transform: rotate(-9.16deg);
+    }
+
     position: relative;
+
     .earnd_logo {
       @media (min-width: 320px) and (max-width: 360px) {
         width: 100%;
       }
     }
+  }
+
+  .earn_now_label {
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .earn_btn {
@@ -326,6 +364,7 @@
   background-image: url("/images/bg-congrates.svg");
   background-size: contain;
   background-position: center 0;
+
   .congrats_container {
     height: 100%;
     justify-content: center;
@@ -343,13 +382,16 @@
       margin: 0 auto;
       position: relative;
       animation: congratsLogo 6s ease-in-out infinite;
+
       @keyframes congratsLogo {
         0% {
           top: 0;
         }
+
         50% {
           top: -35px;
         }
+
         100% {
           top: 0;
         }

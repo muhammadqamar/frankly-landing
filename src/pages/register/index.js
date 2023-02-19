@@ -6,7 +6,7 @@ import { GoogleSpreadsheet } from "google-spreadsheet";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import styles from "./styles.module.scss";
-
+import Marquee from "react-fast-marquee";
 const Register = () => {
   const [activeScreen, setActiveScreen] = useState("welcome");
   const [errorCustom, setErrorCustom] = useState("");
@@ -88,7 +88,7 @@ const Register = () => {
             const newDate = new Date();
             const result = await sheet.addRow({
               Name: values.name,
-              Phone: "+91 "+values.phone,
+              Phone: "+91 " + values.phone,
               // Email: values.email,
               ["Reel Link"]: values.reelLink,
               // ["PayTM/UPI ID"]: values.paytm,
@@ -122,7 +122,7 @@ const Register = () => {
                   >
                     <source src="/video.mp4" type="video/mp4" />
                   </video>
-                  <div  className={styles.main_welcome}>
+                  <div className={styles.main_welcome}>
                     <div
                       className={`${styles.form_reel_container} ${styles.welcome}`}
                     >
@@ -193,7 +193,7 @@ const Register = () => {
               {activeScreen === "earn now" && (
                 <>
                   <div
-                    className={`${styles.form_reel_container} ${styles.earn_now}`}
+                    className={`${styles.form_reel_container} ${styles.earn_now_label}`}
                   >
                     <div className={styles.controls_box}>
                       <Image
@@ -255,11 +255,12 @@ const Register = () => {
                         width="18"
                         height="15"
                       />
-                      <img
-                        className={styles.earnd_logo}
-                        src="/images/reel-earnd-logo1.png"
-                        alt="logo"
-                      />
+                      <div className={styles.line_moving}>
+                      <Marquee gradient={false}>
+                        Rajeev earned Rs. 400 Voucher Neha earned Rs. 300 Voucher Vishal earned a Free Drink!
+                        </Marquee>
+                      </div>
+
                     </div>
 
                     <button
@@ -328,13 +329,13 @@ const Register = () => {
                         </div>
                         <div className={styles.earn_input_box}>
                           <label className={styles.label}>Phone number</label>
-                          <div style={{position:'relative'}}>
-                            <span style={{position:'absolute',left:'16px', top:"16.5px"}}>+91</span>
+                          <div style={{ position: 'relative' }}>
+                            <span style={{ position: 'absolute', left: '16px', top: "16.5px" }}>+91</span>
                             <input
                               className={styles.earn_input}
                               type="text"
                               name="phone"
-                              style={{paddingLeft:'50px'}}
+                              style={{ paddingLeft: '50px' }}
                               onChange={handleChange}
                               onBlur={handleBlur}
                               value={values.phone.replace(/\D/g, "")}
