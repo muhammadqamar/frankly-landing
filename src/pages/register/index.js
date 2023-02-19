@@ -85,7 +85,7 @@ const Register = () => {
             const newDate = new Date();
             const result = await sheet.addRow({
               Name: values.name,
-              Phone: values.phone,
+              Phone: "+91 "+values.phone,
               // Email: values.email,
               ["Reel Link"]: values.reelLink,
               // ["PayTM/UPI ID"]: values.paytm,
@@ -325,12 +325,13 @@ const Register = () => {
                         </div>
                         <div className={styles.earn_input_box}>
                           <label className={styles.label}>Phone number</label>
-                          <>
+                          <div style={{position:'relative'}}>
+                            <span style={{position:'absolute',left:'16px', top:"16.5px"}}>+91</span>
                             <input
                               className={styles.earn_input}
                               type="text"
                               name="phone"
-                              placeholder="+91"
+                              style={{paddingLeft:'50px'}}
                               onChange={handleChange}
                               onBlur={handleBlur}
                               value={values.phone.replace(/\D/g, "")}
@@ -338,7 +339,7 @@ const Register = () => {
                             <div className="error">
                               {errors.phone && touched.phone && errors.phone}
                             </div>
-                          </>
+                          </div>
                         </div>
                         <div className={styles.earn_input_box}>
                           <label className={styles.label}>
