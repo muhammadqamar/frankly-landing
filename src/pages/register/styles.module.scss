@@ -13,9 +13,9 @@
   display: flex;
   justify-content: center;
 
-  height: calc(100vh - 80px);
+
   .main_welcome {
-    //backdrop-filter: brightness(0.8);
+    backdrop-filter: brightness(0.8);
     height: 100%;
     width: 100vw;
     display: flex;
@@ -132,6 +132,7 @@
     }
   }
 }
+
 
 .padder {
   padding: 0px 30px;

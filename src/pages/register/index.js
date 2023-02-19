@@ -25,10 +25,10 @@ const Register = () => {
       </Head>
       <div
         className={
-          (activeScreen === "welcome" && `${styles.reel_form}`) ||
+          (activeScreen === "welcome" && `${styles.reel_form} reel_form `) ||
           (activeScreen === "congrats" &&
-            `${styles.reel_form} ${styles.earn_reel_form} ${styles.congrats_form}`) ||
-          `${styles.reel_form} ${styles.earn_reel_form}`
+            `${styles.reel_form} ${styles.earn_reel_form} ${styles.congrats_form} reel_form`) ||
+          `${styles.reel_form} ${styles.earn_reel_form} reel_form`
         }
       >
         {/*<div className="chat_icon">
