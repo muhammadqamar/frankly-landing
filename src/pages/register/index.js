@@ -16,6 +16,17 @@ const Register = () => {
   const doc = new GoogleSpreadsheet(process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID);
   const formRef = useRef();
 
+  useEffect(()=>{
+    const convertStyle = () => {
+      const height = window.innerHeight;
+      Array.from(document.getElementsByTagName("section")).forEach((element) => {
+        element.style.height = `${height}px`;
+      });
+    };
+    window.addEventListener("resize", convertStyle);
+    window.addEventListener("DOMContentLoaded", convertStyle);
+  },[])
+
   return (
     <>
       <Head>
