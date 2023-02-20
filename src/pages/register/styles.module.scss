@@ -285,22 +285,6 @@
     .congrats_logo {
       width: 62px;
       margin: 0 auto;
-      position: relative;
-      animation: congratsLogo 6s ease-in-out infinite;
-
-      @keyframes congratsLogo {
-        0% {
-          top: 0;
-        }
-
-        50% {
-          top: -35px;
-        }
-
-        100% {
-          top: 0;
-        }
-      }
     }
     .controls_welcome {
       text-align: left;

@@ -268,15 +268,27 @@ const Register = () => {
                         />
                         <div className={styles.line_moving}>
                           <Marquee speed={50} gradient={false}>
-                            Rajeev earned Rs. 400 Voucher&nbsp;
                             <Image
                               src="/images/voucher-star-logo.svg"
                               alt="logo"
                               width="26"
                               height="26"
                             />
-                            &nbsp;Neha earned Rs. 300 Voucher Vishal earned a
-                            Free Drink!
+                            &nbsp;Rajeev earned Rs. 400 Voucher&nbsp;
+                            <Image
+                              src="/images/voucher-star-logo.svg"
+                              alt="logo"
+                              width="26"
+                              height="26"
+                            />
+                            &nbsp;Neha earned Rs. 300 Voucher&nbsp;
+                            <Image
+                              src="/images/voucher-star-logo.svg"
+                              alt="logo"
+                              width="26"
+                              height="26"
+                            />
+                            &nbsp;Vishal earned a Free Drink!
                           </Marquee>
                         </div>
                       </div>
