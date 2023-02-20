@@ -5,14 +5,14 @@
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  z-index: -111;
+  transform: translateX(calc((100% - 100vw) / 2));
 }
 .reel_form {
   display: flex;
   justify-content: center;
 
   .main_welcome {
-    backdrop-filter: brightness(0.8);
+    // backdrop-filter: brightness(0.8);
     height: 100%;
     width: 100vw;
     display: flex;
@@ -268,7 +268,7 @@
 // congrats
 .congrats_form {
   background-color: #4b94f0;
-  background-image: url("/images/bg-congrates.svg");
+  background-image: url("/images/bg-congrates.png");
   background-size: contain;
   background-position: center 0;
   .congrats_container {
