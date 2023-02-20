@@ -439,12 +439,10 @@ const Register = () => {
                         />
                       </div>
                       <div className={styles.congrats_container}>
-                        <Image
+                        <img
                           className={styles.congrats_logo}
                           src="/images/reel-congrts.png"
                           alt="congrats logo"
-                          width="62"
-                          height="75"
                         />
                         <h2 className={styles.congrats_heading}>
                           Congratulations!
