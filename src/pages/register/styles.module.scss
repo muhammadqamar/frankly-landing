@@ -142,6 +142,7 @@
 .earn_reel_form {
   background-image: none;
   background-color: #ffffff;
+  overflow: hidden;
 
   &::before {
     content: none;
