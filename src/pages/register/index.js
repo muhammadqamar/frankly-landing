@@ -174,7 +174,7 @@ const Register = () => {
                           height="65"
                         />
 
-                        <div>
+                        <div style={{ paddingTop: "280px" }}>
                           <p className={styles.reel_para}>
                             powered by #FRANKLY
                           </p>
