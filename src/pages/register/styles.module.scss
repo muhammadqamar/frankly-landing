@@ -271,6 +271,21 @@
   background-image: url("/images/bg-congrates.png");
   background-size: contain;
   background-position: center 0;
+  position: relative;
+  z-index: 1;
+  ::before {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    background-size: auto;
+    background-position: top;
+    background-repeat: repeat;
+    height: 100vh;
+    background-image: url("/images/gif-congatss.gif");
+  }
   .congrats_container {
     height: 100%;
     justify-content: center;
@@ -387,3 +402,5 @@
   position: relative;
   text-transform: capitalize;
 }
+
+// Testing
