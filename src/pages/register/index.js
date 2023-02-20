@@ -230,7 +230,7 @@ const Register = () => {
                         </Link>
                       </div>
                       <>
-                        <h2 className={styles.earn_text}>
+                        <h2 className={`${styles.wlcm} ${styles.earn_text}`}>
                           Steps to<span> Earn💰</span>
                         </h2>
                         <div className={styles.reel_content}>
@@ -285,7 +285,7 @@ const Register = () => {
                         onClick={() => {
                           setActiveScreen("submit reel");
                         }}
-                        className={styles.earn_btn}
+                        className={`${styles.reel_started_btn} ${styles.earn_btn}`}
                       >
                         Start Earning
                         <Image
@@ -327,7 +327,7 @@ const Register = () => {
                         </Link>
                       </div>
                       <div>
-                        <h2 className={styles.earn_heading}>
+                        <h2 className={`${styles.wlcm} ${styles.earn_heading}`}>
                           Submit your Reel link, <span>get Rewarded !</span>
                         </h2>
                         <div className={styles.padder}>
@@ -348,13 +348,7 @@ const Register = () => {
                           <div className={styles.earn_input_box}>
                             <label className={styles.label}>Phone number</label>
                             <div style={{ position: "relative" }}>
-                              <span
-                                style={{
-                                  position: "absolute",
-                                  left: "16px",
-                                  top: "16.5px",
-                                }}
-                              >
+                              <span className={styles.earn_input_span}>
                                 +91
                               </span>
                               <input
@@ -403,7 +397,7 @@ const Register = () => {
                         }}
                         disabled={isSubmitting}
                         type="submit"
-                        className={`${styles.earn_btn} ${styles.submit_btn}`}
+                        className={`${styles.reel_started_btn} ${styles.earn_btn}`}
                       >
                         {isSubmitting ? "Submitting ..." : "Submit Reel"}
                         <Image

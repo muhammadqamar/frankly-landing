@@ -20,7 +20,6 @@
     display: flex;
     justify-content: center;
   }
-
   .imgtoplogo {
     text-align: center;
     margin: 46px auto 0px;
@@ -37,17 +36,6 @@
     position: relative;
 
     .wlcm {
-      font-family: "Druk Wide Trial";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 32px;
-      line-height: 120.28%;
-      margin: 20.92px auto 6px;
-      text-align: center;
-      color: #fefbd6;
-      max-width: 352px;
-      position: relative;
-
       @media (min-width: 320px) and (max-width: 344px) {
         margin: 20.92px 0 6px;
         font-size: 30px;
@@ -62,21 +50,18 @@
 
     .reel_img {
       position: absolute;
-      // top: 45%;
       top: 44%;
       left: 20px;
     }
 
     .reel_img3 {
       position: absolute;
-      // top: 70%;
       top: 65%;
       left: 0px;
     }
 
     .reel_img4 {
       position: absolute;
-      // top: 70%;
       top: 66%;
       right: 20px;
     }
@@ -96,30 +81,6 @@
       text-transform: uppercase;
       color: #ffffff;
     }
-
-    .reel_started_btn {
-      max-width: 334px;
-      width: 100%;
-      height: 62px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: #ffffff;
-      border: none;
-      border-radius: 83px;
-      font-family: "Poppins";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 24px;
-      margin: 0 auto;
-      margin-bottom: 18px;
-      text-align: center;
-      color: #215647;
-    }
-
     .terms_para {
       font-family: "Poppins";
       position: relative;
@@ -133,11 +94,9 @@
     }
   }
 }
-
 .padder {
   padding: 0px 30px;
 }
-
 // Steps Earn
 .earn_reel_form {
   background-image: none;
@@ -147,11 +106,9 @@
   &::before {
     content: none;
   }
-
   .controls_box {
     width: 100%;
     display: flex;
-    //margin-bottom: 68px;
     align-items: center;
     justify-content: space-between;
     margin-top: 30px;
@@ -161,17 +118,10 @@
       cursor: pointer;
     }
   }
-
   .earn_text {
-    font-family: "Druk Wide Trial";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    // margin: 0 0 32px;
     margin: 0;
-    line-height: 120.28%;
-    text-align: center;
-    text-transform: capitalize;
+    position: unset;
+    max-width: none;
     color: #215647;
 
     span {
@@ -181,11 +131,9 @@
       line-height: 46.91px;
     }
   }
-
   .reel_content {
     display: flex;
     gap: 11.7px;
-    // max-width: 325px;
     max-width: 375px;
     padding: 0px 20px 0px 15px;
     margin: 0 auto;
@@ -201,17 +149,14 @@
         margin: 0 0 4px;
         color: #215647;
         font-weight: 500;
-
         .post {
           color: #4b94f0;
           font-weight: 700;
         }
-
         .tag {
           color: #ffa4c4;
           font-weight: 700;
         }
-
         .earn {
           color: #ff6434;
           font-weight: 700;
@@ -219,14 +164,12 @@
       }
     }
   }
-
   .images_box {
     .lines_logo {
       position: absolute;
       top: -40px;
       right: 110px;
     }
-
     .line_moving {
       background-color: #4b94f0;
       border-top: 7px solid #215647;
@@ -241,7 +184,6 @@
       width: 107%;
       margin-left: -2%;
       line-height: 132.78%;
-      // width: 100vw;
       text-align: center;
       justify-content: center;
       text-transform: uppercase;
@@ -256,7 +198,6 @@
       }
     }
   }
-
   .earn_now_label {
     max-width: 100%;
     overflow: hidden;
@@ -265,42 +206,17 @@
       margin: 30px auto 0;
     }
   }
-
   .earn_btn {
     background: #ff6434;
     color: #ffffff;
-    max-width: 334px;
-    width: 100%;
-    height: 62px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    border: none;
-    border-radius: 83px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 65px;
+    margin: 0 auto 65px;
   }
-
   .earn_heading {
-    font-family: "Druk Wide Trial";
-    font-style: normal;
-    font-weight: 500;
     font-size: 28px;
+    max-width: none;
     line-height: 132.78%;
-    text-align: center;
-    text-transform: capitalize;
     color: #215647;
-    margin: 0 0 65px;
-
+    margin: 0 0 65px !important;
     span {
       font-family: "The Sidestream";
       color: #ff6434;
@@ -308,7 +224,6 @@
       font-weight: 400;
     }
   }
-
   .earn_input_box {
     display: flex;
     flex-direction: column;
@@ -319,7 +234,6 @@
     &:nth-last-child(2) {
       margin-bottom: 0;
     }
-
     .label {
       font-family: "Poppins";
       position: absolute;
@@ -334,37 +248,32 @@
       color: #215647;
       z-index: 1;
     }
-
+    .earn_input_span {
+      position: absolute;
+      left: 16px;
+      top: 16.5px;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #8c8c8c;
+    }
     .earn_input {
       padding: 16px 0 16px 15px;
       width: 100%;
       height: 56px;
       border: 1.5px solid #215647;
       border-radius: 15px;
-
-      &::placeholder {
-        font-family: "Poppins";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-        color: #8c8c8c;
-      }
     }
   }
-
-  .submit_btn {
-    margin: px auto 65px;
-  }
 }
-
 // congrats
 .congrats_form {
   background-color: #4b94f0;
   background-image: url("/images/bg-congrates.svg");
   background-size: contain;
   background-position: center 0;
-
   .congrats_container {
     height: 100%;
     justify-content: center;
@@ -372,7 +281,6 @@
     flex-direction: column;
     align-items: center;
   }
-
   .congrats_box {
     text-align: center;
     height: calc(100% - 100px);
@@ -397,14 +305,12 @@
         }
       }
     }
-
     .controls_welcome {
       text-align: left;
       padding-top: 30px;
       cursor: pointer;
       padding: 30px 30px 0px;
     }
-
     .congrats_heading {
       font-family: "Druk Wide Trial";
       font-style: normal;
@@ -416,7 +322,6 @@
       text-transform: capitalize;
       color: #fefbd6;
       position: relative;
-
       @media (min-width: 320px) and (max-width: 348px) {
         font-size: 26px;
       }
@@ -431,7 +336,6 @@
         left: -12px;
       }
     }
-
     .congrats_para {
       font-family: "Poppins";
       font-style: normal;
@@ -452,12 +356,10 @@
         bottom: -18px;
         width: 105px;
         height: 17px;
-
         @media (min-width: 320px) and (max-width: 348px) {
           right: 0;
         }
       }
-
       span {
         font-family: "The Sidestream";
         font-weight: 400;
@@ -467,4 +369,40 @@
       }
     }
   }
+}
+// same heading and button styling
+.reel_started_btn {
+  max-width: 334px;
+  width: 100%;
+  height: 62px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #ffffff;
+  border: none;
+  border-radius: 83px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 auto;
+  margin-bottom: 18px;
+  text-align: center;
+  color: #215647;
+}
+.wlcm {
+  font-family: "Druk Wide Trial";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 120.28%;
+  margin: 20.92px auto 6px;
+  text-align: center;
+  color: #fefbd6;
+  max-width: 352px;
+  position: relative;
+  text-transform: capitalize;
 }
