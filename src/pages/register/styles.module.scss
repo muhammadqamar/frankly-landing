@@ -246,6 +246,10 @@
       background-color: #fff;
       color: #215647;
       z-index: 1;
+      .info_img {
+        margin-left: 7px;
+        cursor: pointer;
+      }
     }
     .earn_input_span {
       position: absolute;
@@ -404,5 +408,3 @@
   position: relative;
   text-transform: capitalize;
 }
-
-// Testing

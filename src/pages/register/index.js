@@ -7,9 +7,11 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import styles from "./styles.module.scss";
 import Marquee from "react-fast-marquee";
+import InfoModal from "./infoModal";
 const Register = () => {
   const [activeScreen, setActiveScreen] = useState("welcome");
   const [errorCustom, setErrorCustom] = useState("");
+  const [modalShow, setModalShow] = useState(false);
   // const [paytm, setPaytm] = useState(false);
   // const [upiId, setUpiId] = useState(false);
   const router = useRouter();
@@ -380,6 +382,14 @@ const Register = () => {
                           <div className={styles.earn_input_box}>
                             <label className={styles.label}>
                               Paste Reel Link
+                              <Image
+                                onClick={() => setModalShow(true)}
+                                className={styles.info_img}
+                                src="/images/info.svg"
+                                alt="info"
+                                width="20"
+                                height="20"
+                              />
                             </label>
                             <input
                               className={styles.earn_input}
@@ -394,6 +404,10 @@ const Register = () => {
                                 touched.reelLink &&
                                 errors.reelLink}
                             </div>
+                            <InfoModal
+                              show={modalShow}
+                              onHide={() => setModalShow(false)}
+                            />
                           </div>
                           <div className="error">{errorCustom}</div>
                         </div>

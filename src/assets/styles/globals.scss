@@ -1491,3 +1491,13 @@ p {
     height: 2px !important;
   }
 }
+// Info Modal
+.modal-content .modal-header {
+  border: none;
+}
+.modal-body p {
+  font-family: "Poppins";
+  font-size: 16px;
+  text-align: center;
+  color: #215647;
+}
