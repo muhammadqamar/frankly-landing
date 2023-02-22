@@ -120,6 +120,7 @@ const Register = () => {
               <form onSubmit={handleSubmit}>
                 {activeScreen === "welcome" && (
                   <>
+                    <div className={styles.video_brightness} />
                     <video
                       autoPlay
                       muted

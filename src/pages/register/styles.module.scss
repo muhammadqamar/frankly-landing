@@ -1,4 +1,13 @@
 // Welcome
+.video_brightness {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: brightness(0.8);
+}
 .myVideo {
   position: fixed;
   right: 0;
@@ -11,11 +20,12 @@
   display: flex;
   justify-content: center;
   .main_welcome {
-    backdrop-filter: brightness(0.8);
     height: 100%;
     width: 100vw;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 1;
   }
   .imgtoplogo {
     text-align: center;
