@@ -127,7 +127,7 @@ const Register = () => {
                       loop
                       className={styles.myVideo}
                     >
-                      <source src="/D&C3.mp4" type="video/mp4" />
+                      <source src="/new-video.mp4" type="video/mp4" />
                     </video>
                     <div className={styles.main_welcome}>
                       <div
