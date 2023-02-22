@@ -10,9 +10,8 @@
 .reel_form {
   display: flex;
   justify-content: center;
-
   .main_welcome {
-    // backdrop-filter: brightness(0.8);
+    backdrop-filter: brightness(0.8);
     height: 100%;
     width: 100vw;
     display: flex;
