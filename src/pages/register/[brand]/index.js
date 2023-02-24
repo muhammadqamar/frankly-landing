@@ -99,7 +99,7 @@ const Register = () => {
                 // Email: values.email,
                 ["Reel Link"]: values.reelLink,
                 // ["PayTM/UPI ID"]: values.paytm,
-                // Brand: router.query.brand,
+                Brand: router.query.brand,
                 Timestamp: newDate.toLocaleString(),
               });
               if (result._rowNumber) {
