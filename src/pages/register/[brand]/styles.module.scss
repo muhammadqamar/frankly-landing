@@ -30,7 +30,7 @@
 
   // Warmee
   .main_warmee {
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     position: relative;
@@ -75,7 +75,10 @@
 
   .earn_now_label {
     .warmee_earn_text {
-      padding: 18px 0 10px;
+      padding: 18px 14px 10px 16px;
+      @media (min-width: 320px) and (max-width: 373px) {
+        padding: 18px 14px 10px 0;
+      }
     }
 
     // rules to earn styling
@@ -122,7 +125,8 @@
     .warmee_reel_para {
       font-family: "Poppins";
       font-style: normal;
-      padding: 0 5px;
+      width: 100%;
+      padding: 0 14px 0 21px;
       font-weight: 700;
       font-size: 13px;
       line-height: 160%;
@@ -132,6 +136,9 @@
         color: #ff6434;
         font-weight: 500;
       }
+      // @media (min-width: 320px) and (max-width: 345px) {
+      //   padding: 0 20px 0;
+      // }
     }
     .earn_slider_box {
       max-width: 350px;
@@ -201,6 +208,10 @@
         }
       }
     }
+  }
+  .warmee_earn_container {
+    justify-content: center;
+    align-items: center;
   }
   .warm_earn_now_label {
     width: 375px !important;
@@ -389,6 +400,10 @@
           color: #ff6434;
           font-weight: 700;
         }
+      }
+      .warmee_earn_sub_text {
+        max-width: 279px;
+        width: 100%;
       }
     }
   }

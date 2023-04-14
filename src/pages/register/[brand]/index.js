@@ -138,7 +138,7 @@ const Register = () => {
 
                             <Image className={`${styles.reel_img4} ${styles.warmee_reel_img4}`} src="/images/doodle_warmee_logo3.svg" alt="logo" width="52" height="65" />
 
-                            <div style={{ paddingTop: "312px" }}>
+                            <div style={{ paddingTop: "312px", width: "100%" }}>
                               <p className={styles.reel_para}>powered by #FRANKLY</p>
                               <button type="button" onClick={() => setActiveScreen("earn now")} className={styles.reel_started_btn}>
                                 Get Started
@@ -212,15 +212,14 @@ const Register = () => {
                           <div className={styles.reel_content}>
                             <Image src="/images/reel-gradient-logo.svg" alt="logo" width="37" height="85" />
                             <div className={styles.text_box}>
-                              <p className={styles.earn_sub_text}>
-                                <span className={styles.post}>POST</span> a Reel on your experience
-                                <br /> with Warmee
+                              <p className={`${styles.earn_sub_text} ${styles.warmee_earn_sub_text}`}>
+                                <span className={styles.post}>POST</span> a Reel on your experience with Warmee
                               </p>
-                              <p className={styles.earn_sub_text}>
+                              <p className={`${styles.earn_sub_text} ${styles.warmee_earn_sub_text}`}>
                                 <span className={styles.tag}>TAG</span> #Frankly & @warmee.in
                               </p>
-                              <p className={styles.earn_sub_text}>
-                                <span className={styles.earn}>EARN</span> cash with your Reel on every <br /> purchase
+                              <p className={`${styles.earn_sub_text} ${styles.warmee_earn_sub_text}`}>
+                                <span className={styles.earn}>EARN</span> cash with your Reel on every purchase
                               </p>
                             </div>
                           </div>
@@ -314,7 +313,7 @@ const Register = () => {
                 )}
 
                 {activeScreen === "earning potential" && (
-                  <div className={`${styles.form_reel_container} ${styles.earn_now_label}`}>
+                  <div className={`${styles.form_reel_container} ${styles.earn_now_label} ${styles.warmee_earn_container}`}>
                     <div className={`${styles.controls_box} ${styles.earn_control_box} ${styles.warm_earn_control_box}`}>
                       <Image
                         className={styles.control_img}
