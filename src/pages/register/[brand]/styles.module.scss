@@ -27,6 +27,227 @@
     position: relative;
     z-index: 1;
   }
+
+  // Warmee
+  .main_warmee {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    background-image: url("/images/bg-warmee.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      max-width: 375px;
+      height: 166px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.40869) 31.42%, #000000 100%);
+    }
+    .warmee_wlcm {
+      margin: 0 auto;
+      @media (min-width: 320px) and (max-width: 344px) {
+        margin: 0 0 6px !important;
+        font-size: 29px !important;
+      }
+    }
+    .imgwarmeetoplogo {
+      margin: 33px auto -40px;
+    }
+    .warmee_welcome {
+      .warmee_reel_img {
+        top: 40%;
+        left: 30px;
+      }
+      .warmee_reel_img1 {
+        top: 230px;
+      }
+      .warmee_reel_img4 {
+        top: 60%;
+      }
+    }
+  }
+
+  // Reel It Get
+
+  .earn_now_label {
+    .warmee_earn_text {
+      padding: 18px 0 10px;
+    }
+
+    // rules to earn styling
+    .warmee_rules_earn_text {
+      padding: 30px 0 40px;
+    }
+    .rules_earn_content {
+      margin: 0 0 45px;
+      .rules_tag_box {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 15px;
+        .share_reels_img {
+          max-width: 305px;
+          width: 100%;
+        }
+        .rules_para {
+          margin: 0;
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 140%;
+          display: flex;
+          align-items: center;
+          color: #000000;
+        }
+      }
+      .info_tag_box {
+        margin: 0 0 45px;
+      }
+    }
+    .rules_product_content {
+      margin: 0 0 54px;
+    }
+    // end
+    .warmee_earn_control_box {
+      padding: 0;
+    }
+    .warm_earn_control_box {
+      padding: 0 20px;
+    }
+    .warmee_reel_para {
+      font-family: "Poppins";
+      font-style: normal;
+      padding: 0 5px;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 160%;
+      margin: 0 0 23px;
+      color: #000000;
+      .warmee_reel_span {
+        color: #ff6434;
+        font-weight: 500;
+      }
+    }
+    .earn_slider_box {
+      max-width: 350px;
+      position: relative;
+      margin: 0 0 32px;
+      background: #f4f5fb;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 16px;
+      .earning_title_box {
+        display: flex !important;
+        justify-content: center;
+        margin: 0;
+        background: #000000;
+        border-radius: 0px 0px 16px 16px;
+        max-width: 128px;
+        width: 100%;
+        .earning_title {
+          font-family: "Mabry Pro";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 10px;
+          line-height: 13px;
+          margin: 0;
+          padding: 4px 20.11px 6.21px 18px;
+          text-align: center;
+          color: #ffffff;
+        }
+      }
+      .earning_amount {
+        font-family: "Druk Wide Trial";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 43px;
+        line-height: 160%;
+        margin: 0;
+        color: #000000;
+      }
+      .earn_inner_slider_box {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .earning_img {
+          margin: 0 0 16.83px 0;
+        }
+        .eye_box {
+          max-width: 100px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 6px 9px;
+          background: #ffffff;
+          border: 1px solid #000000;
+          border-radius: 16px;
+          margin: 0 0 34px;
+          .eye_para {
+            margin: 0;
+            font-family: "Mabry Pro";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 9px;
+            line-height: 11px;
+            text-align: center;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+  .warm_earn_now_label {
+    width: 375px !important;
+    justify-content: center;
+    align-items: center;
+    @media (min-width: 320px) and (max-width: 374px) {
+      width: 100% !important;
+    }
+  }
+  .warmee_padder {
+    padding: 0 0 147px;
+  }
+  // End Reel It Get
+  .warmee_main_box {
+    padding: 0 20px;
+  }
+  .congrats_box {
+    .congrats_container {
+      .warmee_congrats_heading {
+        position: relative;
+        font-size: 28px;
+        padding: 0 28px 0 33px;
+        &::before {
+          content: "";
+          background-image: none;
+        }
+        &::after {
+          content: "";
+          background-image: url("/images/congrats-line.png");
+          position: absolute;
+          right: 47px;
+          bottom: -18px;
+          width: 100px;
+          height: 12px;
+          @media (min-width: 320px) and (max-width: 348px) {
+            right: 0;
+          }
+        }
+      }
+    }
+    .warmee_controls_welcome {
+      text-align: right !important;
+      padding: 30px 20px 0 !important;
+    }
+  }
+  // End Warmee
+
   .imgtoplogo {
     text-align: center;
     margin: 46px auto 0px;

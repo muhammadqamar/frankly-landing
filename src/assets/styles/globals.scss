@@ -336,12 +336,7 @@ p {
     .hero_bx {
       max-width: 1387px;
       padding: 172px 84.76px 192px 128px;
-      background: linear-gradient(
-        182.45deg,
-        #ffadf2 -5.17%,
-        #eefe8d 51.85%,
-        #a78eff 100.4%
-      );
+      background: linear-gradient(182.45deg, #ffadf2 -5.17%, #eefe8d 51.85%, #a78eff 100.4%);
       border-radius: 38px;
       img {
         width: -webkit-fill-available;
@@ -455,12 +450,7 @@ p {
     }
 
     .get-paid-text {
-      background: linear-gradient(
-        182.45deg,
-        #ffadf2 40.09%,
-        #eefe8d 63.07%,
-        #a78eff 82.63%
-      );
+      background: linear-gradient(182.45deg, #ffadf2 40.09%, #eefe8d 63.07%, #a78eff 82.63%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -744,12 +734,7 @@ p {
       span {
         font-size: 24px;
         line-height: 38px;
-        background: linear-gradient(
-          92.95deg,
-          #ffadf2 47.96%,
-          #ffdf35 67.19%,
-          #8a68ff 83.57%
-        );
+        background: linear-gradient(92.95deg, #ffadf2 47.96%, #ffdf35 67.19%, #8a68ff 83.57%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -780,12 +765,7 @@ p {
       margin: 22px 0 3px;
 
       span {
-        background: -webkit-linear-gradient(
-          92.95deg,
-          #ffadf2 47.96%,
-          #ffdf35 67.19%,
-          #8a68ff 83.57%
-        );
+        background: -webkit-linear-gradient(92.95deg, #ffadf2 47.96%, #ffdf35 67.19%, #8a68ff 83.57%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -1483,8 +1463,8 @@ p {
 // slider control
 
 .slick-dots {
-  bottom: 33px !important;
-  left: -7px;
+  bottom: 13px !important;
+  left: -9px;
 
   li {
     width: 2px !important;
