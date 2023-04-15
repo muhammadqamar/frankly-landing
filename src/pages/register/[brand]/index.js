@@ -121,7 +121,7 @@ const Register = () => {
               isSubmitting,
               /* and other goodies */
             }) => (
-              <form onSubmit={handleSubmit} >
+              <form onSubmit={handleSubmit} style={{width:'100%'}} >
                 {activeScreen === "welcome" && (
                   <>
                     {router.query.brand === "warmee" ? (
