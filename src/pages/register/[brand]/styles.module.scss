@@ -35,18 +35,11 @@
     justify-content: center;
     position: relative;
     z-index: 1;
-    background-image: url("/images/bg-warmee.svg");
+    background-image: url("/images/wbg.png");
     background-repeat: no-repeat;
     background-position: center;
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      max-width: 375px;
-      height: 166px;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.40869) 31.42%, #000000 100%);
-    }
+    background-size: cover;
+    height:100vh;
     .warmee_wlcm {
       margin: 0 auto;
       @media (min-width: 320px) and (max-width: 344px) {
@@ -222,7 +215,7 @@
     }
   }
   .warmee_padder {
-    padding: 0 0 147px;
+    padding: 0 0 30px;
   }
   // End Reel It Get
   .warmee_main_box {

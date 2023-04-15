@@ -121,7 +121,7 @@ const Register = () => {
               isSubmitting,
               /* and other goodies */
             }) => (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} >
                 {activeScreen === "welcome" && (
                   <>
                     {router.query.brand === "warmee" ? (
@@ -427,7 +427,7 @@ const Register = () => {
                           <br /> to your caption
                         </p>
                       </div>
-                      <img className={styles.share_reels_img} src="/images/rules-earn-img.svg" alt="logo" />
+                      <img className={styles.share_reels_img} src="/images/wbg1.png" alt="logo" />
                     </div>
                     <div className={`${styles.rules_earn_content} ${styles.rules_product_content}`}>
                       {/* Product focus */}
