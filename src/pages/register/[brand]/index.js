@@ -138,7 +138,7 @@ const Register = () => {
 
                             <Image className={`${styles.reel_img4} ${styles.warmee_reel_img4}`} src="/images/doodle_warmee_logo3.svg" alt="logo" width="52" height="65" />
 
-                            <div style={{ paddingTop: "312px", width: "100%" }}>
+                            <div style={{ paddingTop: "63%", width: "100%" }}>
                               <p className={styles.reel_para}>powered by #FRANKLY</p>
                               <button type="button" onClick={() => setActiveScreen("earn now")} className={styles.reel_started_btn}>
                                 Get Started
