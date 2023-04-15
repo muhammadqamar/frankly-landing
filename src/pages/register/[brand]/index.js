@@ -125,8 +125,14 @@ const Register = () => {
                 {activeScreen === "welcome" && (
                   <>
                     {router.query.brand === "warmee" ? (
-                      <>
+                       <>
+                       {/* <div className={styles.video_brightness} /> */}
+                        <video autoPlay muted playsInline loop className={styles.myVideo}>
+                          <source src="/we.mp4" type="video/mp4" />
+                        </video>
+
                         <div className={styles.main_warmee}>
+
                           <div className={`${styles.form_reel_container} ${styles.welcome} ${styles.warmee_welcome}`}>
                             <div>
                               <Image src="/images/warmee-logo.png" alt="logo" width="222" height="156" className={`${styles.imgtoplogo} ${styles.imgwarmeetoplogo}`} />
@@ -148,10 +154,11 @@ const Register = () => {
                             </div>
                           </div>
                         </div>
+
                       </>
                     ) : (
                       <>
-                        <div className={styles.video_brightness} />
+                        {/* <div className={styles.video_brightness} /> */}
                         <video autoPlay muted playsInline loop className={styles.myVideo}>
                           <source src="/D&C3.mp4" type="video/mp4" />
                         </video>
