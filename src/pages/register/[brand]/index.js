@@ -31,6 +31,10 @@ const Register = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  if(!router.query?.brand) {
+    return
+
+  }
 
   return (
     <>
