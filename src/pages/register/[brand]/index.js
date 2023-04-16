@@ -428,7 +428,7 @@ const Register = () => {
                       </Link>
                     </div>
                     <h2 className={`${styles.wlcm} ${styles.earn_text} ${styles.warmee_rules_earn_text}`}>
-                      Rules to<span> Earn💰</span>
+                      Rules to <span> Earn💰</span>
                     </h2>
                     <div className={styles.rules_earn_content}>
                       <div className={styles.rules_tag_box}>
@@ -638,8 +638,8 @@ const Register = () => {
                     {router.query.brand === "warmee" ? (
                       <div className={`${styles.form_reel_container} ${styles.earn_now}`}>
                         <div className={styles.congrats_box}>
-                          <div className={`${styles.controls_welcome} ${styles.warmee_controls_welcome}`}>
-                            {/* <Image
+                          <div className={styles.controls_welcome}>
+                            <Image
                               src="/images/left-back-arrow.svg"
                               alt="back"
                               width="7"
@@ -647,19 +647,14 @@ const Register = () => {
                               onClick={() => {
                                 setActiveScreen("submit reel");
                               }}
-                            /> */}
-                            <Link
-                              href="https://wa.me/8800581181?text=Hey%20there%2C%20I%27d%20like%20to%20ask%20something%20about%20earning%20by%20posting%20Insta%20Reels"
-                              target="_blank"
-                            >
-                              <Image src="/images/warmee-comment.svg" alt="comment" width="28" height="28" />
-                            </Link>
+                            />
                           </div>
                           <div className={styles.congrats_container}>
-                            <h2 className={`${styles.congrats_heading} ${styles.warmee_congrats_heading}`}>
-                              this campaign <br />
-                              has ended.
-                            </h2>
+                            <img className={styles.congrats_logo} src="/images/reel-congrts.png" alt="congrats logo" />
+                            <h2 className={styles.congrats_heading}>Congratulations!</h2>
+                            <p className={styles.congrats_para}>
+                              You&rsquo;re now on the path to making your purchases pay for themselves. We&rsquo;ll be in touch with you in <span>72 hours.</span>
+                            </p>
                           </div>
                         </div>
                       </div>
