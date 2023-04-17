@@ -30,13 +30,17 @@
 
   // Warmee
   .main_warmee {
-    // width: 100%;
+    width: 100%;
+    background-image: url("/images/bg-warmee.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
-    // background-image: url("/images/wbg.png");
-    // background-repeat: no-repeat;
-    // background-position: center;
-    // background-size: cover;
-    // height:100vh;
+    .form_reel_container {
+      margin: 0 auto
+    }
+    
+    height:100vh;
     .warmee_wlcm {
       margin: 0 auto;
       @media (min-width: 320px) and (max-width: 344px) {

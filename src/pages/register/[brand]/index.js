@@ -59,7 +59,7 @@ const Register = () => {
               phone: "",
               reelLink: "",
               // email: "",
-              // paytm: "",
+              paytm: "",
             }}
             enableReinitialize
             validate={(values) => {
@@ -69,7 +69,7 @@ const Register = () => {
               } else if (values.phone.length !== 10) {
                 errors.phone = "invalid phone number";
               }
-              if (!values.name) {
+              if (!values.name && router.query.brand!=='warmee') {
                 errors.name = "Required";
               }
               if (!values.reelLink) {
@@ -81,9 +81,9 @@ const Register = () => {
               ) {
                 errors.reelLink = "Invalid URL";
               }
-              // if (!values.paytm) {
-              //   errors.paytm = "Required";
-              // }
+              if (!values.paytm && router.query.brand ==='warmee') {
+                errors.paytm = "Required";
+              }
               // if (!values.email) {
               //   errors.email = "Required";
               // } else if (
@@ -96,7 +96,7 @@ const Register = () => {
             onSubmit={async (values, { setSubmitting }) => {
               await doc.useServiceAccountAuth({
                 client_email: process.env.NEXT_PUBLIC_GOOGLE_SERVICE_ACCOUNT_EMAIL,
-                private_key: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+                private_key: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
               });
               await doc.loadInfo();
               const sheet = doc.sheetsByIndex[0];
@@ -106,7 +106,7 @@ const Register = () => {
                 Phone: "+91 " + values.phone,
                 // Email: values.email,
                 ["Reel Link"]: values.reelLink,
-                // ["PayTM/UPI ID"]: values.paytm,
+                ["UPI ID"]: values.paytm ,
                 Brand: router.query.brand,
                 Timestamp: newDate.toLocaleString(),
               });
@@ -125,15 +125,12 @@ const Register = () => {
               isSubmitting,
               /* and other goodies */
             }) => (
-              <form onSubmit={handleSubmit}  >
+              <form onSubmit={handleSubmit} style={{width:"100%"}} >
                 {activeScreen === "welcome" && (
                   <>
                     {router.query.brand === "warmee" ? (
                        <>
                        {/* <div className={styles.video_brightness} /> */}
-                        <video autoPlay muted playsInline loop className={styles.myVideo}>
-                          <source src="/we.mp4" type="video/mp4" />
-                        </video>
 
                         <div className={styles.main_warmee}>
 
@@ -361,7 +358,7 @@ const Register = () => {
                             <p className={styles.earning_title}>Earning Potential</p>
                           </div>
                           <p className={styles.earning_amount}>₹1000</p>
-                          <img className={styles.earning_img} src="/images/earn_dollar.svg" alt="logo" />
+                          <img className={styles.earning_img} src="/images/selfieDoodle1.png" alt="logo" />
                           <div className={styles.eye_box}>
                             <img src="/images/earn_eye.svg" alt="logo" />
                             <p className={styles.eye_para}>1k - 3k Views</p>
@@ -373,7 +370,7 @@ const Register = () => {
                             <p className={styles.earning_title}>Earning Potential</p>
                           </div>
                           <p className={styles.earning_amount}>₹3800</p>
-                          <img className={styles.earning_img} src="/images/earn_dollar.svg" alt="logo" />
+                          <img className={styles.earning_img} src="/images/selfieDoodle1.png" alt="logo" />
                           <div className={styles.eye_box}>
                             <img src="/images/earn_eye.svg" alt="logo" />
                             <p className={styles.eye_para}>5k - 10k Views</p>
@@ -385,7 +382,7 @@ const Register = () => {
                             <p className={styles.earning_title}>Earning Potential</p>
                           </div>
                           <p className={styles.earning_amount}>₹5500</p>
-                          <img className={styles.earning_img} src="/images/earn_dollar.svg" alt="logo" />
+                          <img className={styles.earning_img} src="/images/selfieDoodle1.png" alt="logo" />
                           <div className={styles.eye_box}>
                             <img src="/images/earn_eye.svg" alt="logo" />
                             <p className={styles.eye_para}>12k - 15k Views</p>
@@ -515,15 +512,15 @@ const Register = () => {
                                   style={{ paddingLeft: "50px" }}
                                   onChange={handleChange}
                                   onBlur={handleBlur}
-                                  value={values.phone.replace(/\D/g, "")}
+                                  value={values.phone?.replace(/\D/g, "")}
                                 />
                                 <div className="error">{errors.phone && touched.phone && errors.phone}</div>
                               </div>
                             </div>
                             <div className={styles.earn_input_box}>
                               <label className={styles.label}>My UPI ID</label>
-                              <input className={styles.earn_input} type="text" name="name" onChange={handleChange} onBlur={handleBlur} value={values.name} />
-                              <div className="error">{errors.name && touched.name && errors.name}</div>
+                              <input className={styles.earn_input} type="text" name="paytm" onChange={handleChange} onBlur={handleBlur} value={values.paytm} />
+                              <div className="error">{errors.paytm && touched.paytm && errors.paytm}</div>
                             </div>
                             <div className={styles.earn_input_box}>
                               <label className={styles.label}>
@@ -595,7 +592,7 @@ const Register = () => {
                                   style={{ paddingLeft: "50px" }}
                                   onChange={handleChange}
                                   onBlur={handleBlur}
-                                  value={values.phone.replace(/\D/g, "")}
+                                  value={values.phone?.replace(/\D/g, "")}
                                 />
                                 <div className="error">{errors.phone && touched.phone && errors.phone}</div>
                               </div>
