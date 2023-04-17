@@ -239,7 +239,7 @@ const Register = () => {
                           <Image className={styles.lines_logo} src="/images/blue-lines-logo.svg" alt="logo" width="18" height="15" />
                           <div className={styles.line_moving}>
                             <Marquee speed={50} gradient={false}>
-                              Reel it, Get Paid!&nbsp;🤑&nbsp;Reel it, Get Paid!&nbsp; 🛍️&nbsp;Reel it, Get Paid!&nbsp; 🤩&nbsp;Rs. 300 Voucher Vishal earned a Free Drink!
+                              Reel it, Get Paid!&nbsp;🤑&nbsp;Reel it, Get Paid!&nbsp;🛍️&nbsp;Reel it, Get Paid!&nbsp;🤩&nbsp;
                             </Marquee>
                           </div>
                         </div>
