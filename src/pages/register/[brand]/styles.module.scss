@@ -39,7 +39,7 @@
     .form_reel_container {
       margin: 0 auto
     }
-    
+
     height:100vh;
     .warmee_wlcm {
       margin: 0 auto;
@@ -126,6 +126,8 @@
       line-height: 160%;
       margin: 0 0 23px;
       color: #000000;
+
+      max-width: 375px;
       .warmee_reel_span {
         color: #ff6434;
         font-weight: 500;
@@ -266,6 +268,7 @@
     height: 100%;
     max-width: 375px;
     position: relative;
+    margin: 0 auto;
 
     .wlcm {
       @media (min-width: 320px) and (max-width: 344px) {
